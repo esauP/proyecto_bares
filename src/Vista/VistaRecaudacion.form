@@ -10,7 +10,7 @@
     <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
     <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
-    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
   </AuxValues>
 
   <Layout>
@@ -34,22 +34,12 @@
                                   <Component id="numPedLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="fechaLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="proveedorLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="nombreArtLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="cantidadLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="precioLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="idBarLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="codigoArtLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="Txt_NumeroPedido" alignment="0" pref="317" max="32767" attributes="0"/>
-                                  <Component id="Txt_Fecha" alignment="0" pref="317" max="32767" attributes="0"/>
-                                  <Component id="Txt_Proveedor" alignment="0" pref="317" max="32767" attributes="0"/>
-                                  <Component id="Txt_NombreArticulo" alignment="0" pref="317" max="32767" attributes="0"/>
-                                  <Component id="Txt_Cantidad" alignment="0" pref="317" max="32767" attributes="0"/>
-                                  <Component id="Txt_Precio" alignment="0" pref="317" max="32767" attributes="0"/>
-                                  <Component id="Txt_IdBar" alignment="0" pref="317" max="32767" attributes="0"/>
-                                  <Component id="Txt_CodigoProducto" alignment="0" pref="317" max="32767" attributes="0"/>
+                                  <Component id="Txt_IdBar" alignment="0" pref="290" max="32767" attributes="0"/>
+                                  <Component id="Txt_Fecha" alignment="0" pref="290" max="32767" attributes="0"/>
+                                  <Component id="Txt_Recaudacion" alignment="0" pref="290" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Component id="masterScrollPane" alignment="0" pref="380" max="32767" attributes="0"/>
@@ -63,12 +53,12 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" max="-2" attributes="0"/>
-              <Component id="masterScrollPane" pref="171" max="32767" attributes="0"/>
-              <EmptySpace min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="masterScrollPane" min="-2" pref="147" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="numPedLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="Txt_NumeroPedido" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Txt_IdBar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -78,34 +68,9 @@
               <EmptySpace min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="proveedorLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="Txt_Proveedor" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Txt_Recaudacion" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="nombreArtLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="Txt_NombreArticulo" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="cantidadLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="Txt_Cantidad" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="precioLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="Txt_Precio" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="idBarLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="Txt_IdBar" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="codigoArtLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="Txt_CodigoProducto" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" max="-2" attributes="1"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="Boton_Modificar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="Boton_Borrar" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -134,7 +99,7 @@
     </Container>
     <Component class="javax.swing.JLabel" name="numPedLabel">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Num Ped:"/>
+        <Property name="text" type="java.lang.String" value="Id Bar"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="fechaLabel">
@@ -144,49 +109,14 @@
     </Component>
     <Component class="javax.swing.JLabel" name="proveedorLabel">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Proveedor:"/>
+        <Property name="text" type="java.lang.String" value="Total Recaudado"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="nombreArtLabel">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Nombre Art:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="cantidadLabel">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Cantidad:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="precioLabel">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Precio:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="idBarLabel">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Id Bar:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="codigoArtLabel">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Codigo Art:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="Txt_NumeroPedido">
-    </Component>
-    <Component class="javax.swing.JTextField" name="Txt_Fecha">
-    </Component>
-    <Component class="javax.swing.JTextField" name="Txt_Proveedor">
-    </Component>
-    <Component class="javax.swing.JTextField" name="Txt_NombreArticulo">
-    </Component>
-    <Component class="javax.swing.JTextField" name="Txt_Cantidad">
-    </Component>
-    <Component class="javax.swing.JTextField" name="Txt_Precio">
     </Component>
     <Component class="javax.swing.JTextField" name="Txt_IdBar">
     </Component>
-    <Component class="javax.swing.JTextField" name="Txt_CodigoProducto">
+    <Component class="javax.swing.JTextField" name="Txt_Fecha">
+    </Component>
+    <Component class="javax.swing.JTextField" name="Txt_Recaudacion">
     </Component>
     <Component class="javax.swing.JButton" name="Boton_Modificar">
       <Properties>

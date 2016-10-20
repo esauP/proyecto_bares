@@ -15,6 +15,7 @@ import javax.swing.UnsupportedLookAndFeelException;
  * @author esaup
  */
 public class Controlador {
+
     //se crean los objetos vistas
     Interfaz vista;
     VistaBar vistaBar;
@@ -22,15 +23,17 @@ public class Controlador {
     VistaPedidos vistaPed;
     VistaPersona vistaPer;
     VistaTrabaja vistaTra;
-    
+    VistaRecaudacion vistaRec;
+
     //se pasan por parametro en el constructor para iniciar sus componentes
-    public Controlador(Interfaz vista, VistaBar vistaBar, VistaInventario vistaInv, VistaPedidos vistaPed, VistaPersona vistaPer, VistaTrabaja vistaTra) {
+    public Controlador(Interfaz vista, VistaBar vistaBar, VistaInventario vistaInv, VistaPedidos vistaPed, VistaPersona vistaPer, VistaTrabaja vistaTra, VistaRecaudacion vistaRec) {
         this.vista = vista;
         this.vistaBar = vistaBar;
         this.vistaInv = vistaInv;
         this.vistaPed = vistaPed;
         this.vistaPer = vistaPer;
         this.vistaTra = vistaTra;
+        this.vistaRec = vistaRec;
 
         //se añaden las diferentes vistas a una interfaz comun mendiante un panel con pestañas
         this.vista.PanelPestania.addTab("Bares", vistaBar);
@@ -38,6 +41,7 @@ public class Controlador {
         this.vista.PanelPestania.addTab("Pedidos", vistaPed);
         this.vista.PanelPestania.addTab("Personal", vistaPer);
         this.vista.PanelPestania.addTab("Funcion", vistaTra);
+        this.vista.PanelPestania.addTab("Recuadaciones", vistaRec);
 
     }
 

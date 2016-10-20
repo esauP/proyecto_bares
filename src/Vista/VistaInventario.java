@@ -28,7 +28,7 @@ public class VistaInventario extends javax.swing.JPanel {
     private void initComponents() {
 
         masterScrollPane = new javax.swing.JScrollPane();
-        masterTable = new javax.swing.JTable();
+        Tabla_Inventario = new javax.swing.JTable();
         idArtLabel = new javax.swing.JLabel();
         nombreArtLabel = new javax.swing.JLabel();
         cantidadLabel = new javax.swing.JLabel();
@@ -43,7 +43,7 @@ public class VistaInventario extends javax.swing.JPanel {
         Boton_Insertar = new javax.swing.JButton();
         Boton_Eliminar = new javax.swing.JButton();
 
-        masterScrollPane.setViewportView(masterTable);
+        masterScrollPane.setViewportView(Tabla_Inventario);
 
         idArtLabel.setText("Id Art:");
 
@@ -133,6 +133,7 @@ public class VistaInventario extends javax.swing.JPanel {
     private javax.swing.JButton Boton_Eliminar;
     private javax.swing.JButton Boton_Insertar;
     private javax.swing.JButton Boton_Modificar;
+    private javax.swing.JTable Tabla_Inventario;
     public javax.swing.JTextField Txt_Cantidad;
     public javax.swing.JTextField Txt_IdArticulo;
     public javax.swing.JTextField Txt_IdBar;
@@ -142,7 +143,6 @@ public class VistaInventario extends javax.swing.JPanel {
     public javax.swing.JLabel cantidadLabel;
     public javax.swing.JLabel idArtLabel;
     public javax.swing.JScrollPane masterScrollPane;
-    private javax.swing.JTable masterTable;
     public javax.swing.JLabel nombreArtLabel;
     public javax.swing.JLabel precioLabel;
     // End of variables declaration//GEN-END:variables

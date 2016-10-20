@@ -28,7 +28,7 @@ public class VistaPedidos extends javax.swing.JPanel {
     private void initComponents() {
 
         masterScrollPane = new javax.swing.JScrollPane();
-        masterTable = new javax.swing.JTable();
+        Tabla_Pedidos = new javax.swing.JTable();
         numPedLabel = new javax.swing.JLabel();
         fechaLabel = new javax.swing.JLabel();
         proveedorLabel = new javax.swing.JLabel();
@@ -49,7 +49,7 @@ public class VistaPedidos extends javax.swing.JPanel {
         Boton_Insertar = new javax.swing.JButton();
         Boton_Borrar = new javax.swing.JButton();
 
-        masterScrollPane.setViewportView(masterTable);
+        masterScrollPane.setViewportView(Tabla_Pedidos);
 
         numPedLabel.setText("Num Ped:");
 
@@ -163,6 +163,7 @@ public class VistaPedidos extends javax.swing.JPanel {
     private javax.swing.JButton Boton_Borrar;
     private javax.swing.JButton Boton_Insertar;
     private javax.swing.JButton Boton_Modificar;
+    private javax.swing.JTable Tabla_Pedidos;
     public javax.swing.JTextField Txt_Cantidad;
     public javax.swing.JTextField Txt_CodigoProducto;
     public javax.swing.JTextField Txt_Fecha;
@@ -176,7 +177,6 @@ public class VistaPedidos extends javax.swing.JPanel {
     public javax.swing.JLabel fechaLabel;
     public javax.swing.JLabel idBarLabel;
     public javax.swing.JScrollPane masterScrollPane;
-    private javax.swing.JTable masterTable;
     public javax.swing.JLabel nombreArtLabel;
     public javax.swing.JLabel numPedLabel;
     public javax.swing.JLabel precioLabel;

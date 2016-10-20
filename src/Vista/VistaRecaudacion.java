@@ -9,12 +9,12 @@ package Vista;
  *
  * @author esaup
  */
-public class VistaTrabaja extends javax.swing.JPanel {
+public class VistaRecaudacion extends javax.swing.JPanel {
 
     /**
-     * Creates new form VistaTrabaja
+     * Creates new form VistaRecaudacion
      */
-    public VistaTrabaja() {
+    public VistaRecaudacion() {
         initComponents();
     }
 
@@ -28,24 +28,24 @@ public class VistaTrabaja extends javax.swing.JPanel {
     private void initComponents() {
 
         masterScrollPane = new javax.swing.JScrollPane();
-        Tabla_Funciones = new javax.swing.JTable();
-        Label1 = new javax.swing.JLabel();
+        Tabla_Pedidos = new javax.swing.JTable();
+        numPedLabel = new javax.swing.JLabel();
+        fechaLabel = new javax.swing.JLabel();
+        proveedorLabel = new javax.swing.JLabel();
         Txt_IdBar = new javax.swing.JTextField();
-        Label2 = new javax.swing.JLabel();
-        Txt_DniPersona = new javax.swing.JTextField();
-        Label3 = new javax.swing.JLabel();
-        Txt_Funcion = new javax.swing.JTextField();
+        Txt_Fecha = new javax.swing.JTextField();
+        Txt_Recaudacion = new javax.swing.JTextField();
         Boton_Modificar = new javax.swing.JButton();
         Boton_Insertar = new javax.swing.JButton();
         Boton_Borrar = new javax.swing.JButton();
 
-        masterScrollPane.setViewportView(Tabla_Funciones);
+        masterScrollPane.setViewportView(Tabla_Pedidos);
 
-        Label1.setText("Id Bar");
+        numPedLabel.setText("Id Bar");
 
-        Label2.setText("Dni Persona");
+        fechaLabel.setText("Fecha:");
 
-        Label3.setText("Funcion:");
+        proveedorLabel.setText("Total Recaudado");
 
         Boton_Modificar.setText("Refresh");
 
@@ -70,38 +70,36 @@ public class VistaTrabaja extends javax.swing.JPanel {
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(Label1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Txt_IdBar))
-                            .addComponent(masterScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(Label2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Txt_DniPersona))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(Label3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Txt_Funcion)))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(numPedLabel)
+                                    .addComponent(fechaLabel)
+                                    .addComponent(proveedorLabel))
+                                .addGap(9, 9, 9)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Txt_IdBar, javax.swing.GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE)
+                                    .addComponent(Txt_Fecha, javax.swing.GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE)
+                                    .addComponent(Txt_Recaudacion, javax.swing.GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE)))
+                            .addComponent(masterScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(masterScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(masterScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Label1)
+                    .addComponent(numPedLabel)
                     .addComponent(Txt_IdBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Txt_DniPersona, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Label2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                    .addComponent(fechaLabel)
+                    .addComponent(Txt_Fecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Txt_Funcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Label3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(proveedorLabel)
+                    .addComponent(Txt_Recaudacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Boton_Modificar)
                     .addComponent(Boton_Borrar)
@@ -115,13 +113,13 @@ public class VistaTrabaja extends javax.swing.JPanel {
     private javax.swing.JButton Boton_Borrar;
     private javax.swing.JButton Boton_Insertar;
     private javax.swing.JButton Boton_Modificar;
-    private javax.swing.JLabel Label1;
-    private javax.swing.JLabel Label2;
-    private javax.swing.JLabel Label3;
-    private javax.swing.JTable Tabla_Funciones;
-    private javax.swing.JTextField Txt_DniPersona;
-    private javax.swing.JTextField Txt_Funcion;
+    private javax.swing.JTable Tabla_Pedidos;
+    private javax.swing.JTextField Txt_Fecha;
     private javax.swing.JTextField Txt_IdBar;
+    private javax.swing.JTextField Txt_Recaudacion;
+    private javax.swing.JLabel fechaLabel;
     private javax.swing.JScrollPane masterScrollPane;
+    private javax.swing.JLabel numPedLabel;
+    private javax.swing.JLabel proveedorLabel;
     // End of variables declaration//GEN-END:variables
 }

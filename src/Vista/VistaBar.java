@@ -28,7 +28,7 @@ public class VistaBar extends javax.swing.JPanel {
     private void initComponents() {
 
         masterScrollPane = new javax.swing.JScrollPane();
-        masterTable = new javax.swing.JTable();
+        Tabla_Bares = new javax.swing.JTable();
         idBarLabel = new javax.swing.JLabel();
         nombreBarLabel = new javax.swing.JLabel();
         licenciaFisLabel = new javax.swing.JLabel();
@@ -47,7 +47,7 @@ public class VistaBar extends javax.swing.JPanel {
         Boton_Insertar = new javax.swing.JButton();
         Boton_Borrar = new javax.swing.JButton();
 
-        masterScrollPane.setViewportView(masterTable);
+        masterScrollPane.setViewportView(Tabla_Bares);
 
         idBarLabel.setText("Id Bar:");
 
@@ -153,6 +153,7 @@ public class VistaBar extends javax.swing.JPanel {
     private javax.swing.JButton Boton_Borrar;
     private javax.swing.JButton Boton_Insertar;
     private javax.swing.JButton Boton_Modificar;
+    private javax.swing.JTable Tabla_Bares;
     public javax.swing.JTextField Txt_DiasApertura;
     public javax.swing.JTextField Txt_DomicilioBar;
     public javax.swing.JTextField Txt_FechaApertura;
@@ -167,7 +168,6 @@ public class VistaBar extends javax.swing.JPanel {
     public javax.swing.JLabel idBarLabel;
     public javax.swing.JLabel licenciaFisLabel;
     public javax.swing.JScrollPane masterScrollPane;
-    private javax.swing.JTable masterTable;
     public javax.swing.JLabel nombreBarLabel;
     // End of variables declaration//GEN-END:variables
 }

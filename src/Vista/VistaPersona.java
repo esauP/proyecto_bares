@@ -28,7 +28,7 @@ public class VistaPersona extends javax.swing.JPanel {
     private void initComponents() {
 
         masterScrollPane = new javax.swing.JScrollPane();
-        masterTable = new javax.swing.JTable();
+        Tabla_Persona = new javax.swing.JTable();
         nombrePersLabel = new javax.swing.JLabel();
         domicilioPerLabel = new javax.swing.JLabel();
         dniPerLabel = new javax.swing.JLabel();
@@ -43,7 +43,7 @@ public class VistaPersona extends javax.swing.JPanel {
         Boton_Insertar = new javax.swing.JButton();
         Boton_Borrar = new javax.swing.JButton();
 
-        masterScrollPane.setViewportView(masterTable);
+        masterScrollPane.setViewportView(Tabla_Persona);
 
         nombrePersLabel.setText("Nombre Pers:");
 
@@ -133,6 +133,7 @@ public class VistaPersona extends javax.swing.JPanel {
     private javax.swing.JButton Boton_Borrar;
     private javax.swing.JButton Boton_Insertar;
     private javax.swing.JButton Boton_Modificar;
+    private javax.swing.JTable Tabla_Persona;
     private javax.swing.JTextField Txt_DniPersona;
     private javax.swing.JTextField Txt_DomicilioPersona;
     private javax.swing.JTextField Txt_Funcion;
@@ -142,7 +143,6 @@ public class VistaPersona extends javax.swing.JPanel {
     private javax.swing.JLabel domicilioPerLabel;
     private javax.swing.JLabel funcionLabel;
     private javax.swing.JScrollPane masterScrollPane;
-    private javax.swing.JTable masterTable;
     private javax.swing.JLabel nombrePersLabel;
     private javax.swing.JLabel titularLabel;
     // End of variables declaration//GEN-END:variables
