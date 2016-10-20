@@ -9,12 +9,12 @@ package Vista;
  *
  * @author esaup
  */
-public class VistaPersona extends javax.swing.JFrame {
+public class VistaBar extends javax.swing.JFrame {
 
     /**
-     * Creates new form VistaPersona
+     * Creates new form VistaBar
      */
-    public VistaPersona() {
+    public VistaBar() {
         initComponents();
     }
 
@@ -30,16 +30,20 @@ public class VistaPersona extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         masterScrollPane = new javax.swing.JScrollPane();
         masterTable = new javax.swing.JTable();
-        nombrePersLabel = new javax.swing.JLabel();
-        domicilioPerLabel = new javax.swing.JLabel();
-        dniPerLabel = new javax.swing.JLabel();
-        funcionLabel = new javax.swing.JLabel();
-        titularLabel = new javax.swing.JLabel();
-        Txt_NombrePersona = new javax.swing.JTextField();
-        Txt_DomicilioPersona = new javax.swing.JTextField();
-        Txt_DniPersona = new javax.swing.JTextField();
-        Txt_Funcion = new javax.swing.JTextField();
-        Txt_Titular = new javax.swing.JTextField();
+        idBarLabel = new javax.swing.JLabel();
+        nombreBarLabel = new javax.swing.JLabel();
+        licenciaFisLabel = new javax.swing.JLabel();
+        domicilioBarLabel = new javax.swing.JLabel();
+        fechaAperLabel = new javax.swing.JLabel();
+        horarioLabel = new javax.swing.JLabel();
+        diasAperturaLabel = new javax.swing.JLabel();
+        Txt_IdBar = new javax.swing.JTextField();
+        Txt_NombreBar = new javax.swing.JTextField();
+        Txt_Licencia = new javax.swing.JTextField();
+        Txt_DomicilioBar = new javax.swing.JTextField();
+        Txt_FechaApertura = new javax.swing.JTextField();
+        Txt_Horario = new javax.swing.JTextField();
+        Txt_DiasApertura = new javax.swing.JTextField();
         Boton_Modificar = new javax.swing.JButton();
         Boton_Insertar = new javax.swing.JButton();
         Boton_Borrar = new javax.swing.JButton();
@@ -48,15 +52,19 @@ public class VistaPersona extends javax.swing.JFrame {
 
         masterScrollPane.setViewportView(masterTable);
 
-        nombrePersLabel.setText("Nombre Pers:");
+        idBarLabel.setText("Id Bar:");
 
-        domicilioPerLabel.setText("Domicilio Per:");
+        nombreBarLabel.setText("Nombre Bar:");
 
-        dniPerLabel.setText("Dni Per:");
+        licenciaFisLabel.setText("Licencia Fis:");
 
-        funcionLabel.setText("Funcion:");
+        domicilioBarLabel.setText("Domicilio Bar:");
 
-        titularLabel.setText("Titular:");
+        fechaAperLabel.setText("Fecha Aper:");
+
+        horarioLabel.setText("Horario:");
+
+        diasAperturaLabel.setText("Dias Apertura:");
 
         Boton_Modificar.setText("Modificar");
 
@@ -76,25 +84,29 @@ public class VistaPersona extends javax.swing.JFrame {
                         .addComponent(Boton_Borrar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(Boton_Modificar)
-                        .addGap(63, 63, 63))
+                        .addGap(77, 77, 77))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(nombrePersLabel)
-                                    .addComponent(domicilioPerLabel)
-                                    .addComponent(dniPerLabel)
-                                    .addComponent(funcionLabel)
-                                    .addComponent(titularLabel))
+                                    .addComponent(idBarLabel)
+                                    .addComponent(nombreBarLabel)
+                                    .addComponent(licenciaFisLabel)
+                                    .addComponent(domicilioBarLabel)
+                                    .addComponent(fechaAperLabel)
+                                    .addComponent(horarioLabel)
+                                    .addComponent(diasAperturaLabel))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Txt_NombrePersona, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
-                                    .addComponent(Txt_DomicilioPersona, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
-                                    .addComponent(Txt_DniPersona, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
-                                    .addComponent(Txt_Funcion, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
-                                    .addComponent(Txt_Titular, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)))
-                            .addComponent(masterScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 384, Short.MAX_VALUE))))
+                                    .addComponent(Txt_IdBar, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
+                                    .addComponent(Txt_NombreBar, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
+                                    .addComponent(Txt_Licencia, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
+                                    .addComponent(Txt_DomicilioBar, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
+                                    .addComponent(Txt_FechaApertura, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
+                                    .addComponent(Txt_Horario, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
+                                    .addComponent(Txt_DiasApertura, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)))
+                            .addComponent(masterScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 389, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -104,24 +116,32 @@ public class VistaPersona extends javax.swing.JFrame {
                 .addComponent(masterScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nombrePersLabel)
-                    .addComponent(Txt_NombrePersona, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(idBarLabel)
+                    .addComponent(Txt_IdBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(domicilioPerLabel)
-                    .addComponent(Txt_DomicilioPersona, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(nombreBarLabel)
+                    .addComponent(Txt_NombreBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(dniPerLabel)
-                    .addComponent(Txt_DniPersona, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(licenciaFisLabel)
+                    .addComponent(Txt_Licencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(funcionLabel)
-                    .addComponent(Txt_Funcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(domicilioBarLabel)
+                    .addComponent(Txt_DomicilioBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(titularLabel)
-                    .addComponent(Txt_Titular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(fechaAperLabel)
+                    .addComponent(Txt_FechaApertura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(horarioLabel)
+                    .addComponent(Txt_Horario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(diasAperturaLabel)
+                    .addComponent(Txt_DiasApertura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Boton_Modificar)
@@ -134,7 +154,7 @@ public class VistaPersona extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 404, Short.MAX_VALUE)
+            .addGap(0, 409, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -143,7 +163,7 @@ public class VistaPersona extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 311, Short.MAX_VALUE)
+            .addGap(0, 363, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -171,20 +191,20 @@ public class VistaPersona extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VistaPersona.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaBar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VistaPersona.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaBar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VistaPersona.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaBar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VistaPersona.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaBar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VistaPersona().setVisible(true);
+                new VistaBar().setVisible(true);
             }
         });
     }
@@ -193,18 +213,22 @@ public class VistaPersona extends javax.swing.JFrame {
     private javax.swing.JButton Boton_Borrar;
     private javax.swing.JButton Boton_Insertar;
     private javax.swing.JButton Boton_Modificar;
-    public javax.swing.JTextField Txt_DniPersona;
-    public javax.swing.JTextField Txt_DomicilioPersona;
-    public javax.swing.JTextField Txt_Funcion;
-    public javax.swing.JTextField Txt_NombrePersona;
-    public javax.swing.JTextField Txt_Titular;
-    public javax.swing.JLabel dniPerLabel;
-    public javax.swing.JLabel domicilioPerLabel;
-    public javax.swing.JLabel funcionLabel;
+    public javax.swing.JTextField Txt_DiasApertura;
+    public javax.swing.JTextField Txt_DomicilioBar;
+    public javax.swing.JTextField Txt_FechaApertura;
+    public javax.swing.JTextField Txt_Horario;
+    public javax.swing.JTextField Txt_IdBar;
+    public javax.swing.JTextField Txt_Licencia;
+    public javax.swing.JTextField Txt_NombreBar;
+    public javax.swing.JLabel diasAperturaLabel;
+    public javax.swing.JLabel domicilioBarLabel;
+    public javax.swing.JLabel fechaAperLabel;
+    public javax.swing.JLabel horarioLabel;
+    public javax.swing.JLabel idBarLabel;
     public javax.swing.JPanel jPanel1;
+    public javax.swing.JLabel licenciaFisLabel;
     public javax.swing.JScrollPane masterScrollPane;
     private javax.swing.JTable masterTable;
-    public javax.swing.JLabel nombrePersLabel;
-    public javax.swing.JLabel titularLabel;
+    public javax.swing.JLabel nombreBarLabel;
     // End of variables declaration//GEN-END:variables
 }

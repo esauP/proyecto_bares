@@ -23,7 +23,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="400" max="32767" attributes="0"/>
+          <EmptySpace min="0" pref="409" max="32767" attributes="0"/>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -35,7 +35,7 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="311" max="32767" attributes="0"/>
+          <EmptySpace min="0" pref="363" max="32767" attributes="0"/>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -57,7 +57,7 @@
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="Boton_Insertar" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="Boton_Eliminar" min="-2" max="-2" attributes="0"/>
+                          <Component id="Boton_Borrar" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="Boton_Modificar" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
@@ -67,22 +67,26 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="idArtLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="nombreArtLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="cantidadLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="precioLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="barIdLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="idBarLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="nombreBarLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="licenciaFisLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="domicilioBarLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="fechaAperLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="horarioLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="diasAperturaLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="Txt_IdArticulo" alignment="0" pref="317" max="32767" attributes="0"/>
-                                      <Component id="Txt_NombreArticulo" alignment="0" pref="317" max="32767" attributes="0"/>
-                                      <Component id="Txt_Cantidad" alignment="0" pref="317" max="32767" attributes="0"/>
-                                      <Component id="Txt_Precio" alignment="0" pref="317" max="32767" attributes="0"/>
-                                      <Component id="Txt_IdBar" alignment="0" pref="317" max="32767" attributes="0"/>
+                                      <Component id="Txt_IdBar" alignment="0" pref="315" max="32767" attributes="0"/>
+                                      <Component id="Txt_NombreBar" alignment="0" pref="315" max="32767" attributes="0"/>
+                                      <Component id="Txt_Licencia" alignment="0" pref="315" max="32767" attributes="0"/>
+                                      <Component id="Txt_DomicilioBar" alignment="0" pref="315" max="32767" attributes="0"/>
+                                      <Component id="Txt_FechaApertura" alignment="0" pref="315" max="32767" attributes="0"/>
+                                      <Component id="Txt_Horario" alignment="0" pref="315" max="32767" attributes="0"/>
+                                      <Component id="Txt_DiasApertura" alignment="0" pref="315" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
-                              <Component id="masterScrollPane" alignment="0" pref="380" max="32767" attributes="0"/>
+                              <Component id="masterScrollPane" alignment="0" pref="389" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -97,33 +101,43 @@
                   <Component id="masterScrollPane" pref="130" max="32767" attributes="0"/>
                   <EmptySpace min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="idArtLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="Txt_IdArticulo" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="nombreArtLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="Txt_NombreArticulo" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="cantidadLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="Txt_Cantidad" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="precioLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="Txt_Precio" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="barIdLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="idBarLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="Txt_IdBar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="nombreBarLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="Txt_NombreBar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="licenciaFisLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="Txt_Licencia" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="domicilioBarLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="Txt_DomicilioBar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="fechaAperLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="Txt_FechaApertura" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="horarioLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="Txt_Horario" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="diasAperturaLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="Txt_DiasApertura" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" max="-2" attributes="1"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="Boton_Modificar" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="Boton_Eliminar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="Boton_Borrar" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="Boton_Insertar" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" max="-2" attributes="0"/>
@@ -147,40 +161,54 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JLabel" name="idArtLabel">
+        <Component class="javax.swing.JLabel" name="idBarLabel">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Id Art:"/>
+            <Property name="text" type="java.lang.String" value="Id Bar:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="nombreArtLabel">
+        <Component class="javax.swing.JLabel" name="nombreBarLabel">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Nombre Art:"/>
+            <Property name="text" type="java.lang.String" value="Nombre Bar:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="cantidadLabel">
+        <Component class="javax.swing.JLabel" name="licenciaFisLabel">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Cantidad:"/>
+            <Property name="text" type="java.lang.String" value="Licencia Fis:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="precioLabel">
+        <Component class="javax.swing.JLabel" name="domicilioBarLabel">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Precio:"/>
+            <Property name="text" type="java.lang.String" value="Domicilio Bar:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="barIdLabel">
+        <Component class="javax.swing.JLabel" name="fechaAperLabel">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Bar Id:"/>
+            <Property name="text" type="java.lang.String" value="Fecha Aper:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="Txt_IdArticulo">
+        <Component class="javax.swing.JLabel" name="horarioLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Horario:"/>
+          </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="Txt_NombreArticulo">
-        </Component>
-        <Component class="javax.swing.JTextField" name="Txt_Cantidad">
-        </Component>
-        <Component class="javax.swing.JTextField" name="Txt_Precio">
+        <Component class="javax.swing.JLabel" name="diasAperturaLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Dias Apertura:"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="Txt_IdBar">
+        </Component>
+        <Component class="javax.swing.JTextField" name="Txt_NombreBar">
+        </Component>
+        <Component class="javax.swing.JTextField" name="Txt_Licencia">
+        </Component>
+        <Component class="javax.swing.JTextField" name="Txt_DomicilioBar">
+        </Component>
+        <Component class="javax.swing.JTextField" name="Txt_FechaApertura">
+        </Component>
+        <Component class="javax.swing.JTextField" name="Txt_Horario">
+        </Component>
+        <Component class="javax.swing.JTextField" name="Txt_DiasApertura">
         </Component>
         <Component class="javax.swing.JButton" name="Boton_Modificar">
           <Properties>
@@ -200,7 +228,7 @@
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="2"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JButton" name="Boton_Eliminar">
+        <Component class="javax.swing.JButton" name="Boton_Borrar">
           <Properties>
             <Property name="text" type="java.lang.String" value="Borrar"/>
           </Properties>
