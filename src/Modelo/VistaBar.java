@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Vista;
+package Modelo;
 
 import java.awt.EventQueue;
 import java.beans.Beans;
@@ -17,9 +17,9 @@ import javax.swing.JPanel;
  *
  * @author esaup
  */
-public class VistaBares extends JPanel {
+public class VistaBar extends JPanel {
     
-    public VistaBares() {
+    public VistaBar() {
         initComponents();
         if (!Beans.isDesignTime()) {
             entityManager.getTransaction().begin();
@@ -252,16 +252,16 @@ public class VistaBares extends JPanel {
         FormListener() {}
         public void actionPerformed(java.awt.event.ActionEvent evt) {
             if (evt.getSource() == saveButton) {
-                VistaBares.this.saveButtonActionPerformed(evt);
+                VistaBar.this.saveButtonActionPerformed(evt);
             }
             else if (evt.getSource() == refreshButton) {
-                VistaBares.this.refreshButtonActionPerformed(evt);
+                VistaBar.this.refreshButtonActionPerformed(evt);
             }
             else if (evt.getSource() == newButton) {
-                VistaBares.this.newButtonActionPerformed(evt);
+                VistaBar.this.newButtonActionPerformed(evt);
             }
             else if (evt.getSource() == deleteButton) {
-                VistaBares.this.deleteButtonActionPerformed(evt);
+                VistaBar.this.deleteButtonActionPerformed(evt);
             }
         }
     }// </editor-fold>//GEN-END:initComponents
@@ -356,13 +356,13 @@ public class VistaBares extends JPanel {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VistaBares.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaBar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VistaBares.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaBar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VistaBares.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaBar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VistaBares.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaBar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -370,7 +370,7 @@ public class VistaBares extends JPanel {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 JFrame frame = new JFrame();
-                frame.setContentPane(new VistaBares());
+                frame.setContentPane(new VistaBar());
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame.pack();
                 frame.setVisible(true);

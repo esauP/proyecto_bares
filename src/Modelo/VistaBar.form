@@ -13,7 +13,7 @@
     </Component>
     <Component class="javax.persistence.Query" name="query">
       <Properties>
-        <Property name="query" type="java.lang.String" value="SELECT e FROM Empleados e"/>
+        <Property name="query" type="java.lang.String" value="SELECT b FROM Bar b"/>
         <Property name="entityManager" type="java.lang.Object" editor="org.netbeans.modules.form.j2ee.J2EEPropertyModifier$EMProperty$EntityManagerEditor">
           <ComponentRef name="entityManager"/>
         </Property>
@@ -31,7 +31,7 @@
         <Property name="observable" type="boolean" value="true"/>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Modelo.Empleados&gt;"/>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Modelo.Bar&gt;"/>
         <AuxValue name="JavaCodeGenerator_VariableLocal" type="java.lang.Boolean" value="false"/>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="2"/>
       </AuxValues>
@@ -65,17 +65,23 @@
           <Group type="102" attributes="0">
               <EmptySpace min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="idEmpLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="nombreEmpLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="dniEmpLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="domicilioEmpLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="idBarLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="nombreBarLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="licenciaFisLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="domicilioBarLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="fechaAperLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="horarioLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="diasAperturaLabel" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="idEmpField" alignment="0" pref="315" max="32767" attributes="0"/>
-                  <Component id="nombreEmpField" alignment="0" pref="315" max="32767" attributes="0"/>
-                  <Component id="dniEmpField" alignment="0" pref="315" max="32767" attributes="0"/>
-                  <Component id="domicilioEmpField" alignment="0" pref="315" max="32767" attributes="0"/>
+                  <Component id="idBarField" alignment="0" pref="315" max="32767" attributes="0"/>
+                  <Component id="nombreBarField" alignment="0" pref="315" max="32767" attributes="0"/>
+                  <Component id="licenciaFisField" alignment="0" pref="315" max="32767" attributes="0"/>
+                  <Component id="domicilioBarField" alignment="0" pref="315" max="32767" attributes="0"/>
+                  <Component id="fechaAperField" alignment="0" pref="315" max="32767" attributes="0"/>
+                  <Component id="horarioField" alignment="0" pref="315" max="32767" attributes="0"/>
+                  <Component id="diasAperturaField" alignment="0" pref="315" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" max="-2" attributes="0"/>
           </Group>
@@ -93,23 +99,38 @@
               <Component id="masterScrollPane" pref="130" max="32767" attributes="0"/>
               <EmptySpace min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="idEmpLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="idEmpField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="idBarLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="idBarField" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="nombreEmpLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="nombreEmpField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="nombreBarLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="nombreBarField" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="dniEmpLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="dniEmpField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="licenciaFisLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="licenciaFisField" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="domicilioEmpLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="domicilioEmpField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="domicilioBarLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="domicilioBarField" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="fechaAperLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="fechaAperField" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="horarioLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="horarioField" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="diasAperturaLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="diasAperturaField" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" max="-2" attributes="1"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -134,20 +155,32 @@
         <Component class="javax.swing.JTable" name="masterTable">
           <BindingProperties>
             <BindingProperty name="elements" source="list" target="masterTable" targetPath="elements" updateStrategy="0" immediately="false">
-              <Subbinding sourcePath="${idEmp}">
+              <Subbinding sourcePath="${idBar}">
                 <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN" value="0"/>
                 <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="Integer.class"/>
               </Subbinding>
-              <Subbinding sourcePath="${nombreEmp}">
+              <Subbinding sourcePath="${nombreBar}">
                 <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN" value="1"/>
                 <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="String.class"/>
               </Subbinding>
-              <Subbinding sourcePath="${dniEmp}">
+              <Subbinding sourcePath="${licenciaFis}">
                 <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN" value="2"/>
                 <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="String.class"/>
               </Subbinding>
-              <Subbinding sourcePath="${domicilioEmp}">
+              <Subbinding sourcePath="${domicilioBar}">
                 <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN" value="3"/>
+                <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="String.class"/>
+              </Subbinding>
+              <Subbinding sourcePath="${fechaAper}">
+                <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN" value="4"/>
+                <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="java.util.Date.class"/>
+              </Subbinding>
+              <Subbinding sourcePath="${horario}">
+                <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN" value="5"/>
+                <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="String.class"/>
+              </Subbinding>
+              <Subbinding sourcePath="${diasApertura}">
+                <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN" value="6"/>
                 <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="String.class"/>
               </Subbinding>
             </BindingProperty>
@@ -159,56 +192,95 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JLabel" name="idEmpLabel">
+    <Component class="javax.swing.JLabel" name="idBarLabel">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Id Emp:"/>
+        <Property name="text" type="java.lang.String" value="Id Bar:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="nombreEmpLabel">
+    <Component class="javax.swing.JLabel" name="nombreBarLabel">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Nombre Emp:"/>
+        <Property name="text" type="java.lang.String" value="Nombre Bar:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="dniEmpLabel">
+    <Component class="javax.swing.JLabel" name="licenciaFisLabel">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Dni Emp:"/>
+        <Property name="text" type="java.lang.String" value="Licencia Fis:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="domicilioEmpLabel">
+    <Component class="javax.swing.JLabel" name="domicilioBarLabel">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Domicilio Emp:"/>
+        <Property name="text" type="java.lang.String" value="Domicilio Bar:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="idEmpField">
+    <Component class="javax.swing.JLabel" name="fechaAperLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Fecha Aper:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="horarioLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Horario:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="diasAperturaLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Dias Apertura:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="idBarField">
       <BindingProperties>
-        <BindingProperty name="text" source="masterTable" sourcePath="${selectedElement.idEmp}" target="idEmpField" targetPath="text" updateStrategy="0" immediately="false">
+        <BindingProperty name="text" source="masterTable" sourcePath="${selectedElement.idBar}" target="idBarField" targetPath="text" updateStrategy="0" immediately="false">
           <Property name="incompletePathValue" type="java.lang.String" value="null"/>
         </BindingProperty>
-        <BindingProperty name="enabled" source="masterTable" sourcePath="${selectedElement != null}" target="idEmpField" targetPath="enabled" updateStrategy="1" immediately="false"/>
+        <BindingProperty name="enabled" source="masterTable" sourcePath="${selectedElement != null}" target="idBarField" targetPath="enabled" updateStrategy="1" immediately="false"/>
       </BindingProperties>
     </Component>
-    <Component class="javax.swing.JTextField" name="nombreEmpField">
+    <Component class="javax.swing.JTextField" name="nombreBarField">
       <BindingProperties>
-        <BindingProperty name="text" source="masterTable" sourcePath="${selectedElement.nombreEmp}" target="nombreEmpField" targetPath="text" updateStrategy="0" immediately="false">
+        <BindingProperty name="text" source="masterTable" sourcePath="${selectedElement.nombreBar}" target="nombreBarField" targetPath="text" updateStrategy="0" immediately="false">
           <Property name="incompletePathValue" type="java.lang.String" value="null"/>
         </BindingProperty>
-        <BindingProperty name="enabled" source="masterTable" sourcePath="${selectedElement != null}" target="nombreEmpField" targetPath="enabled" updateStrategy="1" immediately="false"/>
+        <BindingProperty name="enabled" source="masterTable" sourcePath="${selectedElement != null}" target="nombreBarField" targetPath="enabled" updateStrategy="1" immediately="false"/>
       </BindingProperties>
     </Component>
-    <Component class="javax.swing.JTextField" name="dniEmpField">
+    <Component class="javax.swing.JTextField" name="licenciaFisField">
       <BindingProperties>
-        <BindingProperty name="text" source="masterTable" sourcePath="${selectedElement.dniEmp}" target="dniEmpField" targetPath="text" updateStrategy="0" immediately="false">
+        <BindingProperty name="text" source="masterTable" sourcePath="${selectedElement.licenciaFis}" target="licenciaFisField" targetPath="text" updateStrategy="0" immediately="false">
           <Property name="incompletePathValue" type="java.lang.String" value="null"/>
         </BindingProperty>
-        <BindingProperty name="enabled" source="masterTable" sourcePath="${selectedElement != null}" target="dniEmpField" targetPath="enabled" updateStrategy="1" immediately="false"/>
+        <BindingProperty name="enabled" source="masterTable" sourcePath="${selectedElement != null}" target="licenciaFisField" targetPath="enabled" updateStrategy="1" immediately="false"/>
       </BindingProperties>
     </Component>
-    <Component class="javax.swing.JTextField" name="domicilioEmpField">
+    <Component class="javax.swing.JTextField" name="domicilioBarField">
       <BindingProperties>
-        <BindingProperty name="text" source="masterTable" sourcePath="${selectedElement.domicilioEmp}" target="domicilioEmpField" targetPath="text" updateStrategy="0" immediately="false">
+        <BindingProperty name="text" source="masterTable" sourcePath="${selectedElement.domicilioBar}" target="domicilioBarField" targetPath="text" updateStrategy="0" immediately="false">
           <Property name="incompletePathValue" type="java.lang.String" value="null"/>
         </BindingProperty>
-        <BindingProperty name="enabled" source="masterTable" sourcePath="${selectedElement != null}" target="domicilioEmpField" targetPath="enabled" updateStrategy="1" immediately="false"/>
+        <BindingProperty name="enabled" source="masterTable" sourcePath="${selectedElement != null}" target="domicilioBarField" targetPath="enabled" updateStrategy="1" immediately="false"/>
+      </BindingProperties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="fechaAperField">
+      <BindingProperties>
+        <BindingProperty name="text" source="masterTable" sourcePath="${selectedElement.fechaAper}" target="fechaAperField" targetPath="text" updateStrategy="0" immediately="false">
+          <Property name="incompletePathValue" type="java.lang.String" value="null"/>
+        </BindingProperty>
+        <BindingProperty name="enabled" source="masterTable" sourcePath="${selectedElement != null}" target="fechaAperField" targetPath="enabled" updateStrategy="1" immediately="false"/>
+      </BindingProperties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="horarioField">
+      <BindingProperties>
+        <BindingProperty name="text" source="masterTable" sourcePath="${selectedElement.horario}" target="horarioField" targetPath="text" updateStrategy="0" immediately="false">
+          <Property name="incompletePathValue" type="java.lang.String" value="null"/>
+        </BindingProperty>
+        <BindingProperty name="enabled" source="masterTable" sourcePath="${selectedElement != null}" target="horarioField" targetPath="enabled" updateStrategy="1" immediately="false"/>
+      </BindingProperties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="diasAperturaField">
+      <BindingProperties>
+        <BindingProperty name="text" source="masterTable" sourcePath="${selectedElement.diasApertura}" target="diasAperturaField" targetPath="text" updateStrategy="0" immediately="false">
+          <Property name="incompletePathValue" type="java.lang.String" value="null"/>
+        </BindingProperty>
+        <BindingProperty name="enabled" source="masterTable" sourcePath="${selectedElement != null}" target="diasAperturaField" targetPath="enabled" updateStrategy="1" immediately="false"/>
       </BindingProperties>
     </Component>
     <Component class="javax.swing.JButton" name="saveButton">

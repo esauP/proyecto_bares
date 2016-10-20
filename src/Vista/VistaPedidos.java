@@ -48,6 +48,7 @@ public class VistaPedidos extends JPanel {
         cantidadLabel = new javax.swing.JLabel();
         precioLabel = new javax.swing.JLabel();
         idBarLabel = new javax.swing.JLabel();
+        codigoArtLabel = new javax.swing.JLabel();
         numPedField = new javax.swing.JTextField();
         fechaField = new javax.swing.JTextField();
         proveedorField = new javax.swing.JTextField();
@@ -55,6 +56,7 @@ public class VistaPedidos extends JPanel {
         cantidadField = new javax.swing.JTextField();
         precioField = new javax.swing.JTextField();
         idBarField = new javax.swing.JTextField();
+        codigoArtField = new javax.swing.JTextField();
         saveButton = new javax.swing.JButton();
         refreshButton = new javax.swing.JButton();
         newButton = new javax.swing.JButton();
@@ -84,6 +86,9 @@ public class VistaPedidos extends JPanel {
         columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${idBar}"));
         columnBinding.setColumnName("Id Bar");
         columnBinding.setColumnClass(Integer.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${codigoArt}"));
+        columnBinding.setColumnName("Codigo Art");
+        columnBinding.setColumnClass(Integer.class);
         bindingGroup.addBinding(jTableBinding);
 
         masterScrollPane.setViewportView(masterTable);
@@ -101,6 +106,8 @@ public class VistaPedidos extends JPanel {
         precioLabel.setText("Precio:");
 
         idBarLabel.setText("Id Bar:");
+
+        codigoArtLabel.setText("Codigo Art:");
 
         org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.numPed}"), numPedField, org.jdesktop.beansbinding.BeanProperty.create("text"));
         binding.setSourceUnreadableValue("null");
@@ -144,6 +151,12 @@ public class VistaPedidos extends JPanel {
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement != null}"), idBarField, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
         bindingGroup.addBinding(binding);
 
+        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.codigoArt}"), codigoArtField, org.jdesktop.beansbinding.BeanProperty.create("text"));
+        binding.setSourceUnreadableValue("null");
+        bindingGroup.addBinding(binding);
+        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement != null}"), codigoArtField, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
+        bindingGroup.addBinding(binding);
+
         saveButton.setText("Save");
         saveButton.addActionListener(formListener);
 
@@ -182,7 +195,8 @@ public class VistaPedidos extends JPanel {
                     .addComponent(nombreArtLabel)
                     .addComponent(cantidadLabel)
                     .addComponent(precioLabel)
-                    .addComponent(idBarLabel))
+                    .addComponent(idBarLabel)
+                    .addComponent(codigoArtLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(numPedField, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
@@ -191,7 +205,8 @@ public class VistaPedidos extends JPanel {
                     .addComponent(nombreArtField, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
                     .addComponent(cantidadField, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
                     .addComponent(precioField, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
-                    .addComponent(idBarField, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE))
+                    .addComponent(idBarField, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
+                    .addComponent(codigoArtField, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
@@ -234,6 +249,10 @@ public class VistaPedidos extends JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(idBarLabel)
                     .addComponent(idBarField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(codigoArtLabel)
+                    .addComponent(codigoArtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(saveButton)
@@ -319,6 +338,8 @@ public class VistaPedidos extends JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField cantidadField;
     private javax.swing.JLabel cantidadLabel;
+    private javax.swing.JTextField codigoArtField;
+    private javax.swing.JLabel codigoArtLabel;
     private javax.swing.JButton deleteButton;
     private javax.persistence.EntityManager entityManager;
     private javax.swing.JTextField fechaField;

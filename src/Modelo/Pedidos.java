@@ -36,7 +36,8 @@ import javax.persistence.Transient;
     , @NamedQuery(name = "Pedidos.findByNombreArt", query = "SELECT p FROM Pedidos p WHERE p.nombreArt = :nombreArt")
     , @NamedQuery(name = "Pedidos.findByCantidad", query = "SELECT p FROM Pedidos p WHERE p.cantidad = :cantidad")
     , @NamedQuery(name = "Pedidos.findByPrecio", query = "SELECT p FROM Pedidos p WHERE p.precio = :precio")
-    , @NamedQuery(name = "Pedidos.findByIdBar", query = "SELECT p FROM Pedidos p WHERE p.idBar = :idBar")})
+    , @NamedQuery(name = "Pedidos.findByIdBar", query = "SELECT p FROM Pedidos p WHERE p.idBar = :idBar")
+    , @NamedQuery(name = "Pedidos.findByCodigoArt", query = "SELECT p FROM Pedidos p WHERE p.codigoArt = :codigoArt")})
 public class Pedidos implements Serializable {
 
     @Transient
@@ -67,6 +68,9 @@ public class Pedidos implements Serializable {
     @Basic(optional = false)
     @Column(name = "id_bar")
     private int idBar;
+    @Basic(optional = false)
+    @Column(name = "codigo_art")
+    private int codigoArt;
 
     public Pedidos() {
     }
@@ -75,7 +79,7 @@ public class Pedidos implements Serializable {
         this.numPed = numPed;
     }
 
-    public Pedidos(Integer numPed, Date fecha, String proveedor, String nombreArt, int cantidad, double precio, int idBar) {
+    public Pedidos(Integer numPed, Date fecha, String proveedor, String nombreArt, int cantidad, double precio, int idBar, int codigoArt) {
         this.numPed = numPed;
         this.fecha = fecha;
         this.proveedor = proveedor;
@@ -83,6 +87,7 @@ public class Pedidos implements Serializable {
         this.cantidad = cantidad;
         this.precio = precio;
         this.idBar = idBar;
+        this.codigoArt = codigoArt;
     }
 
     public Integer getNumPed() {
@@ -153,6 +158,16 @@ public class Pedidos implements Serializable {
         int oldIdBar = this.idBar;
         this.idBar = idBar;
         changeSupport.firePropertyChange("idBar", oldIdBar, idBar);
+    }
+
+    public int getCodigoArt() {
+        return codigoArt;
+    }
+
+    public void setCodigoArt(int codigoArt) {
+        int oldCodigoArt = this.codigoArt;
+        this.codigoArt = codigoArt;
+        changeSupport.firePropertyChange("codigoArt", oldCodigoArt, codigoArt);
     }
 
     @Override
