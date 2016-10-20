@@ -27,8 +27,6 @@ public class VistaPersona extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        masterScrollPane = new javax.swing.JScrollPane();
-        Tabla_Persona = new javax.swing.JTable();
         nombrePersLabel = new javax.swing.JLabel();
         domicilioPerLabel = new javax.swing.JLabel();
         dniPerLabel = new javax.swing.JLabel();
@@ -42,8 +40,8 @@ public class VistaPersona extends javax.swing.JPanel {
         Boton_Modificar = new javax.swing.JButton();
         Boton_Insertar = new javax.swing.JButton();
         Boton_Borrar = new javax.swing.JButton();
-
-        masterScrollPane.setViewportView(Tabla_Persona);
+        jScrollPane1 = new javax.swing.JScrollPane();
+        Tabla_Personas = new javax.swing.JTable();
 
         nombrePersLabel.setText("Nombre Pers:");
 
@@ -60,6 +58,19 @@ public class VistaPersona extends javax.swing.JPanel {
         Boton_Insertar.setText("Insertar");
 
         Boton_Borrar.setText("Borrar");
+
+        Tabla_Personas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(Tabla_Personas);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -91,15 +102,15 @@ public class VistaPersona extends javax.swing.JPanel {
                                     .addComponent(Txt_DniPersona, javax.swing.GroupLayout.DEFAULT_SIZE, 311, Short.MAX_VALUE)
                                     .addComponent(Txt_Funcion, javax.swing.GroupLayout.DEFAULT_SIZE, 311, Short.MAX_VALUE)
                                     .addComponent(Txt_Titular, javax.swing.GroupLayout.DEFAULT_SIZE, 311, Short.MAX_VALUE)))
-                            .addComponent(masterScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE))))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(masterScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nombrePersLabel)
                     .addComponent(Txt_NombrePersona, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -133,17 +144,17 @@ public class VistaPersona extends javax.swing.JPanel {
     private javax.swing.JButton Boton_Borrar;
     private javax.swing.JButton Boton_Insertar;
     private javax.swing.JButton Boton_Modificar;
-    private javax.swing.JTable Tabla_Persona;
-    private javax.swing.JTextField Txt_DniPersona;
-    private javax.swing.JTextField Txt_DomicilioPersona;
-    private javax.swing.JTextField Txt_Funcion;
-    private javax.swing.JTextField Txt_NombrePersona;
-    private javax.swing.JTextField Txt_Titular;
-    private javax.swing.JLabel dniPerLabel;
-    private javax.swing.JLabel domicilioPerLabel;
-    private javax.swing.JLabel funcionLabel;
-    private javax.swing.JScrollPane masterScrollPane;
-    private javax.swing.JLabel nombrePersLabel;
-    private javax.swing.JLabel titularLabel;
+    public javax.swing.JTable Tabla_Personas;
+    public javax.swing.JTextField Txt_DniPersona;
+    public javax.swing.JTextField Txt_DomicilioPersona;
+    public javax.swing.JTextField Txt_Funcion;
+    public javax.swing.JTextField Txt_NombrePersona;
+    public javax.swing.JTextField Txt_Titular;
+    public javax.swing.JLabel dniPerLabel;
+    public javax.swing.JLabel domicilioPerLabel;
+    public javax.swing.JLabel funcionLabel;
+    public javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JLabel nombrePersLabel;
+    public javax.swing.JLabel titularLabel;
     // End of variables declaration//GEN-END:variables
 }

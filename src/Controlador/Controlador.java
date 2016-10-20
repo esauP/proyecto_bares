@@ -5,6 +5,7 @@
  */
 package Controlador;
 
+import Modelo.ModeloBar;
 import Vista.*;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
@@ -59,4 +60,5 @@ public class Controlador {
         //Colocamos la ventana en el centro de la pantalla
         this.vista.setLocationRelativeTo(null);
     }
+
 }

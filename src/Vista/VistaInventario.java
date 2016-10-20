@@ -27,8 +27,6 @@ public class VistaInventario extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        masterScrollPane = new javax.swing.JScrollPane();
-        Tabla_Inventario = new javax.swing.JTable();
         idArtLabel = new javax.swing.JLabel();
         nombreArtLabel = new javax.swing.JLabel();
         cantidadLabel = new javax.swing.JLabel();
@@ -42,8 +40,8 @@ public class VistaInventario extends javax.swing.JPanel {
         Boton_Modificar = new javax.swing.JButton();
         Boton_Insertar = new javax.swing.JButton();
         Boton_Eliminar = new javax.swing.JButton();
-
-        masterScrollPane.setViewportView(Tabla_Inventario);
+        jScrollPane1 = new javax.swing.JScrollPane();
+        Tabla_Inventario = new javax.swing.JTable();
 
         idArtLabel.setText("Id Art:");
 
@@ -60,6 +58,19 @@ public class VistaInventario extends javax.swing.JPanel {
         Boton_Insertar.setText("Insertar");
 
         Boton_Eliminar.setText("Borrar");
+
+        Tabla_Inventario.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(Tabla_Inventario);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -91,15 +102,15 @@ public class VistaInventario extends javax.swing.JPanel {
                                     .addComponent(Txt_Cantidad, javax.swing.GroupLayout.DEFAULT_SIZE, 317, Short.MAX_VALUE)
                                     .addComponent(Txt_Precio, javax.swing.GroupLayout.DEFAULT_SIZE, 317, Short.MAX_VALUE)
                                     .addComponent(Txt_IdBar, javax.swing.GroupLayout.DEFAULT_SIZE, 317, Short.MAX_VALUE)))
-                            .addComponent(masterScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE))))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(masterScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(idArtLabel)
                     .addComponent(Txt_IdArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -133,7 +144,7 @@ public class VistaInventario extends javax.swing.JPanel {
     private javax.swing.JButton Boton_Eliminar;
     private javax.swing.JButton Boton_Insertar;
     private javax.swing.JButton Boton_Modificar;
-    private javax.swing.JTable Tabla_Inventario;
+    public javax.swing.JTable Tabla_Inventario;
     public javax.swing.JTextField Txt_Cantidad;
     public javax.swing.JTextField Txt_IdArticulo;
     public javax.swing.JTextField Txt_IdBar;
@@ -142,7 +153,7 @@ public class VistaInventario extends javax.swing.JPanel {
     public javax.swing.JLabel barIdLabel;
     public javax.swing.JLabel cantidadLabel;
     public javax.swing.JLabel idArtLabel;
-    public javax.swing.JScrollPane masterScrollPane;
+    public javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JLabel nombreArtLabel;
     public javax.swing.JLabel precioLabel;
     // End of variables declaration//GEN-END:variables

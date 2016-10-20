@@ -27,8 +27,6 @@ public class VistaTrabaja extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        masterScrollPane = new javax.swing.JScrollPane();
-        Tabla_Funciones = new javax.swing.JTable();
         Label1 = new javax.swing.JLabel();
         Txt_IdBar = new javax.swing.JTextField();
         Label2 = new javax.swing.JLabel();
@@ -38,8 +36,8 @@ public class VistaTrabaja extends javax.swing.JPanel {
         Boton_Modificar = new javax.swing.JButton();
         Boton_Insertar = new javax.swing.JButton();
         Boton_Borrar = new javax.swing.JButton();
-
-        masterScrollPane.setViewportView(Tabla_Funciones);
+        jScrollPane1 = new javax.swing.JScrollPane();
+        Tabla_Funciones = new javax.swing.JTable();
 
         Label1.setText("Id Bar");
 
@@ -52,6 +50,19 @@ public class VistaTrabaja extends javax.swing.JPanel {
         Boton_Insertar.setText("New");
 
         Boton_Borrar.setText("Delete");
+
+        Tabla_Funciones.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(Tabla_Funciones);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -73,23 +84,23 @@ public class VistaTrabaja extends javax.swing.JPanel {
                                 .addComponent(Label1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(Txt_IdBar))
-                            .addComponent(masterScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(Label2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Txt_DniPersona))
+                                .addComponent(Txt_DniPersona, javax.swing.GroupLayout.DEFAULT_SIZE, 319, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(Label3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Txt_Funcion)))))
+                                .addComponent(Txt_Funcion))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(masterScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Label1)
                     .addComponent(Txt_IdBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -97,11 +108,11 @@ public class VistaTrabaja extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Txt_DniPersona, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Label2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Txt_Funcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Label3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Boton_Modificar)
                     .addComponent(Boton_Borrar)
@@ -122,6 +133,6 @@ public class VistaTrabaja extends javax.swing.JPanel {
     private javax.swing.JTextField Txt_DniPersona;
     private javax.swing.JTextField Txt_Funcion;
     private javax.swing.JTextField Txt_IdBar;
-    private javax.swing.JScrollPane masterScrollPane;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

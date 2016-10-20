@@ -27,8 +27,6 @@ public class VistaPedidos extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        masterScrollPane = new javax.swing.JScrollPane();
-        Tabla_Pedidos = new javax.swing.JTable();
         numPedLabel = new javax.swing.JLabel();
         fechaLabel = new javax.swing.JLabel();
         proveedorLabel = new javax.swing.JLabel();
@@ -48,8 +46,8 @@ public class VistaPedidos extends javax.swing.JPanel {
         Boton_Modificar = new javax.swing.JButton();
         Boton_Insertar = new javax.swing.JButton();
         Boton_Borrar = new javax.swing.JButton();
-
-        masterScrollPane.setViewportView(Tabla_Pedidos);
+        jScrollPane1 = new javax.swing.JScrollPane();
+        Tabla_Pedidos = new javax.swing.JTable();
 
         numPedLabel.setText("Num Ped:");
 
@@ -72,6 +70,19 @@ public class VistaPedidos extends javax.swing.JPanel {
         Boton_Insertar.setText("New");
 
         Boton_Borrar.setText("Delete");
+
+        Tabla_Pedidos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(Tabla_Pedidos);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -109,15 +120,15 @@ public class VistaPedidos extends javax.swing.JPanel {
                                     .addComponent(Txt_Precio, javax.swing.GroupLayout.DEFAULT_SIZE, 317, Short.MAX_VALUE)
                                     .addComponent(Txt_IdBar, javax.swing.GroupLayout.DEFAULT_SIZE, 317, Short.MAX_VALUE)
                                     .addComponent(Txt_CodigoProducto, javax.swing.GroupLayout.DEFAULT_SIZE, 317, Short.MAX_VALUE)))
-                            .addComponent(masterScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE))))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(masterScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(numPedLabel)
                     .addComponent(Txt_NumeroPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -163,7 +174,7 @@ public class VistaPedidos extends javax.swing.JPanel {
     private javax.swing.JButton Boton_Borrar;
     private javax.swing.JButton Boton_Insertar;
     private javax.swing.JButton Boton_Modificar;
-    private javax.swing.JTable Tabla_Pedidos;
+    public javax.swing.JTable Tabla_Pedidos;
     public javax.swing.JTextField Txt_Cantidad;
     public javax.swing.JTextField Txt_CodigoProducto;
     public javax.swing.JTextField Txt_Fecha;
@@ -176,7 +187,7 @@ public class VistaPedidos extends javax.swing.JPanel {
     public javax.swing.JLabel codigoArtLabel;
     public javax.swing.JLabel fechaLabel;
     public javax.swing.JLabel idBarLabel;
-    public javax.swing.JScrollPane masterScrollPane;
+    public javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JLabel nombreArtLabel;
     public javax.swing.JLabel numPedLabel;
     public javax.swing.JLabel precioLabel;

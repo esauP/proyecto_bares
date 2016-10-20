@@ -27,8 +27,6 @@ public class VistaRecaudacion extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        masterScrollPane = new javax.swing.JScrollPane();
-        Tabla_Pedidos = new javax.swing.JTable();
         numPedLabel = new javax.swing.JLabel();
         fechaLabel = new javax.swing.JLabel();
         proveedorLabel = new javax.swing.JLabel();
@@ -38,8 +36,8 @@ public class VistaRecaudacion extends javax.swing.JPanel {
         Boton_Modificar = new javax.swing.JButton();
         Boton_Insertar = new javax.swing.JButton();
         Boton_Borrar = new javax.swing.JButton();
-
-        masterScrollPane.setViewportView(Tabla_Pedidos);
+        jScrollPane1 = new javax.swing.JScrollPane();
+        Tabla_Recaudaciones = new javax.swing.JTable();
 
         numPedLabel.setText("Id Bar");
 
@@ -52,6 +50,19 @@ public class VistaRecaudacion extends javax.swing.JPanel {
         Boton_Insertar.setText("New");
 
         Boton_Borrar.setText("Delete");
+
+        Tabla_Recaudaciones.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(Tabla_Recaudaciones);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -79,14 +90,14 @@ public class VistaRecaudacion extends javax.swing.JPanel {
                                     .addComponent(Txt_IdBar, javax.swing.GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE)
                                     .addComponent(Txt_Fecha, javax.swing.GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE)
                                     .addComponent(Txt_Recaudacion, javax.swing.GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE)))
-                            .addComponent(masterScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE))))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(masterScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(numPedLabel)
@@ -99,12 +110,12 @@ public class VistaRecaudacion extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(proveedorLabel)
                     .addComponent(Txt_Recaudacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Boton_Modificar)
                     .addComponent(Boton_Borrar)
                     .addComponent(Boton_Insertar))
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -113,12 +124,12 @@ public class VistaRecaudacion extends javax.swing.JPanel {
     private javax.swing.JButton Boton_Borrar;
     private javax.swing.JButton Boton_Insertar;
     private javax.swing.JButton Boton_Modificar;
-    private javax.swing.JTable Tabla_Pedidos;
+    private javax.swing.JTable Tabla_Recaudaciones;
     private javax.swing.JTextField Txt_Fecha;
     private javax.swing.JTextField Txt_IdBar;
     private javax.swing.JTextField Txt_Recaudacion;
     private javax.swing.JLabel fechaLabel;
-    private javax.swing.JScrollPane masterScrollPane;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel numPedLabel;
     private javax.swing.JLabel proveedorLabel;
     // End of variables declaration//GEN-END:variables

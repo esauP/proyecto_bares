@@ -27,8 +27,6 @@ public class VistaBar extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        masterScrollPane = new javax.swing.JScrollPane();
-        Tabla_Bares = new javax.swing.JTable();
         idBarLabel = new javax.swing.JLabel();
         nombreBarLabel = new javax.swing.JLabel();
         licenciaFisLabel = new javax.swing.JLabel();
@@ -46,8 +44,8 @@ public class VistaBar extends javax.swing.JPanel {
         Boton_Modificar = new javax.swing.JButton();
         Boton_Insertar = new javax.swing.JButton();
         Boton_Borrar = new javax.swing.JButton();
-
-        masterScrollPane.setViewportView(Tabla_Bares);
+        jScrollPane1 = new javax.swing.JScrollPane();
+        Tabla_Bar = new javax.swing.JTable();
 
         idBarLabel.setText("Id Bar:");
 
@@ -68,6 +66,19 @@ public class VistaBar extends javax.swing.JPanel {
         Boton_Insertar.setText("Insertar");
 
         Boton_Borrar.setText("Borrar");
+
+        Tabla_Bar.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(Tabla_Bar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -103,15 +114,15 @@ public class VistaBar extends javax.swing.JPanel {
                                     .addComponent(Txt_FechaApertura, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
                                     .addComponent(Txt_Horario, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
                                     .addComponent(Txt_DiasApertura, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)))
-                            .addComponent(masterScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 389, Short.MAX_VALUE))))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 389, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(masterScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(idBarLabel)
                     .addComponent(Txt_IdBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -153,7 +164,7 @@ public class VistaBar extends javax.swing.JPanel {
     private javax.swing.JButton Boton_Borrar;
     private javax.swing.JButton Boton_Insertar;
     private javax.swing.JButton Boton_Modificar;
-    private javax.swing.JTable Tabla_Bares;
+    public javax.swing.JTable Tabla_Bar;
     public javax.swing.JTextField Txt_DiasApertura;
     public javax.swing.JTextField Txt_DomicilioBar;
     public javax.swing.JTextField Txt_FechaApertura;
@@ -166,8 +177,8 @@ public class VistaBar extends javax.swing.JPanel {
     public javax.swing.JLabel fechaAperLabel;
     public javax.swing.JLabel horarioLabel;
     public javax.swing.JLabel idBarLabel;
+    public javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JLabel licenciaFisLabel;
-    public javax.swing.JScrollPane masterScrollPane;
     public javax.swing.JLabel nombreBarLabel;
     // End of variables declaration//GEN-END:variables
 }

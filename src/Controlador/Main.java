@@ -29,7 +29,7 @@ public class Main {
         VistaTrabaja vistaTra = new VistaTrabaja();
         VistaRecaudacion vistaRec = new VistaRecaudacion();
 
-        new Controlador(vista, vistaBar, vistaInv, vistaPed, vistaPer, vistaTra,vistaRec).Iniciar();
+        new Controlador(vista, vistaBar, vistaInv, vistaPed, vistaPer, vistaTra, vistaRec).Iniciar();
     }
 
 }
