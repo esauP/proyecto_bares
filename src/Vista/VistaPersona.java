@@ -30,26 +30,22 @@ public class VistaPersona extends javax.swing.JPanel {
         nombrePersLabel = new javax.swing.JLabel();
         domicilioPerLabel = new javax.swing.JLabel();
         dniPerLabel = new javax.swing.JLabel();
-        funcionLabel = new javax.swing.JLabel();
         titularLabel = new javax.swing.JLabel();
         Txt_NombrePersona = new javax.swing.JTextField();
         Txt_DomicilioPersona = new javax.swing.JTextField();
         Txt_DniPersona = new javax.swing.JTextField();
-        Txt_Funcion = new javax.swing.JTextField();
-        Txt_Titular = new javax.swing.JTextField();
         Boton_Modificar = new javax.swing.JButton();
         Boton_Insertar = new javax.swing.JButton();
         Boton_Borrar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         Tabla_Personas = new javax.swing.JTable();
+        Combo_titular = new javax.swing.JComboBox<>();
 
         nombrePersLabel.setText("Nombre Pers:");
 
         domicilioPerLabel.setText("Domicilio Per:");
 
         dniPerLabel.setText("Dni Per:");
-
-        funcionLabel.setText("Funcion:");
 
         titularLabel.setText("Titular:");
 
@@ -72,6 +68,8 @@ public class VistaPersona extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(Tabla_Personas);
 
+        Combo_titular.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Empleado", "Dueño" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -93,15 +91,15 @@ public class VistaPersona extends javax.swing.JPanel {
                                     .addComponent(nombrePersLabel)
                                     .addComponent(domicilioPerLabel)
                                     .addComponent(dniPerLabel)
-                                    .addComponent(funcionLabel)
                                     .addComponent(titularLabel))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(Txt_NombrePersona, javax.swing.GroupLayout.DEFAULT_SIZE, 311, Short.MAX_VALUE)
                                     .addComponent(Txt_DomicilioPersona, javax.swing.GroupLayout.DEFAULT_SIZE, 311, Short.MAX_VALUE)
                                     .addComponent(Txt_DniPersona, javax.swing.GroupLayout.DEFAULT_SIZE, 311, Short.MAX_VALUE)
-                                    .addComponent(Txt_Funcion, javax.swing.GroupLayout.DEFAULT_SIZE, 311, Short.MAX_VALUE)
-                                    .addComponent(Txt_Titular, javax.swing.GroupLayout.DEFAULT_SIZE, 311, Short.MAX_VALUE)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(Combo_titular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE))))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE))))
                 .addContainerGap())
         );
@@ -110,7 +108,7 @@ public class VistaPersona extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nombrePersLabel)
                     .addComponent(Txt_NombrePersona, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -124,12 +122,8 @@ public class VistaPersona extends javax.swing.JPanel {
                     .addComponent(Txt_DniPersona, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(funcionLabel)
-                    .addComponent(Txt_Funcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(titularLabel)
-                    .addComponent(Txt_Titular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Combo_titular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Boton_Modificar)
@@ -144,15 +138,13 @@ public class VistaPersona extends javax.swing.JPanel {
     public javax.swing.JButton Boton_Borrar;
     public javax.swing.JButton Boton_Insertar;
     public javax.swing.JButton Boton_Modificar;
+    public javax.swing.JComboBox<String> Combo_titular;
     public javax.swing.JTable Tabla_Personas;
     public javax.swing.JTextField Txt_DniPersona;
     public javax.swing.JTextField Txt_DomicilioPersona;
-    public javax.swing.JTextField Txt_Funcion;
     public javax.swing.JTextField Txt_NombrePersona;
-    public javax.swing.JTextField Txt_Titular;
     public javax.swing.JLabel dniPerLabel;
     public javax.swing.JLabel domicilioPerLabel;
-    public javax.swing.JLabel funcionLabel;
     public javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JLabel nombrePersLabel;
     public javax.swing.JLabel titularLabel;

@@ -34,7 +34,6 @@
                                   <Component id="nombrePersLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="domicilioPerLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="dniPerLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="funcionLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="titularLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" max="-2" attributes="0"/>
@@ -42,8 +41,10 @@
                                   <Component id="Txt_NombrePersona" alignment="0" pref="311" max="32767" attributes="0"/>
                                   <Component id="Txt_DomicilioPersona" alignment="0" pref="311" max="32767" attributes="0"/>
                                   <Component id="Txt_DniPersona" alignment="0" pref="311" max="32767" attributes="0"/>
-                                  <Component id="Txt_Funcion" alignment="0" pref="311" max="32767" attributes="0"/>
-                                  <Component id="Txt_Titular" alignment="0" pref="311" max="32767" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Component id="Combo_titular" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
                           <Component id="jScrollPane1" alignment="0" pref="380" max="32767" attributes="0"/>
@@ -59,7 +60,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jScrollPane1" pref="151" max="32767" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="nombrePersLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="Txt_NombrePersona" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -74,15 +75,10 @@
                   <Component id="dniPerLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="Txt_DniPersona" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="funcionLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="Txt_Funcion" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="titularLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="Txt_Titular" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Combo_titular" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" max="-2" attributes="1"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -111,11 +107,6 @@
         <Property name="text" type="java.lang.String" value="Dni Per:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="funcionLabel">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Funcion:"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JLabel" name="titularLabel">
       <Properties>
         <Property name="text" type="java.lang.String" value="Titular:"/>
@@ -126,10 +117,6 @@
     <Component class="javax.swing.JTextField" name="Txt_DomicilioPersona">
     </Component>
     <Component class="javax.swing.JTextField" name="Txt_DniPersona">
-    </Component>
-    <Component class="javax.swing.JTextField" name="Txt_Funcion">
-    </Component>
-    <Component class="javax.swing.JTextField" name="Txt_Titular">
     </Component>
     <Component class="javax.swing.JButton" name="Boton_Modificar">
       <Properties>
@@ -173,5 +160,18 @@
         </Component>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JComboBox" name="Combo_titular">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="2">
+            <StringItem index="0" value="Empleado"/>
+            <StringItem index="1" value="Due&#xf1;o"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
   </SubComponents>
 </Form>

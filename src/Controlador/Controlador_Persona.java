@@ -5,8 +5,8 @@
  */
 package Controlador;
 
-import Modelo.Modelo_Bar;
-import Vista.VistaBar;
+import Modelo.Modelo_Persona;
+import Vista.VistaPersona;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -22,44 +22,47 @@ import javax.swing.table.DefaultTableCellRenderer;
  *
  * @author esaup
  */
-public class Controlador_Bar implements ActionListener, MouseListener {
+public class Controlador_Persona implements ActionListener, MouseListener {
 
-    VistaBar vista;
-    Modelo_Bar mod = new Modelo_Bar();
+    VistaPersona vista;
+    Modelo_Persona mod = new Modelo_Persona();
 
     int id;
 
-    public Controlador_Bar(VistaBar vista) {
+    public Controlador_Persona(VistaPersona vista) {
         this.vista = vista;
     }
 
     public void Iniciar() {
-
         this.vista.Boton_Insertar.addActionListener(this);
         this.vista.Boton_Modificar.addActionListener(this);
         this.vista.Boton_Borrar.addActionListener(this);
-        this.vista.Tabla_Bar.addMouseListener(this);
+        this.vista.Tabla_Personas.addMouseListener(this);
+        this.vista.Combo_titular.addActionListener(this);
 
-        this.vista.Tabla_Bar.setModel(mod.CargaTablaBar());
-        this.vista.Tabla_Bar.getTableHeader().setReorderingAllowed(false);
+        this.vista.Tabla_Personas.setModel(mod.CargaTablaPersona());
+        this.vista.Tabla_Personas.getTableHeader().setReorderingAllowed(false);
 
-        ((DefaultTableCellRenderer) this.vista.Tabla_Bar.getDefaultRenderer(String.c‌lass)).setHorizontal‌Alignment(JLabel.CENTER);
+        ((DefaultTableCellRenderer) this.vista.Tabla_Personas.getDefaultRenderer(String.c‌lass)).setHorizontal‌Alignment(JLabel.CENTER);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        //Insertar Bar
         if (e.getSource() == this.vista.Boton_Insertar) {
-            String nombar, licen, domic, hora, dias;
+            String nombar, dni, domic;
+            int titular;
+            nombar = this.vista.Txt_NombrePersona.getText();
+            dni = this.vista.Txt_DniPersona.getText();
+            domic = this.vista.Txt_DomicilioPersona.getText();
 
-            nombar = this.vista.Txt_NombreBar.getText();
-            licen = this.vista.Txt_Licencia.getText();
-            domic = this.vista.Txt_DomicilioBar.getText();
-            hora = this.vista.Txt_Horario.getText();
-            dias = this.vista.Txt_DiasApertura.getText();
+            if (this.vista.Combo_titular.getSelectedItem().equals("Dueño")) {
+                titular = 1;
+            } else {
+                titular = 0;
+            }
 
             try {
-                int result = mod.InsertaBar(nombar, licen, domic, hora, dias);
+                int result = mod.InsertaPersona(nombar, dni, domic, titular);
                 if (result == 1) {
                     JOptionPane.showMessageDialog(vista, "Ha ocurrido un error");
                 } else {
@@ -69,27 +72,24 @@ public class Controlador_Bar implements ActionListener, MouseListener {
                 Logger.getLogger(Controlador_Bar.class.getName()).log(Level.SEVERE, null, ex);
             }
 
-            this.vista.Tabla_Bar.setModel(mod.CargaTablaBar());
+            this.vista.Tabla_Personas.setModel(mod.CargaTablaPersona());
 
-            this.vista.Txt_NombreBar.setText("");
-            this.vista.Txt_Licencia.setText("");
-            this.vista.Txt_DomicilioBar.setText("");
-            this.vista.Txt_Horario.setText("");
-            this.vista.Txt_DiasApertura.setText("");
+            this.vista.Txt_NombrePersona.setText("");
+            this.vista.Txt_DniPersona.setText("");
+            this.vista.Txt_DomicilioPersona.setText("");
 
         }
         //Modificar bar
         if (e.getSource() == this.vista.Boton_Modificar) {
-            String nombar, domic, hora, dias;
+            String nombar, domic, dni;
 
-            nombar = this.vista.Txt_NombreBar.getText();
-            domic = this.vista.Txt_DomicilioBar.getText();
-            hora = this.vista.Txt_Horario.getText();
-            dias = this.vista.Txt_DiasApertura.getText();
+            nombar = this.vista.Txt_NombrePersona.getText();
+            domic = this.vista.Txt_DomicilioPersona.getText();
+            dni = this.vista.Txt_DniPersona.getText();
 
             int result;
             try {
-                result = mod.ModificaBar(id, nombar, domic, hora, dias);
+                result = mod.ModificaPersona(id, nombar, domic);
                 if (result == 1) {
                     JOptionPane.showMessageDialog(vista, "Ha ocurrido un error");
                 } else {
@@ -99,19 +99,18 @@ public class Controlador_Bar implements ActionListener, MouseListener {
                 Logger.getLogger(Controlador_Bar.class.getName()).log(Level.SEVERE, null, ex);
             }
 
-            this.vista.Tabla_Bar.setModel(mod.CargaTablaBar());
+            this.vista.Tabla_Personas.setModel(mod.CargaTablaPersona());
 
-            this.vista.Txt_NombreBar.setText("");
-            this.vista.Txt_Licencia.setText("");
-            this.vista.Txt_DomicilioBar.setText("");
-            this.vista.Txt_Horario.setText("");
-            this.vista.Txt_DiasApertura.setText("");
+            this.vista.Txt_NombrePersona.setText("");
+            this.vista.Txt_DniPersona.setText("");
+            this.vista.Txt_DomicilioPersona.setText("");
+
         }
         //Borrar bar
         if (e.getSource() == this.vista.Boton_Borrar) {
 
             try {
-                int result = mod.BorrarBar(id);
+                int result = mod.BorrarPersona(id);
 
                 if (result == 1) {
                     JOptionPane.showMessageDialog(vista, "Ha ocurrido un error");
@@ -122,19 +121,18 @@ public class Controlador_Bar implements ActionListener, MouseListener {
                 Logger.getLogger(Controlador_Bar.class.getName()).log(Level.SEVERE, null, ex);
             }
 
-            this.vista.Tabla_Bar.setModel(mod.CargaTablaBar());
+            this.vista.Tabla_Personas.setModel(mod.CargaTablaPersona());
         }
-
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        if (e.getSource() == this.vista.Tabla_Bar && e.getButton() == 1) {
+        if (e.getSource() == this.vista.Tabla_Personas && e.getButton() == 1) {
 
             String cod;
-            int fila = this.vista.Tabla_Bar.rowAtPoint(e.getPoint());
+            int fila = this.vista.Tabla_Personas.rowAtPoint(e.getPoint());
             if (fila > -1) {
-                cod = String.valueOf(this.vista.Tabla_Bar.getValueAt(fila, 0));
+                cod = String.valueOf(this.vista.Tabla_Personas.getValueAt(fila, 0));
                 id = Integer.parseInt(cod);
             }
 
@@ -152,10 +150,12 @@ public class Controlador_Bar implements ActionListener, MouseListener {
 
     @Override
     public void mouseEntered(MouseEvent e) {
+
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
+
     }
 
 }
