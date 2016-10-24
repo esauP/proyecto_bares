@@ -80,8 +80,8 @@ public class Modelo_Persona extends ConexionBD_BarNorte {
             CallableStatement cStmt = this.getConexion().prepareCall("{?=call Inserta_Persona(?,?,?,?)}");
             //pasamos por parametro todos los valores a introducir
             cStmt.setString(2, nombre);
-            cStmt.setString(3, dni);
-            cStmt.setString(4, domicilio);
+            cStmt.setString(3, domicilio);
+            cStmt.setString(4, dni);
             cStmt.setInt(5, titular);
             cStmt.execute();//ejecutamos la consulta
             resultado = cStmt.getInt(1);//recogemos si ha tenido exito
