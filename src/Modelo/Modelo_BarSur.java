@@ -86,12 +86,12 @@ public class Modelo_BarSur extends ConexionBD_BarSur {
             result = st.executeQuery();
             while (result.next()) {
                 Persona per = new Persona();
-                //          per.setDniPer(result.getInt("id"));
-                per.setDomicilioPer(result.getString("Nif"));
-                per.setNombrePers(result.getString("Nombre"));
-                per.setFuncion(result.getString("Apellido"));
-                //         per.setTitular(result.getString("Fecha_Nacimiento"));
-                //         per.setTrabaja(result.getString(""));
+                //dni_per, nombre_per, domicilio_per, funcion, titular
+                per.setDniPer(result.getString("dni_per"));
+                per.setNombrePers(result.getString("nombre_per"));
+                per.setDomicilioPer(result.getString("domicilio_per"));
+                per.setFuncion(result.getString("funcion"));
+                per.setTitular(result.getBoolean("titular"));
                 LPerso.add(per);
             }
         } catch (SQLException ex) {
@@ -100,4 +100,74 @@ public class Modelo_BarSur extends ConexionBD_BarSur {
         return LPerso;
     }
 
+    public ArrayList<Bar> SelectBares() {
+        ArrayList<Bar> LBar = new ArrayList<>();
+        ResultSet result = null;
+        try {
+            PreparedStatement st = this.getConexion().prepareStatement("select * from bar");
+            result = st.executeQuery();
+            while (result.next()) {
+                Bar bar = new Bar();
+                //id_bar, nombre_bar, licencia_fis, domicilio_bar, fecha_aper, horario, dias_apertura
+                bar.setIdBar(result.getInt("id_bar"));
+                bar.setNombreBar(result.getString("nombre_bar"));
+                bar.setLicenciaFis(result.getString("licencia_fis"));
+                bar.setDomicilioBar(result.getString("domicilio_bar"));
+                bar.setFechaAper(result.getDate("fecha_aper"));
+                bar.setHorario(result.getString("horario"));
+                bar.setDiasApertura(result.getString("dias_apertura"));
+                LBar.add(bar);
+            }
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+        return LBar;
+    }
+
+    public ArrayList<Existencias> SelectExistencias() {
+        ArrayList<Existencias> LExis = new ArrayList<>();
+        ResultSet result = null;
+        try {
+            PreparedStatement st = this.getConexion().prepareStatement("select * from bar");
+            result = st.executeQuery();
+            while (result.next()) {
+                Existencias exis = new Existencias();
+                //id_art, nombre_art, cantidad, precio, bar_id
+                exis.setIdArt(result.getInt("id_art"));
+                exis.setNombreArt(result.getString("nombre_art"));
+                exis.setCantidad(result.getInt("cantidad"));
+                exis.setPrecio(result.getInt("precio"));
+                exis.setBarId((Bar) result.getObject("bar_id"));//REVISAR
+                LExis.add(exis);
+            }
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+        return LExis;
+    }
+
+    public ArrayList<Pedidos> SelectPedidos() {
+        ArrayList<Pedidos> LPide = new ArrayList<>();
+        ResultSet result = null;
+        try {
+            PreparedStatement st = this.getConexion().prepareStatement("select * from bar");
+            result = st.executeQuery();
+            while (result.next()) {
+                Pedidos pide = new Pedidos();
+                //num_ped, fecha, proveedor, nombre_art, cantidad, precio, id_bar, codigo_art
+                pide.setNumPed(result.getInt("num_ped"));
+                pide.setFecha(result.getDate("fecha"));
+                pide.setProveedor(result.getString("proveedor"));
+                pide.setNombreArt(result.getString("nombre_art"));
+                pide.setCantidad(result.getInt("cantidad"));
+                pide.setPrecio(result.getInt("precio"));
+                pide.setIdBar(result.getInt("id_bar"));
+                pide.setCodigoArt((Existencias) result.getObject("codigo_art"));
+                LPide.add(pide);
+            }
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+        return LPide;
+    }
 }
