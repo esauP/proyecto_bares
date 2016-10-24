@@ -1,11 +1,13 @@
 package Modelo;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
-
+import java.util.ArrayList;
 
 public class Modelo_BarSur extends ConexionBD_BarSur {
 
+    //INSERT's
     public void InsertPersona(Persona persona) {
         try {
             PreparedStatement st = this.getConexion().prepareStatement("insert into persona (dni_per, nombre_per, domicilio_per, funcion, titular) values (?,?,?,?,?)");
@@ -50,7 +52,7 @@ public class Modelo_BarSur extends ConexionBD_BarSur {
         }
     }
 
-    public void InsertBar(Pedidos pedidos) {
+    public void InsertPedidos(Pedidos pedidos) {
         try {
             PreparedStatement st = this.getConexion().prepareStatement("insert into pedidos (num_ped, fecha, proveedor, nombre_art, cantidad, precio, id_bar, codigo_art) values (?,?,?,?,?,?,?,?)");
             st.setString(1, pedidos.getNumPed().toString());
@@ -65,6 +67,37 @@ public class Modelo_BarSur extends ConexionBD_BarSur {
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }
+    }
+
+    public void InsertarRecaudacion(RecaudacionPK recaudacion) {
+
+    }
+
+    public void InsertarTrabaja(TrabajaPK trabaja) {
+
+    }
+
+    //SELECT's
+    public ArrayList<Persona> SelectPersona() {
+        ArrayList<Persona> LPerso = new ArrayList<>();
+        ResultSet result = null;
+        try {
+            PreparedStatement st = this.getConexion().prepareStatement("select * from personas");
+            result = st.executeQuery();
+            while (result.next()) {
+                Persona per = new Persona();
+                //          per.setDniPer(result.getInt("id"));
+                per.setDomicilioPer(result.getString("Nif"));
+                per.setNombrePers(result.getString("Nombre"));
+                per.setFuncion(result.getString("Apellido"));
+                //         per.setTitular(result.getString("Fecha_Nacimiento"));
+                //         per.setTrabaja(result.getString(""));
+                LPerso.add(per);
+            }
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+        return LPerso;
     }
 
 }
