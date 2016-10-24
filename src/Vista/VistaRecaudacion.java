@@ -45,11 +45,11 @@ public class VistaRecaudacion extends javax.swing.JPanel {
 
         proveedorLabel.setText("Total Recaudado");
 
-        Boton_Modificar.setText("Actualizar");
+        Boton_Modificar.setText("Modificar");
 
         Boton_Insertar.setText("Insertar");
 
-        Boton_Borrar.setText("Eliminar");
+        Boton_Borrar.setText("Borrar");
 
         Tabla_Recaudaciones.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -119,9 +119,9 @@ public class VistaRecaudacion extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Boton_Borrar;
-    private javax.swing.JButton Boton_Insertar;
-    private javax.swing.JButton Boton_Modificar;
+    public javax.swing.JButton Boton_Borrar;
+    public javax.swing.JButton Boton_Insertar;
+    public javax.swing.JButton Boton_Modificar;
     private javax.swing.JTable Tabla_Recaudaciones;
     private javax.swing.JTextField Txt_Fecha;
     private javax.swing.JTextField Txt_IdBar;

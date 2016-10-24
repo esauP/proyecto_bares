@@ -21,6 +21,8 @@ public class Main {
         VistaPersona vistaPer = new VistaPersona();
         VistaTrabaja vistaTra = new VistaTrabaja();
         VistaRecaudacion vistaRec = new VistaRecaudacion();
+        
+        new Controlador_Bar(vistaBar).Iniciar();
 
         new Controlador(vista, vistaBar, vistaInv, vistaPed, vistaPer, vistaTra, vistaRec).Iniciar();
     }

@@ -141,9 +141,9 @@ public class VistaPersona extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Boton_Borrar;
-    private javax.swing.JButton Boton_Insertar;
-    private javax.swing.JButton Boton_Modificar;
+    public javax.swing.JButton Boton_Borrar;
+    public javax.swing.JButton Boton_Insertar;
+    public javax.swing.JButton Boton_Modificar;
     public javax.swing.JTable Tabla_Personas;
     public javax.swing.JTextField Txt_DniPersona;
     public javax.swing.JTextField Txt_DomicilioPersona;

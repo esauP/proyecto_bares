@@ -31,21 +31,17 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="idBarLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="nombreBarLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="licenciaFisLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="domicilioBarLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="fechaAperLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="horarioLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="diasAperturaLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="Txt_IdBar" alignment="0" pref="315" max="32767" attributes="0"/>
                                   <Component id="Txt_NombreBar" alignment="0" pref="315" max="32767" attributes="0"/>
                                   <Component id="Txt_Licencia" alignment="0" pref="315" max="32767" attributes="0"/>
                                   <Component id="Txt_DomicilioBar" alignment="0" pref="315" max="32767" attributes="0"/>
-                                  <Component id="Txt_FechaApertura" alignment="0" pref="315" max="32767" attributes="0"/>
                                   <Component id="Txt_Horario" alignment="0" pref="315" max="32767" attributes="0"/>
                                   <Component id="Txt_DiasApertura" alignment="0" pref="315" max="32767" attributes="0"/>
                               </Group>
@@ -62,13 +58,8 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jScrollPane1" pref="125" max="32767" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="idBarLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="Txt_IdBar" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" max="-2" attributes="0"/>
+              <Component id="jScrollPane1" pref="170" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="nombreBarLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="Txt_NombreBar" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -83,12 +74,7 @@
                   <Component id="domicilioBarLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="Txt_DomicilioBar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="fechaAperLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="Txt_FechaApertura" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="horarioLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="Txt_Horario" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -110,11 +96,6 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="idBarLabel">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Id Bar:"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JLabel" name="nombreBarLabel">
       <Properties>
         <Property name="text" type="java.lang.String" value="Nombre Bar:"/>
@@ -130,11 +111,6 @@
         <Property name="text" type="java.lang.String" value="Domicilio Bar:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="fechaAperLabel">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Fecha Aper:"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JLabel" name="horarioLabel">
       <Properties>
         <Property name="text" type="java.lang.String" value="Horario:"/>
@@ -145,15 +121,11 @@
         <Property name="text" type="java.lang.String" value="Dias Apertura:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="Txt_IdBar">
-    </Component>
     <Component class="javax.swing.JTextField" name="Txt_NombreBar">
     </Component>
     <Component class="javax.swing.JTextField" name="Txt_Licencia">
     </Component>
     <Component class="javax.swing.JTextField" name="Txt_DomicilioBar">
-    </Component>
-    <Component class="javax.swing.JTextField" name="Txt_FechaApertura">
     </Component>
     <Component class="javax.swing.JTextField" name="Txt_Horario">
     </Component>
@@ -165,7 +137,6 @@
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableLocal" type="java.lang.Boolean" value="false"/>
-        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="2"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="Boton_Insertar">
@@ -174,7 +145,6 @@
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableLocal" type="java.lang.Boolean" value="false"/>
-        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="2"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="Boton_Borrar">
@@ -182,8 +152,8 @@
         <Property name="text" type="java.lang.String" value="Borrar"/>
       </Properties>
       <AuxValues>
+        <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="VistaBar_Boton_Borrar"/>
         <AuxValue name="JavaCodeGenerator_VariableLocal" type="java.lang.Boolean" value="false"/>
-        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="2"/>
       </AuxValues>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">

@@ -27,18 +27,14 @@ public class VistaBar extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        idBarLabel = new javax.swing.JLabel();
         nombreBarLabel = new javax.swing.JLabel();
         licenciaFisLabel = new javax.swing.JLabel();
         domicilioBarLabel = new javax.swing.JLabel();
-        fechaAperLabel = new javax.swing.JLabel();
         horarioLabel = new javax.swing.JLabel();
         diasAperturaLabel = new javax.swing.JLabel();
-        Txt_IdBar = new javax.swing.JTextField();
         Txt_NombreBar = new javax.swing.JTextField();
         Txt_Licencia = new javax.swing.JTextField();
         Txt_DomicilioBar = new javax.swing.JTextField();
-        Txt_FechaApertura = new javax.swing.JTextField();
         Txt_Horario = new javax.swing.JTextField();
         Txt_DiasApertura = new javax.swing.JTextField();
         Boton_Modificar = new javax.swing.JButton();
@@ -47,15 +43,11 @@ public class VistaBar extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         Tabla_Bar = new javax.swing.JTable();
 
-        idBarLabel.setText("Id Bar:");
-
         nombreBarLabel.setText("Nombre Bar:");
 
         licenciaFisLabel.setText("Licencia Fis:");
 
         domicilioBarLabel.setText("Domicilio Bar:");
-
-        fechaAperLabel.setText("Fecha Aper:");
 
         horarioLabel.setText("Horario:");
 
@@ -98,20 +90,16 @@ public class VistaBar extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(idBarLabel)
                                     .addComponent(nombreBarLabel)
                                     .addComponent(licenciaFisLabel)
                                     .addComponent(domicilioBarLabel)
-                                    .addComponent(fechaAperLabel)
                                     .addComponent(horarioLabel)
                                     .addComponent(diasAperturaLabel))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Txt_IdBar, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
                                     .addComponent(Txt_NombreBar, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
                                     .addComponent(Txt_Licencia, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
                                     .addComponent(Txt_DomicilioBar, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
-                                    .addComponent(Txt_FechaApertura, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
                                     .addComponent(Txt_Horario, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
                                     .addComponent(Txt_DiasApertura, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 389, Short.MAX_VALUE))))
@@ -121,12 +109,8 @@ public class VistaBar extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(idBarLabel)
-                    .addComponent(Txt_IdBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nombreBarLabel)
                     .addComponent(Txt_NombreBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -138,10 +122,6 @@ public class VistaBar extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(domicilioBarLabel)
                     .addComponent(Txt_DomicilioBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(fechaAperLabel)
-                    .addComponent(Txt_FechaApertura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(horarioLabel)
@@ -161,22 +141,18 @@ public class VistaBar extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Boton_Borrar;
-    private javax.swing.JButton Boton_Insertar;
-    private javax.swing.JButton Boton_Modificar;
+    public javax.swing.JButton Boton_Borrar;
+    public javax.swing.JButton Boton_Insertar;
+    public javax.swing.JButton Boton_Modificar;
     public javax.swing.JTable Tabla_Bar;
     public javax.swing.JTextField Txt_DiasApertura;
     public javax.swing.JTextField Txt_DomicilioBar;
-    public javax.swing.JTextField Txt_FechaApertura;
     public javax.swing.JTextField Txt_Horario;
-    public javax.swing.JTextField Txt_IdBar;
     public javax.swing.JTextField Txt_Licencia;
     public javax.swing.JTextField Txt_NombreBar;
     public javax.swing.JLabel diasAperturaLabel;
     public javax.swing.JLabel domicilioBarLabel;
-    public javax.swing.JLabel fechaAperLabel;
     public javax.swing.JLabel horarioLabel;
-    public javax.swing.JLabel idBarLabel;
     public javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JLabel licenciaFisLabel;
     public javax.swing.JLabel nombreBarLabel;

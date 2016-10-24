@@ -65,11 +65,11 @@ public class VistaPedidos extends javax.swing.JPanel {
 
         codigoArtLabel.setText("Codigo Art:");
 
-        Boton_Modificar.setText("Actualizar");
+        Boton_Modificar.setText("Modificar");
 
         Boton_Insertar.setText("Nuevo");
 
-        Boton_Borrar.setText("Eliminar");
+        Boton_Borrar.setText("Borrar");
 
         Tabla_Pedidos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -171,9 +171,9 @@ public class VistaPedidos extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Boton_Borrar;
-    private javax.swing.JButton Boton_Insertar;
-    private javax.swing.JButton Boton_Modificar;
+    public javax.swing.JButton Boton_Borrar;
+    public javax.swing.JButton Boton_Insertar;
+    public javax.swing.JButton Boton_Modificar;
     public javax.swing.JTable Tabla_Pedidos;
     public javax.swing.JTextField Txt_Cantidad;
     public javax.swing.JTextField Txt_CodigoProducto;

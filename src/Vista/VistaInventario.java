@@ -141,9 +141,9 @@ public class VistaInventario extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Boton_Eliminar;
-    private javax.swing.JButton Boton_Insertar;
-    private javax.swing.JButton Boton_Modificar;
+    public javax.swing.JButton Boton_Eliminar;
+    public javax.swing.JButton Boton_Insertar;
+    public javax.swing.JButton Boton_Modificar;
     public javax.swing.JTable Tabla_Inventario;
     public javax.swing.JTextField Txt_Cantidad;
     public javax.swing.JTextField Txt_IdArticulo;
