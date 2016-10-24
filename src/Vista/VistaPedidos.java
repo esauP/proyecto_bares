@@ -65,11 +65,11 @@ public class VistaPedidos extends javax.swing.JPanel {
 
         codigoArtLabel.setText("Codigo Art:");
 
-        Boton_Modificar.setText("Refresh");
+        Boton_Modificar.setText("Actualizar");
 
-        Boton_Insertar.setText("New");
+        Boton_Insertar.setText("Nuevo");
 
-        Boton_Borrar.setText("Delete");
+        Boton_Borrar.setText("Eliminar");
 
         Tabla_Pedidos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

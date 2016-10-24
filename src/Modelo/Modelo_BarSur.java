@@ -3,10 +3,7 @@ package Modelo;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-/**
- *
- * @author Jairo
- */
+
 public class Modelo_BarSur extends ConexionBD_BarSur {
 
     public void InsertPersona(Persona persona) {
@@ -43,8 +40,8 @@ public class Modelo_BarSur extends ConexionBD_BarSur {
             PreparedStatement st = this.getConexion().prepareStatement("insert into existencias (id_art, nombre_art, cantidad, precio, bar_id) values (?,?,?,?,?)");
             st.setString(1, existencias.getIdArt().toString());
             st.setString(2, existencias.getNombreArt());
-//            st.setString(3, existencias.getCantidad());
-//           st.setString(4, existencias.getPrecio());
+//          st.setString(3, existencias.getCantidad());
+//          st.setString(4, existencias.getPrecio());
 //          st.setString(5, existencias.getBarId());
 
             st.execute();
@@ -60,7 +57,7 @@ public class Modelo_BarSur extends ConexionBD_BarSur {
             st.setString(2, pedidos.getFecha().toString());
             st.setString(3, pedidos.getProveedor());
             st.setString(4, pedidos.getNombreArt());
-            //           st.setString(5, pedidos.getCantidad());
+//           st.setString(5, pedidos.getCantidad());
 //            st.setString(6, pedidos.getPrecio());
 //            st.setString(7, pedidos.getIdBar());
 //            st.setString(8, pedidos.getCodigoArt());

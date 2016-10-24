@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Controlador;
 
 
@@ -11,10 +7,7 @@ import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
-/**
- *
- * @author esaup
- */
+
 public class Controlador {
 
     //se crean los objetos vistas
@@ -42,7 +35,7 @@ public class Controlador {
         this.vista.PanelPestania.addTab("Pedidos", vistaPed);
         this.vista.PanelPestania.addTab("Personal", vistaPer);
         this.vista.PanelPestania.addTab("Funcion", vistaTra);
-        this.vista.PanelPestania.addTab("Recuadaciones", vistaRec);
+        this.vista.PanelPestania.addTab("Recaudaciones", vistaRec);
 
     }
 
