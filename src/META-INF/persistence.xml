@@ -8,6 +8,7 @@
     <class>Modelo.Existencias</class>
     <class>Modelo.Pedidos</class>
     <class>Modelo.Persona</class>
+    <class>Modelo.Recaudacion</class>
     <class>Modelo.Trabaja</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://79.148.236.236/dam43_BarNorte?zeroDateTimeBehavior=convertToNull"/>

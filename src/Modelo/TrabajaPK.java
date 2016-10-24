@@ -12,7 +12,7 @@ import javax.persistence.Embeddable;
 
 /**
  *
- * @author esaup
+ * @author Samuel
  */
 @Embeddable
 public class TrabajaPK implements Serializable {
@@ -74,7 +74,7 @@ public class TrabajaPK implements Serializable {
 
     @Override
     public String toString() {
-        return "Vista.TrabajaPK[ dniPersona=" + dniPersona + ", codigoBar=" + codigoBar + " ]";
+        return "Modelo.TrabajaPK[ dniPersona=" + dniPersona + ", codigoBar=" + codigoBar + " ]";
     }
     
 }

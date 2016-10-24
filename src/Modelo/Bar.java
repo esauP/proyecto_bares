@@ -5,11 +5,11 @@
  */
 package Modelo;
 
-import java.beans.PropertyChangeListener;
-import java.beans.PropertyChangeSupport;
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,30 +17,30 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.persistence.Transient;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author esaup
+ * @author Samuel
  */
 @Entity
-@Table(name = "bar", catalog = "dam43_BarNorte", schema = "")
+@Table(name = "bar")
+@XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Bar.findAll", query = "SELECT b FROM Bar b")
-    , @NamedQuery(name = "Bar.findByIdBar", query = "SELECT b FROM Bar b WHERE b.idBar = :idBar")
-    , @NamedQuery(name = "Bar.findByNombreBar", query = "SELECT b FROM Bar b WHERE b.nombreBar = :nombreBar")
-    , @NamedQuery(name = "Bar.findByLicenciaFis", query = "SELECT b FROM Bar b WHERE b.licenciaFis = :licenciaFis")
-    , @NamedQuery(name = "Bar.findByDomicilioBar", query = "SELECT b FROM Bar b WHERE b.domicilioBar = :domicilioBar")
-    , @NamedQuery(name = "Bar.findByFechaAper", query = "SELECT b FROM Bar b WHERE b.fechaAper = :fechaAper")
-    , @NamedQuery(name = "Bar.findByHorario", query = "SELECT b FROM Bar b WHERE b.horario = :horario")
-    , @NamedQuery(name = "Bar.findByDiasApertura", query = "SELECT b FROM Bar b WHERE b.diasApertura = :diasApertura")})
+    @NamedQuery(name = "Bar.findAll", query = "SELECT b FROM Bar b"),
+    @NamedQuery(name = "Bar.findByIdBar", query = "SELECT b FROM Bar b WHERE b.idBar = :idBar"),
+    @NamedQuery(name = "Bar.findByNombreBar", query = "SELECT b FROM Bar b WHERE b.nombreBar = :nombreBar"),
+    @NamedQuery(name = "Bar.findByLicenciaFis", query = "SELECT b FROM Bar b WHERE b.licenciaFis = :licenciaFis"),
+    @NamedQuery(name = "Bar.findByDomicilioBar", query = "SELECT b FROM Bar b WHERE b.domicilioBar = :domicilioBar"),
+    @NamedQuery(name = "Bar.findByFechaAper", query = "SELECT b FROM Bar b WHERE b.fechaAper = :fechaAper"),
+    @NamedQuery(name = "Bar.findByHorario", query = "SELECT b FROM Bar b WHERE b.horario = :horario"),
+    @NamedQuery(name = "Bar.findByDiasApertura", query = "SELECT b FROM Bar b WHERE b.diasApertura = :diasApertura")})
 public class Bar implements Serializable {
-
-    @Transient
-    private PropertyChangeSupport changeSupport = new PropertyChangeSupport(this);
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -67,6 +67,12 @@ public class Bar implements Serializable {
     @Basic(optional = false)
     @Column(name = "dias_apertura")
     private String diasApertura;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "barId")
+    private Collection<Existencias> existenciasCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "bar")
+    private Collection<Trabaja> trabajaCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "bar1")
+    private Collection<Recaudacion> recaudacionCollection;
 
     public Bar() {
     }
@@ -90,9 +96,7 @@ public class Bar implements Serializable {
     }
 
     public void setIdBar(Integer idBar) {
-        Integer oldIdBar = this.idBar;
         this.idBar = idBar;
-        changeSupport.firePropertyChange("idBar", oldIdBar, idBar);
     }
 
     public String getNombreBar() {
@@ -100,9 +104,7 @@ public class Bar implements Serializable {
     }
 
     public void setNombreBar(String nombreBar) {
-        String oldNombreBar = this.nombreBar;
         this.nombreBar = nombreBar;
-        changeSupport.firePropertyChange("nombreBar", oldNombreBar, nombreBar);
     }
 
     public String getLicenciaFis() {
@@ -110,9 +112,7 @@ public class Bar implements Serializable {
     }
 
     public void setLicenciaFis(String licenciaFis) {
-        String oldLicenciaFis = this.licenciaFis;
         this.licenciaFis = licenciaFis;
-        changeSupport.firePropertyChange("licenciaFis", oldLicenciaFis, licenciaFis);
     }
 
     public String getDomicilioBar() {
@@ -120,9 +120,7 @@ public class Bar implements Serializable {
     }
 
     public void setDomicilioBar(String domicilioBar) {
-        String oldDomicilioBar = this.domicilioBar;
         this.domicilioBar = domicilioBar;
-        changeSupport.firePropertyChange("domicilioBar", oldDomicilioBar, domicilioBar);
     }
 
     public Date getFechaAper() {
@@ -130,9 +128,7 @@ public class Bar implements Serializable {
     }
 
     public void setFechaAper(Date fechaAper) {
-        Date oldFechaAper = this.fechaAper;
         this.fechaAper = fechaAper;
-        changeSupport.firePropertyChange("fechaAper", oldFechaAper, fechaAper);
     }
 
     public String getHorario() {
@@ -140,9 +136,7 @@ public class Bar implements Serializable {
     }
 
     public void setHorario(String horario) {
-        String oldHorario = this.horario;
         this.horario = horario;
-        changeSupport.firePropertyChange("horario", oldHorario, horario);
     }
 
     public String getDiasApertura() {
@@ -150,9 +144,34 @@ public class Bar implements Serializable {
     }
 
     public void setDiasApertura(String diasApertura) {
-        String oldDiasApertura = this.diasApertura;
         this.diasApertura = diasApertura;
-        changeSupport.firePropertyChange("diasApertura", oldDiasApertura, diasApertura);
+    }
+
+    @XmlTransient
+    public Collection<Existencias> getExistenciasCollection() {
+        return existenciasCollection;
+    }
+
+    public void setExistenciasCollection(Collection<Existencias> existenciasCollection) {
+        this.existenciasCollection = existenciasCollection;
+    }
+
+    @XmlTransient
+    public Collection<Trabaja> getTrabajaCollection() {
+        return trabajaCollection;
+    }
+
+    public void setTrabajaCollection(Collection<Trabaja> trabajaCollection) {
+        this.trabajaCollection = trabajaCollection;
+    }
+
+    @XmlTransient
+    public Collection<Recaudacion> getRecaudacionCollection() {
+        return recaudacionCollection;
+    }
+
+    public void setRecaudacionCollection(Collection<Recaudacion> recaudacionCollection) {
+        this.recaudacionCollection = recaudacionCollection;
     }
 
     @Override
@@ -177,15 +196,7 @@ public class Bar implements Serializable {
 
     @Override
     public String toString() {
-        return "Vista.Bar[ idBar=" + idBar + " ]";
-    }
-
-    public void addPropertyChangeListener(PropertyChangeListener listener) {
-        changeSupport.addPropertyChangeListener(listener);
-    }
-
-    public void removePropertyChangeListener(PropertyChangeListener listener) {
-        changeSupport.removePropertyChangeListener(listener);
+        return "Modelo.Bar[ idBar=" + idBar + " ]";
     }
     
 }

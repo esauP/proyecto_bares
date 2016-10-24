@@ -5,7 +5,7 @@
  */
 package Controlador;
 
-import Modelo.ModeloBar;
+
 import Vista.*;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;

@@ -5,8 +5,6 @@
  */
 package Modelo;
 
-import java.beans.PropertyChangeListener;
-import java.beans.PropertyChangeSupport;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Basic;
@@ -15,33 +13,32 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.persistence.Transient;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author esaup
+ * @author Samuel
  */
 @Entity
-@Table(name = "pedidos", catalog = "dam43_BarNorte", schema = "")
+@Table(name = "pedidos")
+@XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Pedidos.findAll", query = "SELECT p FROM Pedidos p")
-    , @NamedQuery(name = "Pedidos.findByNumPed", query = "SELECT p FROM Pedidos p WHERE p.numPed = :numPed")
-    , @NamedQuery(name = "Pedidos.findByFecha", query = "SELECT p FROM Pedidos p WHERE p.fecha = :fecha")
-    , @NamedQuery(name = "Pedidos.findByProveedor", query = "SELECT p FROM Pedidos p WHERE p.proveedor = :proveedor")
-    , @NamedQuery(name = "Pedidos.findByNombreArt", query = "SELECT p FROM Pedidos p WHERE p.nombreArt = :nombreArt")
-    , @NamedQuery(name = "Pedidos.findByCantidad", query = "SELECT p FROM Pedidos p WHERE p.cantidad = :cantidad")
-    , @NamedQuery(name = "Pedidos.findByPrecio", query = "SELECT p FROM Pedidos p WHERE p.precio = :precio")
-    , @NamedQuery(name = "Pedidos.findByIdBar", query = "SELECT p FROM Pedidos p WHERE p.idBar = :idBar")
-    , @NamedQuery(name = "Pedidos.findByCodigoArt", query = "SELECT p FROM Pedidos p WHERE p.codigoArt = :codigoArt")})
+    @NamedQuery(name = "Pedidos.findAll", query = "SELECT p FROM Pedidos p"),
+    @NamedQuery(name = "Pedidos.findByNumPed", query = "SELECT p FROM Pedidos p WHERE p.numPed = :numPed"),
+    @NamedQuery(name = "Pedidos.findByFecha", query = "SELECT p FROM Pedidos p WHERE p.fecha = :fecha"),
+    @NamedQuery(name = "Pedidos.findByProveedor", query = "SELECT p FROM Pedidos p WHERE p.proveedor = :proveedor"),
+    @NamedQuery(name = "Pedidos.findByNombreArt", query = "SELECT p FROM Pedidos p WHERE p.nombreArt = :nombreArt"),
+    @NamedQuery(name = "Pedidos.findByCantidad", query = "SELECT p FROM Pedidos p WHERE p.cantidad = :cantidad"),
+    @NamedQuery(name = "Pedidos.findByPrecio", query = "SELECT p FROM Pedidos p WHERE p.precio = :precio"),
+    @NamedQuery(name = "Pedidos.findByIdBar", query = "SELECT p FROM Pedidos p WHERE p.idBar = :idBar")})
 public class Pedidos implements Serializable {
-
-    @Transient
-    private PropertyChangeSupport changeSupport = new PropertyChangeSupport(this);
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -68,9 +65,9 @@ public class Pedidos implements Serializable {
     @Basic(optional = false)
     @Column(name = "id_bar")
     private int idBar;
-    @Basic(optional = false)
-    @Column(name = "codigo_art")
-    private int codigoArt;
+    @JoinColumn(name = "codigo_art", referencedColumnName = "id_art")
+    @ManyToOne(optional = false)
+    private Existencias codigoArt;
 
     public Pedidos() {
     }
@@ -79,7 +76,7 @@ public class Pedidos implements Serializable {
         this.numPed = numPed;
     }
 
-    public Pedidos(Integer numPed, Date fecha, String proveedor, String nombreArt, int cantidad, double precio, int idBar, int codigoArt) {
+    public Pedidos(Integer numPed, Date fecha, String proveedor, String nombreArt, int cantidad, double precio, int idBar) {
         this.numPed = numPed;
         this.fecha = fecha;
         this.proveedor = proveedor;
@@ -87,7 +84,6 @@ public class Pedidos implements Serializable {
         this.cantidad = cantidad;
         this.precio = precio;
         this.idBar = idBar;
-        this.codigoArt = codigoArt;
     }
 
     public Integer getNumPed() {
@@ -95,9 +91,7 @@ public class Pedidos implements Serializable {
     }
 
     public void setNumPed(Integer numPed) {
-        Integer oldNumPed = this.numPed;
         this.numPed = numPed;
-        changeSupport.firePropertyChange("numPed", oldNumPed, numPed);
     }
 
     public Date getFecha() {
@@ -105,9 +99,7 @@ public class Pedidos implements Serializable {
     }
 
     public void setFecha(Date fecha) {
-        Date oldFecha = this.fecha;
         this.fecha = fecha;
-        changeSupport.firePropertyChange("fecha", oldFecha, fecha);
     }
 
     public String getProveedor() {
@@ -115,9 +107,7 @@ public class Pedidos implements Serializable {
     }
 
     public void setProveedor(String proveedor) {
-        String oldProveedor = this.proveedor;
         this.proveedor = proveedor;
-        changeSupport.firePropertyChange("proveedor", oldProveedor, proveedor);
     }
 
     public String getNombreArt() {
@@ -125,9 +115,7 @@ public class Pedidos implements Serializable {
     }
 
     public void setNombreArt(String nombreArt) {
-        String oldNombreArt = this.nombreArt;
         this.nombreArt = nombreArt;
-        changeSupport.firePropertyChange("nombreArt", oldNombreArt, nombreArt);
     }
 
     public int getCantidad() {
@@ -135,9 +123,7 @@ public class Pedidos implements Serializable {
     }
 
     public void setCantidad(int cantidad) {
-        int oldCantidad = this.cantidad;
         this.cantidad = cantidad;
-        changeSupport.firePropertyChange("cantidad", oldCantidad, cantidad);
     }
 
     public double getPrecio() {
@@ -145,9 +131,7 @@ public class Pedidos implements Serializable {
     }
 
     public void setPrecio(double precio) {
-        double oldPrecio = this.precio;
         this.precio = precio;
-        changeSupport.firePropertyChange("precio", oldPrecio, precio);
     }
 
     public int getIdBar() {
@@ -155,19 +139,15 @@ public class Pedidos implements Serializable {
     }
 
     public void setIdBar(int idBar) {
-        int oldIdBar = this.idBar;
         this.idBar = idBar;
-        changeSupport.firePropertyChange("idBar", oldIdBar, idBar);
     }
 
-    public int getCodigoArt() {
+    public Existencias getCodigoArt() {
         return codigoArt;
     }
 
-    public void setCodigoArt(int codigoArt) {
-        int oldCodigoArt = this.codigoArt;
+    public void setCodigoArt(Existencias codigoArt) {
         this.codigoArt = codigoArt;
-        changeSupport.firePropertyChange("codigoArt", oldCodigoArt, codigoArt);
     }
 
     @Override
@@ -192,15 +172,7 @@ public class Pedidos implements Serializable {
 
     @Override
     public String toString() {
-        return "Vista.Pedidos[ numPed=" + numPed + " ]";
-    }
-
-    public void addPropertyChangeListener(PropertyChangeListener listener) {
-        changeSupport.addPropertyChangeListener(listener);
-    }
-
-    public void removePropertyChangeListener(PropertyChangeListener listener) {
-        changeSupport.removePropertyChangeListener(listener);
+        return "Modelo.Pedidos[ numPed=" + numPed + " ]";
     }
     
 }

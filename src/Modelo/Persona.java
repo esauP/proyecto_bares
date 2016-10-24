@@ -5,35 +5,33 @@
  */
 package Modelo;
 
-import java.beans.PropertyChangeListener;
-import java.beans.PropertyChangeSupport;
 import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.persistence.Transient;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author esaup
+ * @author Samuel
  */
 @Entity
-@Table(name = "persona", catalog = "dam43_BarNorte", schema = "")
+@Table(name = "persona")
+@XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Persona.findAll", query = "SELECT p FROM Persona p")
-    , @NamedQuery(name = "Persona.findByNombrePers", query = "SELECT p FROM Persona p WHERE p.nombrePers = :nombrePers")
-    , @NamedQuery(name = "Persona.findByDomicilioPer", query = "SELECT p FROM Persona p WHERE p.domicilioPer = :domicilioPer")
-    , @NamedQuery(name = "Persona.findByDniPer", query = "SELECT p FROM Persona p WHERE p.dniPer = :dniPer")
-    , @NamedQuery(name = "Persona.findByFuncion", query = "SELECT p FROM Persona p WHERE p.funcion = :funcion")
-    , @NamedQuery(name = "Persona.findByTitular", query = "SELECT p FROM Persona p WHERE p.titular = :titular")})
+    @NamedQuery(name = "Persona.findAll", query = "SELECT p FROM Persona p"),
+    @NamedQuery(name = "Persona.findByNombrePers", query = "SELECT p FROM Persona p WHERE p.nombrePers = :nombrePers"),
+    @NamedQuery(name = "Persona.findByDomicilioPer", query = "SELECT p FROM Persona p WHERE p.domicilioPer = :domicilioPer"),
+    @NamedQuery(name = "Persona.findByDniPer", query = "SELECT p FROM Persona p WHERE p.dniPer = :dniPer"),
+    @NamedQuery(name = "Persona.findByFuncion", query = "SELECT p FROM Persona p WHERE p.funcion = :funcion"),
+    @NamedQuery(name = "Persona.findByTitular", query = "SELECT p FROM Persona p WHERE p.titular = :titular")})
 public class Persona implements Serializable {
-
-    @Transient
-    private PropertyChangeSupport changeSupport = new PropertyChangeSupport(this);
 
     private static final long serialVersionUID = 1L;
     @Basic(optional = false)
@@ -52,6 +50,9 @@ public class Persona implements Serializable {
     @Basic(optional = false)
     @Column(name = "titular")
     private boolean titular;
+    @JoinColumn(name = "dni_per", referencedColumnName = "dni_persona", insertable = false, updatable = false)
+    @OneToOne(optional = false)
+    private Trabaja trabaja;
 
     public Persona() {
     }
@@ -73,9 +74,7 @@ public class Persona implements Serializable {
     }
 
     public void setNombrePers(String nombrePers) {
-        String oldNombrePers = this.nombrePers;
         this.nombrePers = nombrePers;
-        changeSupport.firePropertyChange("nombrePers", oldNombrePers, nombrePers);
     }
 
     public String getDomicilioPer() {
@@ -83,9 +82,7 @@ public class Persona implements Serializable {
     }
 
     public void setDomicilioPer(String domicilioPer) {
-        String oldDomicilioPer = this.domicilioPer;
         this.domicilioPer = domicilioPer;
-        changeSupport.firePropertyChange("domicilioPer", oldDomicilioPer, domicilioPer);
     }
 
     public String getDniPer() {
@@ -93,9 +90,7 @@ public class Persona implements Serializable {
     }
 
     public void setDniPer(String dniPer) {
-        String oldDniPer = this.dniPer;
         this.dniPer = dniPer;
-        changeSupport.firePropertyChange("dniPer", oldDniPer, dniPer);
     }
 
     public String getFuncion() {
@@ -103,9 +98,7 @@ public class Persona implements Serializable {
     }
 
     public void setFuncion(String funcion) {
-        String oldFuncion = this.funcion;
         this.funcion = funcion;
-        changeSupport.firePropertyChange("funcion", oldFuncion, funcion);
     }
 
     public boolean getTitular() {
@@ -113,9 +106,15 @@ public class Persona implements Serializable {
     }
 
     public void setTitular(boolean titular) {
-        boolean oldTitular = this.titular;
         this.titular = titular;
-        changeSupport.firePropertyChange("titular", oldTitular, titular);
+    }
+
+    public Trabaja getTrabaja() {
+        return trabaja;
+    }
+
+    public void setTrabaja(Trabaja trabaja) {
+        this.trabaja = trabaja;
     }
 
     @Override
@@ -140,15 +139,7 @@ public class Persona implements Serializable {
 
     @Override
     public String toString() {
-        return "Vista.Persona[ dniPer=" + dniPer + " ]";
-    }
-
-    public void addPropertyChangeListener(PropertyChangeListener listener) {
-        changeSupport.addPropertyChangeListener(listener);
-    }
-
-    public void removePropertyChangeListener(PropertyChangeListener listener) {
-        changeSupport.removePropertyChangeListener(listener);
+        return "Modelo.Persona[ dniPer=" + dniPer + " ]";
     }
     
 }

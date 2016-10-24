@@ -5,37 +5,38 @@
  */
 package Modelo;
 
-import java.beans.PropertyChangeListener;
-import java.beans.PropertyChangeSupport;
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Transient;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author esaup
+ * @author Samuel
  */
 @Entity
-@Table(name = "existencias", catalog = "dam43_BarNorte", schema = "")
+@Table(name = "existencias")
+@XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Existencias.findAll", query = "SELECT e FROM Existencias e")
-    , @NamedQuery(name = "Existencias.findByIdArt", query = "SELECT e FROM Existencias e WHERE e.idArt = :idArt")
-    , @NamedQuery(name = "Existencias.findByNombreArt", query = "SELECT e FROM Existencias e WHERE e.nombreArt = :nombreArt")
-    , @NamedQuery(name = "Existencias.findByCantidad", query = "SELECT e FROM Existencias e WHERE e.cantidad = :cantidad")
-    , @NamedQuery(name = "Existencias.findByPrecio", query = "SELECT e FROM Existencias e WHERE e.precio = :precio")
-    , @NamedQuery(name = "Existencias.findByBarId", query = "SELECT e FROM Existencias e WHERE e.barId = :barId")})
+    @NamedQuery(name = "Existencias.findAll", query = "SELECT e FROM Existencias e"),
+    @NamedQuery(name = "Existencias.findByIdArt", query = "SELECT e FROM Existencias e WHERE e.idArt = :idArt"),
+    @NamedQuery(name = "Existencias.findByNombreArt", query = "SELECT e FROM Existencias e WHERE e.nombreArt = :nombreArt"),
+    @NamedQuery(name = "Existencias.findByCantidad", query = "SELECT e FROM Existencias e WHERE e.cantidad = :cantidad"),
+    @NamedQuery(name = "Existencias.findByPrecio", query = "SELECT e FROM Existencias e WHERE e.precio = :precio")})
 public class Existencias implements Serializable {
-
-    @Transient
-    private PropertyChangeSupport changeSupport = new PropertyChangeSupport(this);
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -52,9 +53,11 @@ public class Existencias implements Serializable {
     @Basic(optional = false)
     @Column(name = "precio")
     private double precio;
-    @Basic(optional = false)
-    @Column(name = "bar_id")
-    private int barId;
+    @JoinColumn(name = "bar_id", referencedColumnName = "id_bar")
+    @ManyToOne(optional = false)
+    private Bar barId;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "codigoArt")
+    private Collection<Pedidos> pedidosCollection;
 
     public Existencias() {
     }
@@ -63,12 +66,11 @@ public class Existencias implements Serializable {
         this.idArt = idArt;
     }
 
-    public Existencias(Integer idArt, String nombreArt, int cantidad, double precio, int barId) {
+    public Existencias(Integer idArt, String nombreArt, int cantidad, double precio) {
         this.idArt = idArt;
         this.nombreArt = nombreArt;
         this.cantidad = cantidad;
         this.precio = precio;
-        this.barId = barId;
     }
 
     public Integer getIdArt() {
@@ -76,9 +78,7 @@ public class Existencias implements Serializable {
     }
 
     public void setIdArt(Integer idArt) {
-        Integer oldIdArt = this.idArt;
         this.idArt = idArt;
-        changeSupport.firePropertyChange("idArt", oldIdArt, idArt);
     }
 
     public String getNombreArt() {
@@ -86,9 +86,7 @@ public class Existencias implements Serializable {
     }
 
     public void setNombreArt(String nombreArt) {
-        String oldNombreArt = this.nombreArt;
         this.nombreArt = nombreArt;
-        changeSupport.firePropertyChange("nombreArt", oldNombreArt, nombreArt);
     }
 
     public int getCantidad() {
@@ -96,9 +94,7 @@ public class Existencias implements Serializable {
     }
 
     public void setCantidad(int cantidad) {
-        int oldCantidad = this.cantidad;
         this.cantidad = cantidad;
-        changeSupport.firePropertyChange("cantidad", oldCantidad, cantidad);
     }
 
     public double getPrecio() {
@@ -106,19 +102,24 @@ public class Existencias implements Serializable {
     }
 
     public void setPrecio(double precio) {
-        double oldPrecio = this.precio;
         this.precio = precio;
-        changeSupport.firePropertyChange("precio", oldPrecio, precio);
     }
 
-    public int getBarId() {
+    public Bar getBarId() {
         return barId;
     }
 
-    public void setBarId(int barId) {
-        int oldBarId = this.barId;
+    public void setBarId(Bar barId) {
         this.barId = barId;
-        changeSupport.firePropertyChange("barId", oldBarId, barId);
+    }
+
+    @XmlTransient
+    public Collection<Pedidos> getPedidosCollection() {
+        return pedidosCollection;
+    }
+
+    public void setPedidosCollection(Collection<Pedidos> pedidosCollection) {
+        this.pedidosCollection = pedidosCollection;
     }
 
     @Override
@@ -143,15 +144,7 @@ public class Existencias implements Serializable {
 
     @Override
     public String toString() {
-        return "Vista.Existencias[ idArt=" + idArt + " ]";
-    }
-
-    public void addPropertyChangeListener(PropertyChangeListener listener) {
-        changeSupport.addPropertyChangeListener(listener);
-    }
-
-    public void removePropertyChangeListener(PropertyChangeListener listener) {
-        changeSupport.removePropertyChangeListener(listener);
+        return "Modelo.Existencias[ idArt=" + idArt + " ]";
     }
     
 }
