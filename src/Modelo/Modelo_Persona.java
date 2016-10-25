@@ -55,12 +55,21 @@ public class Modelo_Persona extends ConexionBD_BarNorte {
             for (int i = 1; i <= col; i++) {
                 columName[i - 1] = rsp.getColumnName(i);
             }
+
             data = new String[registros][col];
 
             int j = 0;
             while (re.next()) {
                 for (int h = 0; h < col; h++) {
                     data[j][h] = re.getString(columName[h].toString());
+                    if (j==col) {
+                        if (re.getString(columName[h].toString()) == "0") {
+                            data[j][h] = "Empleado";
+                        }
+                        if (re.getString(columName[h].toString()) == "1") {
+                            data[j][h] = "Dueño";
+                        }
+                    }
                 }
                 j++;
             }
@@ -72,15 +81,17 @@ public class Modelo_Persona extends ConexionBD_BarNorte {
         tabla.setDataVector(data, columName);
         return tabla;
     }
-/**
- * Metodo para insertar personas en la bd
- * @param nombre String
- * @param dni String
- * @param domicilio String
- * @param titular int
- * @return int 0 y 1, 0 correcto, 1 error
- * @throws SQLException 
- */
+
+    /**
+     * Metodo para insertar personas en la bd
+     *
+     * @param nombre String
+     * @param dni String
+     * @param domicilio String
+     * @param titular int
+     * @return int 0 y 1, 0 correcto, 1 error
+     * @throws SQLException
+     */
     public int InsertaPersona(String nombre, String dni, String domicilio, int titular) throws SQLException {
         int resultado = 1;
         try {
@@ -102,11 +113,12 @@ public class Modelo_Persona extends ConexionBD_BarNorte {
 
     /**
      * Metodo para la modificacion de una persona dado su dni
-     * @param dnic String clave primaria para modificar persona 
+     *
+     * @param dnic String clave primaria para modificar persona
      * @param nombre String
      * @param domicilio String
      * @return int 0 y 1, 0 correcto, 1 error
-     * @throws SQLException 
+     * @throws SQLException
      */
     public int ModificaPersona(String dnic, String nombre, String domicilio) throws SQLException {
         int resultado = 1;
@@ -125,12 +137,14 @@ public class Modelo_Persona extends ConexionBD_BarNorte {
         }
         return resultado;
     }
-/**
- * Metodo para eliminar a una persona segun su identificador
- * @param dnic String para borrar el registro
- * @return int 0 y 1, 0 correcto, 1 error
- * @throws SQLException 
- */
+
+    /**
+     * Metodo para eliminar a una persona segun su identificador
+     *
+     * @param dnic String para borrar el registro
+     * @return int 0 y 1, 0 correcto, 1 error
+     * @throws SQLException
+     */
     public int BorrarPersona(String dnic) throws SQLException {
         int resultado = 1;
         try {
