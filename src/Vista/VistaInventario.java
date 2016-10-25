@@ -27,23 +27,19 @@ public class VistaInventario extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        idArtLabel = new javax.swing.JLabel();
         nombreArtLabel = new javax.swing.JLabel();
         cantidadLabel = new javax.swing.JLabel();
         precioLabel = new javax.swing.JLabel();
         barIdLabel = new javax.swing.JLabel();
-        Txt_IdArticulo = new javax.swing.JTextField();
         Txt_NombreArticulo = new javax.swing.JTextField();
         Txt_Cantidad = new javax.swing.JTextField();
         Txt_Precio = new javax.swing.JTextField();
-        Txt_IdBar = new javax.swing.JTextField();
+        Txt_Idbar = new javax.swing.JFormattedTextField();
         Boton_Modificar = new javax.swing.JButton();
         Boton_Insertar = new javax.swing.JButton();
-        Boton_Eliminar = new javax.swing.JButton();
+        Boton_Borrar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         Tabla_Inventario = new javax.swing.JTable();
-
-        idArtLabel.setText("Id Art:");
 
         nombreArtLabel.setText("Nombre Art:");
 
@@ -53,11 +49,13 @@ public class VistaInventario extends javax.swing.JPanel {
 
         barIdLabel.setText("Bar Id:");
 
+        Txt_Idbar.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+
         Boton_Modificar.setText("Modificar");
 
         Boton_Insertar.setText("Insertar");
 
-        Boton_Eliminar.setText("Borrar");
+        Boton_Borrar.setText("Borrar");
 
         Tabla_Inventario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -81,7 +79,7 @@ public class VistaInventario extends javax.swing.JPanel {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(Boton_Insertar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Boton_Eliminar)
+                        .addComponent(Boton_Borrar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(Boton_Modificar)
                         .addGap(77, 77, 77))
@@ -90,18 +88,16 @@ public class VistaInventario extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(idArtLabel)
                                     .addComponent(nombreArtLabel)
                                     .addComponent(cantidadLabel)
                                     .addComponent(precioLabel)
                                     .addComponent(barIdLabel))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Txt_IdArticulo, javax.swing.GroupLayout.DEFAULT_SIZE, 317, Short.MAX_VALUE)
                                     .addComponent(Txt_NombreArticulo, javax.swing.GroupLayout.DEFAULT_SIZE, 317, Short.MAX_VALUE)
                                     .addComponent(Txt_Cantidad, javax.swing.GroupLayout.DEFAULT_SIZE, 317, Short.MAX_VALUE)
                                     .addComponent(Txt_Precio, javax.swing.GroupLayout.DEFAULT_SIZE, 317, Short.MAX_VALUE)
-                                    .addComponent(Txt_IdBar, javax.swing.GroupLayout.DEFAULT_SIZE, 317, Short.MAX_VALUE)))
+                                    .addComponent(Txt_Idbar)))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE))))
                 .addContainerGap())
         );
@@ -109,12 +105,8 @@ public class VistaInventario extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(idArtLabel)
-                    .addComponent(Txt_IdArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nombreArtLabel)
                     .addComponent(Txt_NombreArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -129,11 +121,11 @@ public class VistaInventario extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(barIdLabel)
-                    .addComponent(Txt_IdBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Txt_Idbar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Boton_Modificar)
-                    .addComponent(Boton_Eliminar)
+                    .addComponent(Boton_Borrar)
                     .addComponent(Boton_Insertar))
                 .addContainerGap())
         );
@@ -141,18 +133,16 @@ public class VistaInventario extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton Boton_Eliminar;
+    public javax.swing.JButton Boton_Borrar;
     public javax.swing.JButton Boton_Insertar;
     public javax.swing.JButton Boton_Modificar;
     public javax.swing.JTable Tabla_Inventario;
     public javax.swing.JTextField Txt_Cantidad;
-    public javax.swing.JTextField Txt_IdArticulo;
-    public javax.swing.JTextField Txt_IdBar;
+    public javax.swing.JFormattedTextField Txt_Idbar;
     public javax.swing.JTextField Txt_NombreArticulo;
     public javax.swing.JTextField Txt_Precio;
     public javax.swing.JLabel barIdLabel;
     public javax.swing.JLabel cantidadLabel;
-    public javax.swing.JLabel idArtLabel;
     public javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JLabel nombreArtLabel;
     public javax.swing.JLabel precioLabel;

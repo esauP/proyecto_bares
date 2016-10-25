@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -21,7 +21,7 @@
                   <Group type="102" alignment="1" attributes="0">
                       <Component id="Boton_Insertar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="Boton_Eliminar" min="-2" max="-2" attributes="0"/>
+                      <Component id="Boton_Borrar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="Boton_Modificar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
@@ -31,7 +31,6 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="idArtLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="nombreArtLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="cantidadLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="precioLabel" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -39,11 +38,10 @@
                               </Group>
                               <EmptySpace min="-2" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="Txt_IdArticulo" alignment="0" pref="317" max="32767" attributes="0"/>
                                   <Component id="Txt_NombreArticulo" alignment="0" pref="317" max="32767" attributes="0"/>
                                   <Component id="Txt_Cantidad" alignment="0" pref="317" max="32767" attributes="0"/>
                                   <Component id="Txt_Precio" alignment="0" pref="317" max="32767" attributes="0"/>
-                                  <Component id="Txt_IdBar" alignment="0" pref="317" max="32767" attributes="0"/>
+                                  <Component id="Txt_Idbar" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Component id="jScrollPane1" alignment="0" pref="380" max="32767" attributes="0"/>
@@ -58,13 +56,8 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jScrollPane1" pref="196" max="32767" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="idArtLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="Txt_IdArticulo" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" max="-2" attributes="0"/>
+              <Component id="jScrollPane1" pref="215" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="nombreArtLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="Txt_NombreArticulo" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -82,12 +75,12 @@
               <EmptySpace min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="barIdLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="Txt_IdBar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Txt_Idbar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" max="-2" attributes="1"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="Boton_Modificar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="Boton_Eliminar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Boton_Borrar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="Boton_Insertar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" max="-2" attributes="0"/>
@@ -96,11 +89,6 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="idArtLabel">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Id Art:"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JLabel" name="nombreArtLabel">
       <Properties>
         <Property name="text" type="java.lang.String" value="Nombre Art:"/>
@@ -121,15 +109,18 @@
         <Property name="text" type="java.lang.String" value="Bar Id:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="Txt_IdArticulo">
-    </Component>
     <Component class="javax.swing.JTextField" name="Txt_NombreArticulo">
     </Component>
     <Component class="javax.swing.JTextField" name="Txt_Cantidad">
     </Component>
     <Component class="javax.swing.JTextField" name="Txt_Precio">
     </Component>
-    <Component class="javax.swing.JTextField" name="Txt_IdBar">
+    <Component class="javax.swing.JFormattedTextField" name="Txt_Idbar">
+      <Properties>
+        <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+          <Format format="#0" subtype="-1" type="0"/>
+        </Property>
+      </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="Boton_Modificar">
       <Properties>
@@ -147,7 +138,7 @@
         <AuxValue name="JavaCodeGenerator_VariableLocal" type="java.lang.Boolean" value="false"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JButton" name="Boton_Eliminar">
+    <Component class="javax.swing.JButton" name="Boton_Borrar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Borrar"/>
       </Properties>
