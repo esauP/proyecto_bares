@@ -27,7 +27,7 @@ public class Controlador_Persona implements ActionListener, MouseListener {
     VistaPersona vista;
     Modelo_Persona mod = new Modelo_Persona();
 
-    int id;
+    String dnic;
 
     public Controlador_Persona(VistaPersona vista) {
         this.vista = vista;
@@ -89,7 +89,7 @@ public class Controlador_Persona implements ActionListener, MouseListener {
 
             int result;
             try {
-                result = mod.ModificaPersona(id, nombar, domic);
+                result = mod.ModificaPersona(dnic, nombar, domic);
                 if (result == 1) {
                     JOptionPane.showMessageDialog(vista, "Ha ocurrido un error");
                 } else {
@@ -110,7 +110,7 @@ public class Controlador_Persona implements ActionListener, MouseListener {
         if (e.getSource() == this.vista.Boton_Borrar) {
 
             try {
-                int result = mod.BorrarPersona(id);
+                int result = mod.BorrarPersona(dnic);
 
                 if (result == 1) {
                     JOptionPane.showMessageDialog(vista, "Ha ocurrido un error");
@@ -129,11 +129,11 @@ public class Controlador_Persona implements ActionListener, MouseListener {
     public void mouseClicked(MouseEvent e) {
         if (e.getSource() == this.vista.Tabla_Personas && e.getButton() == 1) {
 
-            String cod;
+          
             int fila = this.vista.Tabla_Personas.rowAtPoint(e.getPoint());
             if (fila > -1) {
-                cod = String.valueOf(this.vista.Tabla_Personas.getValueAt(fila, 0));
-                id = Integer.parseInt(cod);
+               dnic = String.valueOf(this.vista.Tabla_Personas.getValueAt(fila, 2));
+               
             }
 
         }

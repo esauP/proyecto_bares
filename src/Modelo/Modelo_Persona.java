@@ -72,7 +72,15 @@ public class Modelo_Persona extends ConexionBD_BarNorte {
         tabla.setDataVector(data, columName);
         return tabla;
     }
-
+/**
+ * Metodo para insertar personas en la bd
+ * @param nombre String
+ * @param dni String
+ * @param domicilio String
+ * @param titular int
+ * @return int 0 y 1, 0 correcto, 1 error
+ * @throws SQLException 
+ */
     public int InsertaPersona(String nombre, String dni, String domicilio, int titular) throws SQLException {
         int resultado = 1;
         try {
@@ -92,13 +100,21 @@ public class Modelo_Persona extends ConexionBD_BarNorte {
         return resultado;
     }
 
-    public int ModificaPersona(int id, String nombre, String domicilio) throws SQLException {
+    /**
+     * Metodo para la modificacion de una persona dado su dni
+     * @param dnic String clave primaria para modificar persona 
+     * @param nombre String
+     * @param domicilio String
+     * @return int 0 y 1, 0 correcto, 1 error
+     * @throws SQLException 
+     */
+    public int ModificaPersona(String dnic, String nombre, String domicilio) throws SQLException {
         int resultado = 1;
         try {
             //creamos la consulta
             CallableStatement cStmt = this.getConexion().prepareCall("{?=call Actualiza_persona(?,?,?)}");
             //pasamos por parametro todos los valores a introducir
-            cStmt.setInt(2, id);
+            cStmt.setString(2, dnic);
             cStmt.setString(3, nombre);
             cStmt.setString(4, domicilio);
             cStmt.execute();//ejecutamos la consulta
@@ -109,14 +125,19 @@ public class Modelo_Persona extends ConexionBD_BarNorte {
         }
         return resultado;
     }
-
-    public int BorrarPersona(int id) throws SQLException {
+/**
+ * Metodo para eliminar a una persona segun su identificador
+ * @param dnic String para borrar el registro
+ * @return int 0 y 1, 0 correcto, 1 error
+ * @throws SQLException 
+ */
+    public int BorrarPersona(String dnic) throws SQLException {
         int resultado = 1;
         try {
             //creamos la consulta
             CallableStatement cStmt = this.getConexion().prepareCall("{?=call Borrar_Persona(?)}");
             //pasamos por parametro todos los valores a introducir
-            cStmt.setInt(2, id);
+            cStmt.setString(2, dnic);
             cStmt.execute();//ejecutamos la consulta
             resultado = cStmt.getInt(1);//recogemos si ha tenido exito
             return resultado;

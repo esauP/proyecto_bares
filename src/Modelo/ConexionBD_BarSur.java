@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 public class ConexionBD_BarSur {
 
-    private String url = "\\BarSur.db3";
+    private String url = "BarSur.db3";
     private Connection connect;
 
     public ConexionBD_BarSur() {
