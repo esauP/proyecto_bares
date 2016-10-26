@@ -14,8 +14,7 @@ import java.sql.SQLException;
  * @author esaup
  */
 class ConexionBD_BarNorte {
-
-    private static Connection conexion;
+ private static Connection conexion;
     private String user = "dam43";
     private String bd = user + "_BarNorte";
     private String password = "salesianas";
