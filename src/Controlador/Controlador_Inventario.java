@@ -56,9 +56,9 @@ public class Controlador_Inventario implements ActionListener, MouseListener {
             int idbar, cant;
             double prec;
             nomart = this.vista.Txt_NombreArticulo.getText();
-            cant = Integer.parseInt(this.vista.Txt_Cantidad.getText());
-            prec = Integer.parseInt(this.vista.Txt_Precio.getText());
-            idbar = Integer.parseInt(this.vista.Txt_Idbar.getText());
+            cant = Integer.parseInt(""+this.vista.Txt_Cantidad.getText());
+            prec =Double.parseDouble(""+this.vista.Txt_Precio.getText());
+            idbar = Integer.parseInt(""+this.vista.Txt_Idbar.getText());
 
             try {
                 int result = mod.InsertaArticulo(nomart, cant, prec, idbar);

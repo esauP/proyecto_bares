@@ -142,7 +142,7 @@ public class Modelo_Trabaja extends ConexionBD_BarNorte {
         int resultado = 1;
         try {
             //creamos la consulta
-            CallableStatement cStmt = this.getConexion().prepareCall("{?=call Borrar_Trabajador(?,?)}");
+            CallableStatement cStmt = this.getConexion().prepareCall("{?=call Borra_Trabajador(?,?)}");
             //pasamos por parametro todos los valores a introducir
             cStmt.setString(2, dni);
             cStmt.setInt(3, cod);

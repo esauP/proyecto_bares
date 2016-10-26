@@ -52,7 +52,7 @@ public class Controlador_Persona implements ActionListener, MouseListener {
             String nombar, dni, domic;
             int titular;
             nombar = this.vista.Txt_NombrePersona.getText();
-            dni = this.vista.Txt_DniPersona.getText();
+            dni = "" + this.vista.Txt_DniPersona.getText();
             domic = this.vista.Txt_DomicilioPersona.getText();
 
             if (this.vista.Combo_titular.getSelectedItem().equals("Dueño")) {
@@ -85,7 +85,7 @@ public class Controlador_Persona implements ActionListener, MouseListener {
 
             nombar = this.vista.Txt_NombrePersona.getText();
             domic = this.vista.Txt_DomicilioPersona.getText();
-            dni = this.vista.Txt_DniPersona.getText();
+            dni = "" + this.vista.Txt_DniPersona.getText();
 
             int result;
             try {
@@ -129,11 +129,10 @@ public class Controlador_Persona implements ActionListener, MouseListener {
     public void mouseClicked(MouseEvent e) {
         if (e.getSource() == this.vista.Tabla_Personas && e.getButton() == 1) {
 
-          
             int fila = this.vista.Tabla_Personas.rowAtPoint(e.getPoint());
             if (fila > -1) {
-               dnic = String.valueOf(this.vista.Tabla_Personas.getValueAt(fila, 2));
-               
+                dnic = String.valueOf(this.vista.Tabla_Personas.getValueAt(fila, 2));
+
             }
 
         }

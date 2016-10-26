@@ -55,9 +55,9 @@ public class Controlador_Trabaja implements ActionListener, MouseListener {
             String dni, func;
             int cod;
 
-            dni = this.vista.Txt_DniPersona.getText();
+            dni = "" + this.vista.Txt_DniPersona.getText();
             func = this.vista.Txt_Funcion.getText();
-            cod = Integer.parseInt(this.vista.Txt_IdBar.getText());
+            cod = Integer.parseInt("" + this.vista.Txt_IdBar.getText());
 
             try {
                 int result = mod.InsertaTrabajador(dni, cod, func);
@@ -82,7 +82,7 @@ public class Controlador_Trabaja implements ActionListener, MouseListener {
             String dni, func;
             int cod;
 
-            dni = this.vista.Txt_DniPersona.getText();
+            dni = "" + this.vista.Txt_DniPersona.getText();
             func = this.vista.Txt_Funcion.getText();
             cod = Integer.parseInt(this.vista.Txt_IdBar.getText());
 

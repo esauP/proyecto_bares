@@ -112,7 +112,7 @@ public class Modelo_Bar extends ConexionBD_BarNorte{
         int resultado = 1;
         try {
             //creamos la consulta
-            CallableStatement cStmt = this.getConexion().prepareCall("{?=call Borrar_Bar(?)}");
+            CallableStatement cStmt = this.getConexion().prepareCall("{?=call Borra_Bar(?)}");
             //pasamos por parametro todos los valores a introducir
             cStmt.setInt(2, id);
             cStmt.execute();//ejecutamos la consulta

@@ -57,10 +57,10 @@ public class Controlador_Pedidos implements ActionListener, MouseListener {
 
             prove = this.vista.Txt_Proveedor.getText();
             nomart = this.vista.Txt_NombreArticulo.getText();
-            barid = Integer.parseInt(this.vista.Txt_IdBar.getText());
-            codart = Integer.parseInt(this.vista.Txt_CodigoProducto.getText());
-            cant = Integer.parseInt(this.vista.Txt_Cantidad.getText());
-            prec = Double.parseDouble(this.vista.Txt_Precio.getText());
+            barid = Integer.parseInt("" + this.vista.Txt_IdBar.getText());
+            codart = Integer.parseInt("" + this.vista.Txt_CodigoProducto.getText());
+            cant = Integer.parseInt("" + this.vista.Txt_Cantidad.getText());
+            prec = Double.parseDouble("" + this.vista.Txt_Precio.getText());
 
             int result = mod.InsertaPedido(prove, nomart, cant, prec, barid, codart);
             if (result == 1) {

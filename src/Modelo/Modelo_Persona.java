@@ -148,7 +148,7 @@ public class Modelo_Persona extends ConexionBD_BarNorte{
         int resultado = 1;
         try {
             //creamos la consulta
-            CallableStatement cStmt = this.getConexion().prepareCall("{?=call Borrar_Persona(?)}");
+            CallableStatement cStmt = this.getConexion().prepareCall("{?=call Borra_Persona(?)}");
             //pasamos por parametro todos los valores a introducir
             cStmt.setString(2, dnic);
             cStmt.execute();//ejecutamos la consulta

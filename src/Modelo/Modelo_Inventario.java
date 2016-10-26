@@ -141,7 +141,7 @@ public class Modelo_Inventario extends ConexionBD_BarNorte{
         int resultado = 1;
         try {
             //creamos la consulta
-            CallableStatement cStmt = this.getConexion().prepareCall("{?=call Borrar_Existencias(?)}");
+            CallableStatement cStmt = this.getConexion().prepareCall("{?=call Borra_Existencias(?)}");
             //pasamos por parametro todos los valores a introducir
             cStmt.setInt(2, idart);
             cStmt.execute();//ejecutamos la consulta

@@ -54,8 +54,8 @@ public class Controlador_Recaudacion implements ActionListener, MouseListener {
             int idbar;
             double prec;
 
-            prec = Integer.parseInt(this.vista.Txt_Recaudacion.getText());
-            idbar = Integer.parseInt(this.vista.Txt_IdBar.getText());
+            prec = Double.parseDouble("" + this.vista.Txt_Recaudacion.getText());
+            idbar = Integer.parseInt("" + this.vista.Txt_IdBar.getText());
 
             try {
                 int result = mod.InsertaRecaudacion(idbar, prec);
@@ -80,7 +80,7 @@ public class Controlador_Recaudacion implements ActionListener, MouseListener {
 
             double prec;
 
-            prec = Integer.parseInt(this.vista.Txt_Recaudacion.getText());
+            prec = Double.parseDouble("" + this.vista.Txt_Recaudacion.getText());
             int result;
             try {
                 result = mod.ModificaRecaudacion(id, prec);
@@ -98,7 +98,6 @@ public class Controlador_Recaudacion implements ActionListener, MouseListener {
             this.vista.Txt_Fecha.setText("");
             this.vista.Txt_IdBar.setText("");
             this.vista.Txt_Recaudacion.setText("");
-
 
         }
         //Borrar articulo

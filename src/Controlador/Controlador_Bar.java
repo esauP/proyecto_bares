@@ -53,7 +53,7 @@ public class Controlador_Bar implements ActionListener, MouseListener {
             String nombar, licen, domic, hora, dias;
 
             nombar = this.vista.Txt_NombreBar.getText();
-            licen = this.vista.Txt_Licencia.getText();
+            licen = "" + this.vista.Txt_Licencia.getText();
             domic = this.vista.Txt_DomicilioBar.getText();
             hora = this.vista.Txt_Horario.getText();
             dias = this.vista.Txt_DiasApertura.getText();
