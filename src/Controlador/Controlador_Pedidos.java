@@ -82,7 +82,7 @@ public class Controlador_Pedidos implements ActionListener, MouseListener {
         if (e.getSource() == this.vista.Boton_Borrar) {
 
             try {
-                int result = mod.BorrarArticulo(num_Ped);
+                int result = mod.BorrarPedido(num_Ped);
 
                 if (result == 1) {
                     JOptionPane.showMessageDialog(vista, "Ha ocurrido un error");

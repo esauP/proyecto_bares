@@ -17,9 +17,8 @@ import javax.swing.table.TableModel;
  *
  * @author esaup
  */
-public class Modelo_Pedidos extends ConexionBD_BarNorte {
-
-    public TableModel CargaTablaPedidos() {
+public class Modelo_Pedidos extends ConexionBD_BarNorte{
+     public TableModel CargaTablaPedidos() {
         DefaultTableModel tabla = new DefaultTableModel();
         Object[] columName = null;
         Object[][] data = null;
@@ -110,7 +109,7 @@ public class Modelo_Pedidos extends ConexionBD_BarNorte {
      * @return int 0 y 1, 0 correcto, 1 error
      * @throws SQLException
      */
-    public int BorrarArticulo(int num_ped) throws SQLException {
+    public int BorrarPedido(int num_ped) throws SQLException {
         int resultado = 1;
         try {
             //creamos la consulta

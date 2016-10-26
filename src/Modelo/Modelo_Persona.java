@@ -16,9 +16,8 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author esaup
  */
-public class Modelo_Persona extends ConexionBD_BarNorte {
-
-    /**
+public class Modelo_Persona extends ConexionBD_BarNorte{
+     /**
      * Metodo para cargar la tabla de los registros de personas
      *
      * @return DefaultTableModel
@@ -161,5 +160,4 @@ public class Modelo_Persona extends ConexionBD_BarNorte {
         return resultado;
 
     }
-
 }

@@ -122,13 +122,13 @@ public class VistaRecaudacion extends javax.swing.JPanel {
     public javax.swing.JButton Boton_Borrar;
     public javax.swing.JButton Boton_Insertar;
     public javax.swing.JButton Boton_Modificar;
-    private javax.swing.JTable Tabla_Recaudaciones;
-    private javax.swing.JTextField Txt_Fecha;
-    private javax.swing.JTextField Txt_IdBar;
-    private javax.swing.JTextField Txt_Recaudacion;
-    private javax.swing.JLabel fechaLabel;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel numPedLabel;
-    private javax.swing.JLabel proveedorLabel;
+    public javax.swing.JTable Tabla_Recaudaciones;
+    public javax.swing.JTextField Txt_Fecha;
+    public javax.swing.JTextField Txt_IdBar;
+    public javax.swing.JTextField Txt_Recaudacion;
+    public javax.swing.JLabel fechaLabel;
+    public javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JLabel numPedLabel;
+    public javax.swing.JLabel proveedorLabel;
     // End of variables declaration//GEN-END:variables
 }

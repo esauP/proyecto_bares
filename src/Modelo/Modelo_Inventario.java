@@ -17,9 +17,8 @@ import javax.swing.table.TableModel;
  *
  * @author esaup
  */
-public class Modelo_Inventario extends ConexionBD_BarNorte {
-
-    public TableModel CargaTablaInventario() {
+public class Modelo_Inventario extends ConexionBD_BarNorte{
+     public TableModel CargaTablaInventario() {
         DefaultTableModel tabla = new DefaultTableModel();
         Object[] columName = null;
         Object[][] data = null;
@@ -154,5 +153,4 @@ public class Modelo_Inventario extends ConexionBD_BarNorte {
         return resultado;
 
     }
-
 }

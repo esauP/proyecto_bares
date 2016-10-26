@@ -11,20 +11,26 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Types;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 /**
  *
  * @author esaup
  */
-public class Modelo_Bar extends ConexionBD_BarNorte{
-      public DefaultTableModel CargaTablaBar() {
+public class Modelo_Recaudacion extends ConexionBD_BarNorte {
+      /**
+     * Metodo para cargar la tabla de recaudaciones
+     *
+     * @return DefaultTable model con los datos cargados
+     */
+    public TableModel CargaTablaRecaudaciones() {
         DefaultTableModel tabla = new DefaultTableModel();
         Object[] columName = null;
         Object[][] data = null;
         int registros = 0;
         try {
             //llamamos a la funcion almacenada en la base de datos
-            CallableStatement pstm = this.getConexion().prepareCall("{?=call Total_Bar}");
+            CallableStatement pstm = this.getConexion().prepareCall("{?=call Total_Recaudacion}");
             //detallamos que la variable de salida va a ser de tipo Integer
             pstm.registerOutParameter(1, Types.INTEGER);
             //ejecutamos la llamada a la funcion
@@ -37,7 +43,7 @@ public class Modelo_Bar extends ConexionBD_BarNorte{
 
         try {
             //Preparas la llamada al procedimiento que te devuelve la consulta
-            CallableStatement cstm = this.getConexion().prepareCall("{call Consulta_Bar}");
+            CallableStatement cstm = this.getConexion().prepareCall("{call Consulta_Recaudacion}");
             //Ejecutas el procedimiento
             ResultSet re = cstm.executeQuery();
             //Recoges los metadatos que te devuelve la consulta
@@ -49,12 +55,14 @@ public class Modelo_Bar extends ConexionBD_BarNorte{
             for (int i = 1; i <= col; i++) {
                 columName[i - 1] = rsp.getColumnName(i);
             }
+
             data = new String[registros][col];
 
             int j = 0;
             while (re.next()) {
                 for (int h = 0; h < col; h++) {
                     data[j][h] = re.getString(columName[h].toString());
+
                 }
                 j++;
             }
@@ -67,17 +75,22 @@ public class Modelo_Bar extends ConexionBD_BarNorte{
         return tabla;
     }
 
-    public int InsertaBar(String nombar, String licen, String domic, String hora, String dias) throws SQLException {
+    /**
+     * Metodo para introducir una nueva recaudacion
+     *
+     * @param idbar int identificador del bar a introducir
+     * @param tot double cantidad a introducir
+     * @return int 0 y 1, 0 correcto, 1 error
+     * @throws SQLException
+     */
+    public int InsertaRecaudacion(int idbar, double tot) throws SQLException {
         int resultado = 1;
         try {
             //creamos la consulta
-            CallableStatement cStmt = this.getConexion().prepareCall("{?=call Inserta_Bar(?,?,?,?,?)}");
+            CallableStatement cStmt = this.getConexion().prepareCall("{?=call Inserta_Recaudacion(?,?)}");
             //pasamos por parametro todos los valores a introducir
-            cStmt.setString(2, nombar);
-            cStmt.setString(3, licen);
-            cStmt.setString(4, domic);
-            cStmt.setString(5, hora);
-            cStmt.setString(6, dias);
+            cStmt.setInt(2, idbar);
+            cStmt.setDouble(3, tot);
             cStmt.execute();//ejecutamos la consulta
             resultado = cStmt.getInt(1);//recogemos si ha tenido exito
             return resultado;
@@ -87,18 +100,22 @@ public class Modelo_Bar extends ConexionBD_BarNorte{
         return resultado;
     }
 
-    public int ModificaBar(int id, String nombar, String domic, String hora, String dias) throws SQLException {
+   /**
+    * Metodo para modificar los registros de la tabla recaudacion
+    * @param idbar int identificador del bar
+    * @param tot double cantidad a modificar
+    * @return int 0 y 1, 0 correcto, 1 error
+    * @throws SQLException 
+    */
+    public int ModificaRecaudacion(int idbar, double tot) throws SQLException {
         int resultado = 1;
         try {
             //creamos la consulta
-            CallableStatement cStmt = this.getConexion().prepareCall("{?=call Actualiza_Bar(?,?,?,?,?)}");
+            CallableStatement cStmt = this.getConexion().prepareCall("{?=call Actualiza_Recaudacion(?,?)}");
             //pasamos por parametro todos los valores a introducir
-            cStmt.setInt(2, id);
-            cStmt.setString(3, nombar);
-            cStmt.setString(4, domic);
-            cStmt.setString(5, hora);
-            cStmt.setString(6, dias);
-
+            cStmt.setInt(2, idbar);
+            cStmt.setDouble(3, tot);
+            
             cStmt.execute();//ejecutamos la consulta
             resultado = cStmt.getInt(1);//recogemos si ha tenido exito
             return resultado;
@@ -108,13 +125,22 @@ public class Modelo_Bar extends ConexionBD_BarNorte{
         return resultado;
     }
 
-    public int BorrarBar(int id) throws SQLException {
+    /**
+     * Metodo para eliminar una recaudacion segun su identificador
+     *
+     * @param idbar int codigo para borrar el registro
+     * @param fecha String
+     * @return int 0 y 1, 0 correcto, 1 error
+     * @throws SQLException
+     */
+    public int BorrarRecaudacion(int idbar, String fecha) throws SQLException {
         int resultado = 1;
         try {
             //creamos la consulta
-            CallableStatement cStmt = this.getConexion().prepareCall("{?=call Borrar_Bar(?)}");
+            CallableStatement cStmt = this.getConexion().prepareCall("{?=call Borrar_Recaudacion(?,?)}");
             //pasamos por parametro todos los valores a introducir
-            cStmt.setInt(2, id);
+            cStmt.setInt(2, idbar);
+            cStmt.setString(3, fecha);
             cStmt.execute();//ejecutamos la consulta
             resultado = cStmt.getInt(1);//recogemos si ha tenido exito
             return resultado;
