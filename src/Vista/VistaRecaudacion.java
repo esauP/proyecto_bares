@@ -30,9 +30,9 @@ public class VistaRecaudacion extends javax.swing.JPanel {
         numPedLabel = new javax.swing.JLabel();
         fechaLabel = new javax.swing.JLabel();
         proveedorLabel = new javax.swing.JLabel();
-        Txt_IdBar = new javax.swing.JTextField();
-        Txt_Fecha = new javax.swing.JTextField();
-        Txt_Recaudacion = new javax.swing.JTextField();
+        Txt_Fecha = new javax.swing.JFormattedTextField();
+        Txt_Recaudacion = new javax.swing.JFormattedTextField();
+        Txt_IdBar = new javax.swing.JFormattedTextField();
         Boton_Modificar = new javax.swing.JButton();
         Boton_Insertar = new javax.swing.JButton();
         Boton_Borrar = new javax.swing.JButton();
@@ -44,6 +44,12 @@ public class VistaRecaudacion extends javax.swing.JPanel {
         fechaLabel.setText("Fecha:");
 
         proveedorLabel.setText("Total Recaudado");
+
+        Txt_Fecha.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd-mm-yyyy"))));
+
+        Txt_Recaudacion.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
+
+        Txt_IdBar.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
 
         Boton_Modificar.setText("Modificar");
 
@@ -77,13 +83,17 @@ public class VistaRecaudacion extends javax.swing.JPanel {
                             .addComponent(numPedLabel)
                             .addComponent(fechaLabel)
                             .addComponent(proveedorLabel))
-                        .addGap(9, 9, 9)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Txt_IdBar, javax.swing.GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE)
-                            .addComponent(Txt_Fecha, javax.swing.GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE)
-                            .addComponent(Txt_Recaudacion, javax.swing.GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(Txt_Recaudacion))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(9, 9, 9)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Txt_Fecha)
+                                    .addComponent(Txt_IdBar)))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(0, 159, Short.MAX_VALUE)
                         .addComponent(Boton_Insertar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(Boton_Borrar)
@@ -123,9 +133,9 @@ public class VistaRecaudacion extends javax.swing.JPanel {
     public javax.swing.JButton Boton_Insertar;
     public javax.swing.JButton Boton_Modificar;
     public javax.swing.JTable Tabla_Recaudaciones;
-    public javax.swing.JTextField Txt_Fecha;
-    public javax.swing.JTextField Txt_IdBar;
-    public javax.swing.JTextField Txt_Recaudacion;
+    public javax.swing.JFormattedTextField Txt_Fecha;
+    public javax.swing.JFormattedTextField Txt_IdBar;
+    public javax.swing.JFormattedTextField Txt_Recaudacion;
     public javax.swing.JLabel fechaLabel;
     public javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JLabel numPedLabel;

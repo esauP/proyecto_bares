@@ -29,7 +29,7 @@ public class Controlador_Pedidos implements ActionListener, MouseListener {
 
     int num_Ped;
 
-    int barid, codart;
+    int num_ped;
 
     public Controlador_Pedidos(VistaPedidos vista) {
         this.vista = vista;
@@ -52,11 +52,13 @@ public class Controlador_Pedidos implements ActionListener, MouseListener {
         //Insertar pedido
         if (e.getSource() == this.vista.Boton_Insertar) {
             String prove, nomart;
-            int cant;
+            int cant, barid, codart;
             double prec;
 
             prove = this.vista.Txt_Proveedor.getText();
             nomart = this.vista.Txt_NombreArticulo.getText();
+            barid = Integer.parseInt(this.vista.Txt_IdBar.getText());
+            codart = Integer.parseInt(this.vista.Txt_CodigoProducto.getText());
             cant = Integer.parseInt(this.vista.Txt_Cantidad.getText());
             prec = Double.parseDouble(this.vista.Txt_Precio.getText());
 
@@ -101,13 +103,11 @@ public class Controlador_Pedidos implements ActionListener, MouseListener {
     public void mouseClicked(MouseEvent e) {
         if (e.getSource() == this.vista.Tabla_Pedidos && e.getButton() == 1) {
 
-            String cod_art, codbar;
+            String pedido;
             int fila = this.vista.Tabla_Pedidos.rowAtPoint(e.getPoint());
             if (fila > -1) {
-                codbar = String.valueOf(this.vista.Tabla_Pedidos.getValueAt(fila, 7));
-                cod_art = String.valueOf(this.vista.Tabla_Pedidos.getValueAt(fila, 6));
-                codart = Integer.parseInt(cod_art);
-                barid = Integer.parseInt(codbar);
+                pedido = String.valueOf(this.vista.Tabla_Pedidos.getValueAt(fila, 0));
+                num_Ped = Integer.parseInt(pedido);
             }
 
         }

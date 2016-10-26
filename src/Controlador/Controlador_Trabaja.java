@@ -5,8 +5,8 @@
  */
 package Controlador;
 
-import Modelo.Modelo_Recaudacion;
-import Vista.VistaRecaudacion;
+import Modelo.Modelo_Trabaja;
+import Vista.VistaTrabaja;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -22,15 +22,15 @@ import javax.swing.table.DefaultTableCellRenderer;
  *
  * @author esaup
  */
-public class Controlador_Recaudacion implements ActionListener, MouseListener {
+public class Controlador_Trabaja implements ActionListener, MouseListener {
 
-    VistaRecaudacion vista;
-    Modelo_Recaudacion mod = new Modelo_Recaudacion();
+    VistaTrabaja vista;
+    Modelo_Trabaja mod = new Modelo_Trabaja();
 
-    int id;
-    String fecha;
+    String dnid;
+    int codigo;
 
-    public Controlador_Recaudacion(VistaRecaudacion vista) {
+    public Controlador_Trabaja(VistaTrabaja vista) {
         this.vista = vista;
     }
 
@@ -39,26 +39,28 @@ public class Controlador_Recaudacion implements ActionListener, MouseListener {
         this.vista.Boton_Insertar.addActionListener(this);
         this.vista.Boton_Modificar.addActionListener(this);
         this.vista.Boton_Borrar.addActionListener(this);
-        this.vista.Tabla_Recaudaciones.addMouseListener(this);
+        this.vista.Tabla_Funciones.addMouseListener(this);
 
-        this.vista.Tabla_Recaudaciones.setModel(mod.CargaTablaRecaudaciones());
-        this.vista.Tabla_Recaudaciones.getTableHeader().setReorderingAllowed(false);
+        this.vista.Tabla_Funciones.setModel(mod.CargaTablaTrabajador());
+        this.vista.Tabla_Funciones.getTableHeader().setReorderingAllowed(false);
 
-        ((DefaultTableCellRenderer) this.vista.Tabla_Recaudaciones.getDefaultRenderer(String.c‌lass)).setHorizontal‌Alignment(JLabel.CENTER);
+        ((DefaultTableCellRenderer) this.vista.Tabla_Funciones.getDefaultRenderer(String.c‌lass)).setHorizontal‌Alignment(JLabel.CENTER);
+
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        //Insertar articulo
+//Insertar articulo
         if (e.getSource() == this.vista.Boton_Insertar) {
-            int idbar;
-            double prec;
+            String dni, func;
+            int cod;
 
-            prec = Integer.parseInt(this.vista.Txt_Recaudacion.getText());
-            idbar = Integer.parseInt(this.vista.Txt_IdBar.getText());
+            dni = this.vista.Txt_DniPersona.getText();
+            func = this.vista.Txt_Funcion.getText();
+            cod = Integer.parseInt(this.vista.Txt_IdBar.getText());
 
             try {
-                int result = mod.InsertaRecaudacion(idbar, prec);
+                int result = mod.InsertaTrabajador(dni, cod, func);
                 if (result == 1) {
                     JOptionPane.showMessageDialog(vista, "Ha ocurrido un error");
                 } else {
@@ -68,22 +70,25 @@ public class Controlador_Recaudacion implements ActionListener, MouseListener {
                 Logger.getLogger(Controlador_Bar.class.getName()).log(Level.SEVERE, null, ex);
             }
 
-            this.vista.Tabla_Recaudaciones.setModel(mod.CargaTablaRecaudaciones());
+            this.vista.Tabla_Funciones.setModel(mod.CargaTablaTrabajador());
 
-            this.vista.Txt_Fecha.setText("");
+            this.vista.Txt_DniPersona.setText("");
+            this.vista.Txt_Funcion.setText("");
             this.vista.Txt_IdBar.setText("");
-            this.vista.Txt_Recaudacion.setText("");
 
         }
         //Modificar articulo
         if (e.getSource() == this.vista.Boton_Modificar) {
+            String dni, func;
+            int cod;
 
-            double prec;
+            dni = this.vista.Txt_DniPersona.getText();
+            func = this.vista.Txt_Funcion.getText();
+            cod = Integer.parseInt(this.vista.Txt_IdBar.getText());
 
-            prec = Integer.parseInt(this.vista.Txt_Recaudacion.getText());
             int result;
             try {
-                result = mod.ModificaRecaudacion(id, prec);
+                result = mod.ModificaTrabajador(dni, cod, func);
                 if (result == 1) {
                     JOptionPane.showMessageDialog(vista, "Ha ocurrido un error");
                 } else {
@@ -93,19 +98,17 @@ public class Controlador_Recaudacion implements ActionListener, MouseListener {
                 Logger.getLogger(Controlador_Bar.class.getName()).log(Level.SEVERE, null, ex);
             }
 
-            this.vista.Tabla_Recaudaciones.setModel(mod.CargaTablaRecaudaciones());
+            this.vista.Tabla_Funciones.setModel(mod.CargaTablaTrabajador());
 
-            this.vista.Txt_Fecha.setText("");
+            this.vista.Txt_DniPersona.setText("");
+            this.vista.Txt_Funcion.setText("");
             this.vista.Txt_IdBar.setText("");
-            this.vista.Txt_Recaudacion.setText("");
-
-
         }
         //Borrar articulo
         if (e.getSource() == this.vista.Boton_Borrar) {
 
             try {
-                int result = mod.BorrarRecaudacion(id, fecha);
+                int result = mod.BorrarTrabajador(dnid, codigo);
 
                 if (result == 1) {
                     JOptionPane.showMessageDialog(vista, "Ha ocurrido un error");
@@ -116,20 +119,20 @@ public class Controlador_Recaudacion implements ActionListener, MouseListener {
                 Logger.getLogger(Controlador_Bar.class.getName()).log(Level.SEVERE, null, ex);
             }
 
-            this.vista.Tabla_Recaudaciones.setModel(mod.CargaTablaRecaudaciones());
+            this.vista.Tabla_Funciones.setModel(mod.CargaTablaTrabajador());
         }
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        if (e.getSource() == this.vista.Tabla_Recaudaciones && e.getButton() == 1) {
+        if (e.getSource() == this.vista.Tabla_Funciones && e.getButton() == 1) {
 
-            String codbar, fec;
-            int fila = this.vista.Tabla_Recaudaciones.rowAtPoint(e.getPoint());
+            String codbar;
+            int fila = this.vista.Tabla_Funciones.rowAtPoint(e.getPoint());
             if (fila > -1) {
-                codbar = String.valueOf(this.vista.Tabla_Recaudaciones.getValueAt(fila, 0));
-                fecha = String.valueOf(this.vista.Tabla_Recaudaciones.getValueAt(fila, 2));
-                id = Integer.parseInt(codbar);
+                dnid = String.valueOf(this.vista.Tabla_Funciones.getValueAt(fila, 0));
+                codbar = String.valueOf(this.vista.Tabla_Funciones.getValueAt(fila, 1));
+                codigo = Integer.parseInt(codbar);
             }
 
         }
@@ -150,4 +153,5 @@ public class Controlador_Recaudacion implements ActionListener, MouseListener {
     @Override
     public void mouseExited(MouseEvent e) {
     }
+
 }

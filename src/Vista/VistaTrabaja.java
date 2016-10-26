@@ -122,13 +122,13 @@ public class VistaTrabaja extends javax.swing.JPanel {
     public javax.swing.JButton Boton_Borrar;
     public javax.swing.JButton Boton_Insertar;
     public javax.swing.JButton Boton_Modificar;
-    private javax.swing.JLabel Label1;
-    private javax.swing.JLabel Label2;
-    private javax.swing.JLabel Label3;
-    private javax.swing.JTable Tabla_Funciones;
-    private javax.swing.JTextField Txt_DniPersona;
-    private javax.swing.JTextField Txt_Funcion;
-    private javax.swing.JTextField Txt_IdBar;
-    private javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JLabel Label1;
+    public javax.swing.JLabel Label2;
+    public javax.swing.JLabel Label3;
+    public javax.swing.JTable Tabla_Funciones;
+    public javax.swing.JTextField Txt_DniPersona;
+    public javax.swing.JTextField Txt_Funcion;
+    public javax.swing.JTextField Txt_IdBar;
+    public javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

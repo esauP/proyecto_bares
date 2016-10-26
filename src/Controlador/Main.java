@@ -24,6 +24,8 @@ public class Main {
         new Controlador_Persona(vistaPer).Iniciar();
         new Controlador_Inventario(vistaInv).Iniciar();
         new Controlador_Pedidos(vistaPed).Iniciar();
+        new Controlador_Recaudacion(vistaRec).Iniciar();
+        new Controlador_Trabaja(vistaTra).Iniciar();
 
         new Controlador(vista, vistaBar, vistaInv, vistaPed, vistaPer, vistaTra, vistaRec).Iniciar();
     }
