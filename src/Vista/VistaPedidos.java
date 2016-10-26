@@ -34,17 +34,17 @@ public class VistaPedidos extends javax.swing.JPanel {
         precioLabel = new javax.swing.JLabel();
         idBarLabel = new javax.swing.JLabel();
         codigoArtLabel = new javax.swing.JLabel();
-        Txt_Fecha = new javax.swing.JTextField();
         Txt_Proveedor = new javax.swing.JTextField();
         Txt_NombreArticulo = new javax.swing.JTextField();
-        Txt_Cantidad = new javax.swing.JTextField();
-        Txt_Precio = new javax.swing.JTextField();
-        Txt_IdBar = new javax.swing.JTextField();
-        Txt_CodigoProducto = new javax.swing.JTextField();
         Boton_Insertar = new javax.swing.JButton();
         Boton_Borrar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         Tabla_Pedidos = new javax.swing.JTable();
+        Txt_Fecha = new javax.swing.JFormattedTextField();
+        Txt_Cantidad = new javax.swing.JFormattedTextField();
+        Txt_Precio = new javax.swing.JFormattedTextField();
+        Txt_IdBar = new javax.swing.JFormattedTextField();
+        Txt_CodigoProducto = new javax.swing.JFormattedTextField();
 
         fechaLabel.setText("Fecha:");
 
@@ -77,6 +77,16 @@ public class VistaPedidos extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(Tabla_Pedidos);
 
+        Txt_Fecha.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd-MM-yyyy"))));
+
+        Txt_Cantidad.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+
+        Txt_Precio.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
+
+        Txt_IdBar.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+
+        Txt_CodigoProducto.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -102,13 +112,13 @@ public class VistaPedidos extends javax.swing.JPanel {
                                     .addComponent(codigoArtLabel))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Txt_Fecha, javax.swing.GroupLayout.DEFAULT_SIZE, 317, Short.MAX_VALUE)
                                     .addComponent(Txt_Proveedor, javax.swing.GroupLayout.DEFAULT_SIZE, 317, Short.MAX_VALUE)
                                     .addComponent(Txt_NombreArticulo, javax.swing.GroupLayout.DEFAULT_SIZE, 317, Short.MAX_VALUE)
-                                    .addComponent(Txt_Cantidad, javax.swing.GroupLayout.DEFAULT_SIZE, 317, Short.MAX_VALUE)
-                                    .addComponent(Txt_Precio, javax.swing.GroupLayout.DEFAULT_SIZE, 317, Short.MAX_VALUE)
-                                    .addComponent(Txt_IdBar, javax.swing.GroupLayout.DEFAULT_SIZE, 317, Short.MAX_VALUE)
-                                    .addComponent(Txt_CodigoProducto, javax.swing.GroupLayout.DEFAULT_SIZE, 317, Short.MAX_VALUE)))
+                                    .addComponent(Txt_CodigoProducto)
+                                    .addComponent(Txt_IdBar)
+                                    .addComponent(Txt_Precio)
+                                    .addComponent(Txt_Cantidad)
+                                    .addComponent(Txt_Fecha)))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE))))
                 .addContainerGap())
         );
@@ -130,11 +140,11 @@ public class VistaPedidos extends javax.swing.JPanel {
                     .addComponent(nombreArtLabel)
                     .addComponent(Txt_NombreArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(cantidadLabel)
                     .addComponent(Txt_Cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(precioLabel)
                     .addComponent(Txt_Precio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -158,12 +168,12 @@ public class VistaPedidos extends javax.swing.JPanel {
     public javax.swing.JButton Boton_Borrar;
     public javax.swing.JButton Boton_Insertar;
     public javax.swing.JTable Tabla_Pedidos;
-    public javax.swing.JTextField Txt_Cantidad;
-    public javax.swing.JTextField Txt_CodigoProducto;
-    public javax.swing.JTextField Txt_Fecha;
-    public javax.swing.JTextField Txt_IdBar;
+    public javax.swing.JFormattedTextField Txt_Cantidad;
+    public javax.swing.JFormattedTextField Txt_CodigoProducto;
+    public javax.swing.JFormattedTextField Txt_Fecha;
+    public javax.swing.JFormattedTextField Txt_IdBar;
     public javax.swing.JTextField Txt_NombreArticulo;
-    public javax.swing.JTextField Txt_Precio;
+    public javax.swing.JFormattedTextField Txt_Precio;
     public javax.swing.JTextField Txt_Proveedor;
     public javax.swing.JLabel cantidadLabel;
     public javax.swing.JLabel codigoArtLabel;

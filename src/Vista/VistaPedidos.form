@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -39,13 +39,13 @@
                               </Group>
                               <EmptySpace min="-2" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="Txt_Fecha" alignment="0" pref="317" max="32767" attributes="0"/>
                                   <Component id="Txt_Proveedor" alignment="0" pref="317" max="32767" attributes="0"/>
                                   <Component id="Txt_NombreArticulo" alignment="0" pref="317" max="32767" attributes="0"/>
-                                  <Component id="Txt_Cantidad" alignment="0" pref="317" max="32767" attributes="0"/>
-                                  <Component id="Txt_Precio" alignment="0" pref="317" max="32767" attributes="0"/>
-                                  <Component id="Txt_IdBar" alignment="0" pref="317" max="32767" attributes="0"/>
-                                  <Component id="Txt_CodigoProducto" alignment="0" pref="317" max="32767" attributes="0"/>
+                                  <Component id="Txt_CodigoProducto" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="Txt_IdBar" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="Txt_Precio" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="Txt_Cantidad" max="32767" attributes="0"/>
+                                  <Component id="Txt_Fecha" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Component id="jScrollPane1" alignment="0" pref="380" max="32767" attributes="0"/>
@@ -77,16 +77,16 @@
                   <Component id="Txt_NombreArticulo" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="cantidadLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="Txt_Cantidad" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="cantidadLabel" min="-2" max="-2" attributes="0"/>
+                  <Component id="Txt_Cantidad" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="precioLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="Txt_Precio" alignment="3" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="precioLabel" min="-2" max="-2" attributes="0"/>
+                  <Component id="Txt_Precio" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="idBarLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="Txt_IdBar" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -142,19 +142,9 @@
         <Property name="text" type="java.lang.String" value="Codigo Art:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="Txt_Fecha">
-    </Component>
     <Component class="javax.swing.JTextField" name="Txt_Proveedor">
     </Component>
     <Component class="javax.swing.JTextField" name="Txt_NombreArticulo">
-    </Component>
-    <Component class="javax.swing.JTextField" name="Txt_Cantidad">
-    </Component>
-    <Component class="javax.swing.JTextField" name="Txt_Precio">
-    </Component>
-    <Component class="javax.swing.JTextField" name="Txt_IdBar">
-    </Component>
-    <Component class="javax.swing.JTextField" name="Txt_CodigoProducto">
     </Component>
     <Component class="javax.swing.JButton" name="Boton_Insertar">
       <Properties>
@@ -190,5 +180,40 @@
         </Component>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JFormattedTextField" name="Txt_Fecha">
+      <Properties>
+        <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+          <Format format="dd-MM-yyyy" subtype="-1" type="1"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JFormattedTextField" name="Txt_Cantidad">
+      <Properties>
+        <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+          <Format format="#0" subtype="-1" type="0"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JFormattedTextField" name="Txt_Precio">
+      <Properties>
+        <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+          <Format format="#0.00" subtype="-1" type="0"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JFormattedTextField" name="Txt_IdBar">
+      <Properties>
+        <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+          <Format format="#0" subtype="-1" type="0"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JFormattedTextField" name="Txt_CodigoProducto">
+      <Properties>
+        <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+          <Format format="#0" subtype="-1" type="0"/>
+        </Property>
+      </Properties>
+    </Component>
   </SubComponents>
 </Form>

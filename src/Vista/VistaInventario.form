@@ -39,9 +39,9 @@
                               <EmptySpace min="-2" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="Txt_NombreArticulo" alignment="0" pref="317" max="32767" attributes="0"/>
-                                  <Component id="Txt_Cantidad" alignment="0" pref="317" max="32767" attributes="0"/>
-                                  <Component id="Txt_Precio" alignment="0" pref="317" max="32767" attributes="0"/>
                                   <Component id="Txt_Idbar" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="Txt_Cantidad" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="Txt_Precio" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Component id="jScrollPane1" alignment="0" pref="380" max="32767" attributes="0"/>
@@ -63,11 +63,11 @@
                   <Component id="Txt_NombreArticulo" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="cantidadLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="Txt_Cantidad" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="cantidadLabel" min="-2" max="-2" attributes="0"/>
+                  <Component id="Txt_Cantidad" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="precioLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="Txt_Precio" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -110,10 +110,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="Txt_NombreArticulo">
-    </Component>
-    <Component class="javax.swing.JTextField" name="Txt_Cantidad">
-    </Component>
-    <Component class="javax.swing.JTextField" name="Txt_Precio">
     </Component>
     <Component class="javax.swing.JFormattedTextField" name="Txt_Idbar">
       <Properties>
@@ -164,5 +160,19 @@
         </Component>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JFormattedTextField" name="Txt_Cantidad">
+      <Properties>
+        <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+          <Format format="#0" subtype="-1" type="0"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JFormattedTextField" name="Txt_Precio">
+      <Properties>
+        <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+          <Format format="#0.00" subtype="-1" type="0"/>
+        </Property>
+      </Properties>
+    </Component>
   </SubComponents>
 </Form>

@@ -30,9 +30,9 @@ public class VistaTrabaja extends javax.swing.JPanel {
         Label1 = new javax.swing.JLabel();
         Txt_IdBar = new javax.swing.JTextField();
         Label2 = new javax.swing.JLabel();
-        Txt_DniPersona = new javax.swing.JTextField();
         Label3 = new javax.swing.JLabel();
         Txt_Funcion = new javax.swing.JTextField();
+        Txt_DniPersona = new javax.swing.JFormattedTextField();
         Boton_Modificar = new javax.swing.JButton();
         Boton_Insertar = new javax.swing.JButton();
         Boton_Borrar = new javax.swing.JButton();
@@ -44,6 +44,12 @@ public class VistaTrabaja extends javax.swing.JPanel {
         Label2.setText("Dni Persona");
 
         Label3.setText("Funcion:");
+
+        try {
+            Txt_DniPersona.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("########H")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
 
         Boton_Modificar.setText("Modificar");
 
@@ -81,9 +87,9 @@ public class VistaTrabaja extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(Txt_Funcion)
                             .addComponent(Txt_IdBar)
-                            .addComponent(Txt_DniPersona, javax.swing.GroupLayout.DEFAULT_SIZE, 319, Short.MAX_VALUE)))
+                            .addComponent(Txt_DniPersona)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(0, 167, Short.MAX_VALUE)
                         .addComponent(Boton_Insertar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(Boton_Borrar)
@@ -102,8 +108,8 @@ public class VistaTrabaja extends javax.swing.JPanel {
                     .addComponent(Txt_IdBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Txt_DniPersona, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Label2))
+                    .addComponent(Label2)
+                    .addComponent(Txt_DniPersona, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Txt_Funcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -126,7 +132,7 @@ public class VistaTrabaja extends javax.swing.JPanel {
     public javax.swing.JLabel Label2;
     public javax.swing.JLabel Label3;
     public javax.swing.JTable Tabla_Funciones;
-    public javax.swing.JTextField Txt_DniPersona;
+    public javax.swing.JFormattedTextField Txt_DniPersona;
     public javax.swing.JTextField Txt_Funcion;
     public javax.swing.JTextField Txt_IdBar;
     public javax.swing.JScrollPane jScrollPane1;
