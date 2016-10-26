@@ -71,7 +71,7 @@ public class VistaPersona extends javax.swing.JPanel {
         Combo_titular.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Empleado", "Dueño" }));
 
         try {
-            Txt_DniPersona.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("########H")));
+            Txt_DniPersona.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("########?")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }

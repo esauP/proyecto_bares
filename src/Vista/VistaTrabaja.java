@@ -46,7 +46,7 @@ public class VistaTrabaja extends javax.swing.JPanel {
         Label3.setText("Funcion:");
 
         try {
-            Txt_DniPersona.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("########H")));
+            Txt_DniPersona.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("########?")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }

@@ -33,7 +33,6 @@ public class VistaBar extends javax.swing.JPanel {
         horarioLabel = new javax.swing.JLabel();
         diasAperturaLabel = new javax.swing.JLabel();
         Txt_NombreBar = new javax.swing.JTextField();
-        Txt_Licencia = new javax.swing.JTextField();
         Txt_DomicilioBar = new javax.swing.JTextField();
         Txt_Horario = new javax.swing.JTextField();
         Txt_DiasApertura = new javax.swing.JTextField();
@@ -42,6 +41,7 @@ public class VistaBar extends javax.swing.JPanel {
         Boton_Borrar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         Tabla_Bar = new javax.swing.JTable();
+        Txt_Licencia = new javax.swing.JFormattedTextField();
 
         nombreBarLabel.setText("Nombre Bar:");
 
@@ -72,6 +72,12 @@ public class VistaBar extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(Tabla_Bar);
 
+        try {
+            Txt_Licencia.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("########?")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -98,10 +104,10 @@ public class VistaBar extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(Txt_NombreBar, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
-                                    .addComponent(Txt_Licencia, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
                                     .addComponent(Txt_DomicilioBar, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
                                     .addComponent(Txt_Horario, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
-                                    .addComponent(Txt_DiasApertura, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)))
+                                    .addComponent(Txt_DiasApertura, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
+                                    .addComponent(Txt_Licencia)))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 389, Short.MAX_VALUE))))
                 .addContainerGap())
         );
@@ -148,7 +154,7 @@ public class VistaBar extends javax.swing.JPanel {
     public javax.swing.JTextField Txt_DiasApertura;
     public javax.swing.JTextField Txt_DomicilioBar;
     public javax.swing.JTextField Txt_Horario;
-    public javax.swing.JTextField Txt_Licencia;
+    public javax.swing.JFormattedTextField Txt_Licencia;
     public javax.swing.JTextField Txt_NombreBar;
     public javax.swing.JLabel diasAperturaLabel;
     public javax.swing.JLabel domicilioBarLabel;
