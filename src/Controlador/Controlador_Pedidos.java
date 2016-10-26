@@ -55,8 +55,8 @@ public class Controlador_Pedidos implements ActionListener, MouseListener {
             int cant, barid, codart;
             double prec;
 
-            prove = this.vista.Txt_Proveedor.getText();
-            nomart = this.vista.Txt_NombreArticulo.getText();
+            prove = "" + this.vista.Txt_Proveedor.getText();
+            nomart = "" + this.vista.Txt_NombreArticulo.getText();
             barid = Integer.parseInt("" + this.vista.Txt_IdBar.getText());
             codart = Integer.parseInt("" + this.vista.Txt_CodigoProducto.getText());
             cant = Integer.parseInt("" + this.vista.Txt_Cantidad.getText());
