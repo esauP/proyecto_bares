@@ -1,5 +1,6 @@
 package Modelo;
 
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,6 +16,8 @@ public class Modelo_BarSur extends ConexionBD_BarSur {
             st.setString(2, persona.getNombrePers());
             st.setString(3, persona.getDomicilioPer());
             st.setString(4, persona.getFuncion());
+            st.setBoolean(5, persona.getTitular());
+
             st.execute();
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
@@ -24,13 +27,14 @@ public class Modelo_BarSur extends ConexionBD_BarSur {
     public void InsertBar(Bar bar) {
         try {
             PreparedStatement st = this.getConexion().prepareStatement("insert into bar (id_bar, nombre_bar, licencia_fis, domicilio_bar, fecha_aper, horario, dias_apertura) values (?,?,?,?,?,?,?)");
-            st.setString(1, bar.getIdBar().toString());
+            st.setInt(1, bar.getIdBar());
             st.setString(2, bar.getNombreBar());
             st.setString(3, bar.getLicenciaFis());
             st.setString(4, bar.getDomicilioBar());
-            st.setString(5, bar.getFechaAper().toString());
+            st.setDate(5, (Date) bar.getFechaAper());
             st.setString(6, bar.getHorario());
             st.setString(7, bar.getDiasApertura());
+
             st.execute();
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
@@ -40,11 +44,11 @@ public class Modelo_BarSur extends ConexionBD_BarSur {
     public void InsertExistencias(Existencias existencias) {//INVENTARIO
         try {
             PreparedStatement st = this.getConexion().prepareStatement("insert into existencias (id_art, nombre_art, cantidad, precio, bar_id) values (?,?,?,?,?)");
-            st.setString(1, existencias.getIdArt().toString());
+            st.setInt(1, existencias.getIdArt());
             st.setString(2, existencias.getNombreArt());
             st.setInt(3, existencias.getCantidad());
             st.setDouble(4, existencias.getPrecio());
-            st.setObject(5, existencias.getBarId());
+            st.setObject(5, existencias.getBarId());//REVISAR
 
             st.execute();
         } catch (SQLException ex) {
@@ -61,8 +65,9 @@ public class Modelo_BarSur extends ConexionBD_BarSur {
             st.setString(4, pedidos.getNombreArt());
             st.setInt(5, pedidos.getCantidad());
             st.setDouble(6, pedidos.getPrecio());
-            st.setObject(7, pedidos.getIdBar());
-            st.setObject(8, pedidos.getCodigoArt());
+            st.setObject(7, pedidos.getIdBar());//REVISAR
+            st.setObject(8, pedidos.getCodigoArt());//REVISAR
+
             st.execute();
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
@@ -93,6 +98,7 @@ public class Modelo_BarSur extends ConexionBD_BarSur {
                 per.setDomicilioPer(result.getString("domicilio_per"));
                 per.setFuncion(result.getString("funcion"));
                 per.setTitular(result.getBoolean("titular"));
+
                 LPerso.add(per);
             }
         } catch (SQLException ex) {
@@ -117,6 +123,7 @@ public class Modelo_BarSur extends ConexionBD_BarSur {
                 bar.setFechaAper(result.getDate("fecha_aper"));
                 bar.setHorario(result.getString("horario"));
                 bar.setDiasApertura(result.getString("dias_apertura"));
+
                 LBar.add(bar);
             }
         } catch (SQLException ex) {
@@ -139,6 +146,7 @@ public class Modelo_BarSur extends ConexionBD_BarSur {
                 exis.setCantidad(result.getInt("cantidad"));
                 exis.setPrecio(result.getInt("precio"));
                 exis.setBarId((Bar) result.getObject("bar_id"));//REVISAR
+
                 LExis.add(exis);
             }
         } catch (SQLException ex) {
@@ -164,6 +172,7 @@ public class Modelo_BarSur extends ConexionBD_BarSur {
                 pide.setPrecio(result.getInt("precio"));
                 pide.setIdBar(result.getInt("id_bar"));
                 pide.setCodigoArt((Existencias) result.getObject("codigo_art"));
+
                 LPide.add(pide);
             }
         } catch (SQLException ex) {
@@ -172,6 +181,45 @@ public class Modelo_BarSur extends ConexionBD_BarSur {
         return LPide;
     }
 
+    /*
+    public ArrayList<Trabaja> SelectTrabaja() {
+    ArrayList<Trabaja> LTraba = new ArrayList<>();
+        ResultSet result = null;
+        try {
+            PreparedStatement st = this.getConexion().prepareStatement("select * from trabaja");
+            result = st.executeQuery();
+            while (result.next()) {
+                Trabaja work = new Trabaja();
+                
+
+                LTraba.add(work);
+            }
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+        return LTraba;
+    
+    }
+
+    public ArrayList<Recaudacion> SelectRecaudacion() {
+    ArrayList<Recaudacion> LRecau = new ArrayList<>();
+        ResultSet result = null;
+        try {
+            PreparedStatement st = this.getConexion().prepareStatement("select * from recaudacion");
+            result = st.executeQuery();
+            while (result.next()) {
+                Recaudacion recau = new Recaudacion();
+                
+
+                LRecau.add(recau);
+            }
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+        return LRecau;
+    
+    
+    }*/
     //ALTER's
     public void alterpersona(Persona personita) {
         try {
