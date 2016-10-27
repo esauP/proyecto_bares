@@ -5,265 +5,388 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
 public class Modelo_BarSur extends ConexionBD_BarSur {
 
-    //INSERT's
-    public void InsertPersona(Persona persona) {
+    /**
+     * **************************************************************************************************
+     * **************************************************************************************************
+     * INSERT's
+     * **************************************************************************************************
+     * **************************************************************************************************
+     */
+    public void InsertPersona(String dni, String nombre, String domicilio, Boolean titular) {
         try {
-            PreparedStatement st = this.getConexion().prepareStatement("insert into persona (dni_per, nombre_per, domicilio_per, funcion, titular) values (?,?,?,?,?)");
-            st.setString(1, persona.getDniPer());
-            st.setString(2, persona.getNombrePers());
-            st.setString(3, persona.getDomicilioPer());
-            st.setString(4, persona.getFuncion());
-            st.setBoolean(5, persona.getTitular());
-
+            PreparedStatement st = this.getConexion().prepareStatement("insert into persona "
+                    + "(dni_per, nombre_per, domicilio_per, titular) "
+                    + "values (" + dni + " , " + nombre + " , " + domicilio + " , " + titular + ")");
             st.execute();
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
     }
 
-    public void InsertBar(Bar bar) {
+    public void InsertBar(int idbar, String nombrebar, String licefiscal, String domiciliobar, String fechaapertura, String horario, String diasapertura) {
         try {
-            PreparedStatement st = this.getConexion().prepareStatement("insert into bar (id_bar, nombre_bar, licencia_fis, domicilio_bar, fecha_aper, horario, dias_apertura) values (?,?,?,?,?,?,?)");
-            st.setInt(1, bar.getIdBar());
-            st.setString(2, bar.getNombreBar());
-            st.setString(3, bar.getLicenciaFis());
-            st.setString(4, bar.getDomicilioBar());
-            st.setDate(5, (Date) bar.getFechaAper());
-            st.setString(6, bar.getHorario());
-            st.setString(7, bar.getDiasApertura());
-
+            PreparedStatement st = this.getConexion().prepareStatement("insert into bar "
+                    + "(id_bar, nombre_bar, licencia_fis, domicilio_bar, fecha_aper, horario, dias_apertura) "
+                    + "values (" + idbar + " , " + nombrebar + " , " + licefiscal + " , " + domiciliobar + " , " + fechaapertura + " , " + horario + " , " + diasapertura + ")");
             st.execute();
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }
     }
 
-    public void InsertExistencias(Existencias existencias) {//INVENTARIO
+    public void InsertExistencias(int idart, String nombre, int cantidad, double precio, int idbar) {//INVENTARIO
         try {
-            PreparedStatement st = this.getConexion().prepareStatement("insert into existencias (id_art, nombre_art, cantidad, precio, bar_id) values (?,?,?,?,?)");
-            st.setInt(1, existencias.getIdArt());
-            st.setString(2, existencias.getNombreArt());
-            st.setInt(3, existencias.getCantidad());
-            st.setDouble(4, existencias.getPrecio());
-            st.setObject(5, existencias.getBarId());//REVISAR
-
+            PreparedStatement st = this.getConexion().prepareStatement("insert into existencias"
+                    + "(id_art, nombre_art, cantidad, precio, bar_id)"
+                    + "values (" + idart + " , " + nombre + " , " + cantidad + " , " + precio + " , " + idbar + ")");
             st.execute();
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }
     }
 
-    public void InsertPedidos(Pedidos pedidos) {
+    public void InsertPedidos(int numpedido, Date fecha, String proveedor, String nombreart, int cantidad, double precio, int idbar, int codigoart) {
         try {
-            PreparedStatement st = this.getConexion().prepareStatement("insert into pedidos (num_ped, fecha, proveedor, nombre_art, cantidad, precio, id_bar, codigo_art) values (?,?,?,?,?,?,?,?)");
-            st.setString(1, pedidos.getNumPed().toString());
-            st.setString(2, pedidos.getFecha().toString());
-            st.setString(3, pedidos.getProveedor());
-            st.setString(4, pedidos.getNombreArt());
-            st.setInt(5, pedidos.getCantidad());
-            st.setDouble(6, pedidos.getPrecio());
-            st.setObject(7, pedidos.getIdBar());//REVISAR
-            st.setObject(8, pedidos.getCodigoArt());//REVISAR
-
+            PreparedStatement st = this.getConexion().prepareStatement("insert into pedidos"
+                    + "(num_ped, fecha, proveedor, nombre_art, cantidad, precio, id_bar, codigo_art)"
+                    + "values (" + numpedido + " , " + fecha + " , " + proveedor + " , " + nombreart + " , " + cantidad + " , " + precio + " , " + idbar + " , " + codigoart + ")");
             st.execute();
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }
     }
 
-    //CARGARSE LAS CLASES RECAUDACION TRABAJA Y LAS PK CORRESPONDIENTES
-    public void InsertarRecaudacion(RecaudacionPK recaudacion) {
-
-    }
-
-    public void InsertarTrabaja(TrabajaPK trabaja) {
-
-    }
-
-    //SELECT's
-    public ArrayList<Persona> SelectPersona() {
-        ArrayList<Persona> LPerso = new ArrayList<>();
-        ResultSet result = null;
+    public void InsertRecaudacion(int bar, Date fecha, double recautotal) {
         try {
-            PreparedStatement st = this.getConexion().prepareStatement("select * from personas");
-            result = st.executeQuery();
-            while (result.next()) {
-                Persona per = new Persona();
-                //dni_per, nombre_per, domicilio_per, funcion, titular
-                per.setDniPer(result.getString("dni_per"));
-                per.setNombrePers(result.getString("nombre_per"));
-                per.setDomicilioPer(result.getString("domicilio_per"));
-                per.setFuncion(result.getString("funcion"));
-                per.setTitular(result.getBoolean("titular"));
-
-                LPerso.add(per);
-            }
+            PreparedStatement st = this.getConexion().prepareStatement("insert into recaudacion"
+                    + "(bar, fecha, rectotal)"
+                    + "values (" + bar + "," + fecha + "," + recautotal + ")");
+            st.execute();
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }
-        return LPerso;
     }
 
-    public ArrayList<Bar> SelectBares() {
-        ArrayList<Bar> LBar = new ArrayList<>();
-        ResultSet result = null;
+    public void InsertTrabaja(String dni, int codigobar, String funcion) {
         try {
-            PreparedStatement st = this.getConexion().prepareStatement("select * from bar");
-            result = st.executeQuery();
-            while (result.next()) {
-                Bar bar = new Bar();
-                //id_bar, nombre_bar, licencia_fis, domicilio_bar, fecha_aper, horario, dias_apertura
-                bar.setIdBar(result.getInt("id_bar"));
-                bar.setNombreBar(result.getString("nombre_bar"));
-                bar.setLicenciaFis(result.getString("licencia_fis"));
-                bar.setDomicilioBar(result.getString("domicilio_bar"));
-                bar.setFechaAper(result.getDate("fecha_aper"));
-                bar.setHorario(result.getString("horario"));
-                bar.setDiasApertura(result.getString("dias_apertura"));
-
-                LBar.add(bar);
-            }
+            PreparedStatement st = this.getConexion().prepareStatement("insert into trabaja"
+                    + "(dni, codigo_bar, funcion)"
+                    + "values (" + dni + "," + codigobar + "," + funcion + ",)");
+            st.execute();
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }
-        return LBar;
     }
 
-    public ArrayList<Existencias> SelectExistencias() {
-        ArrayList<Existencias> LExis = new ArrayList<>();
-        ResultSet result = null;
-        try {
-            PreparedStatement st = this.getConexion().prepareStatement("select * from bar");
-            result = st.executeQuery();
-            while (result.next()) {
-                Existencias exis = new Existencias();
-                //id_art, nombre_art, cantidad, precio, bar_id
-                exis.setIdArt(result.getInt("id_art"));
-                exis.setNombreArt(result.getString("nombre_art"));
-                exis.setCantidad(result.getInt("cantidad"));
-                exis.setPrecio(result.getInt("precio"));
-                exis.setBarId((Bar) result.getObject("bar_id"));//REVISAR
-
-                LExis.add(exis);
-            }
-        } catch (SQLException ex) {
-            System.err.println(ex.getMessage());
-        }
-        return LExis;
-    }
-
-    public ArrayList<Pedidos> SelectPedidos() {
-        ArrayList<Pedidos> LPide = new ArrayList<>();
-        ResultSet result = null;
-        try {
-            PreparedStatement st = this.getConexion().prepareStatement("select * from bar");
-            result = st.executeQuery();
-            while (result.next()) {
-                Pedidos pide = new Pedidos();
-                //num_ped, fecha, proveedor, nombre_art, cantidad, precio, id_bar, codigo_art
-                pide.setNumPed(result.getInt("num_ped"));
-                pide.setFecha(result.getDate("fecha"));
-                pide.setProveedor(result.getString("proveedor"));
-                pide.setNombreArt(result.getString("nombre_art"));
-                pide.setCantidad(result.getInt("cantidad"));
-                pide.setPrecio(result.getInt("precio"));
-                pide.setIdBar(result.getInt("id_bar"));
-                pide.setCodigoArt((Existencias) result.getObject("codigo_art"));
-
-                LPide.add(pide);
-            }
-        } catch (SQLException ex) {
-            System.err.println(ex.getMessage());
-        }
-        return LPide;
-    }
-
-    /*
-    public ArrayList<Trabaja> SelectTrabaja() {
-    ArrayList<Trabaja> LTraba = new ArrayList<>();
-        ResultSet result = null;
-        try {
-            PreparedStatement st = this.getConexion().prepareStatement("select * from trabaja");
-            result = st.executeQuery();
-            while (result.next()) {
-                Trabaja work = new Trabaja();
-                
-
-                LTraba.add(work);
-            }
-        } catch (SQLException ex) {
-            System.err.println(ex.getMessage());
-        }
-        return LTraba;
-    
-    }
-
-    public ArrayList<Recaudacion> SelectRecaudacion() {
-    ArrayList<Recaudacion> LRecau = new ArrayList<>();
-        ResultSet result = null;
-        try {
-            PreparedStatement st = this.getConexion().prepareStatement("select * from recaudacion");
-            result = st.executeQuery();
-            while (result.next()) {
-                Recaudacion recau = new Recaudacion();
-                
-
-                LRecau.add(recau);
-            }
-        } catch (SQLException ex) {
-            System.err.println(ex.getMessage());
-        }
-        return LRecau;
-    
-    
-    }*/
-    //ALTER's
-    public void alterpersona(Persona personita) {
+    /**
+     * **************************************************************************************************
+     * **************************************************************************************************
+     * ALTER's
+     * **************************************************************************************************
+     * **************************************************************************************************
+     */
+    public void AlterPersona(String dni, String nombre, String domicilio, Boolean titular) {
         try {
             //dni_per, nombre_per, domicilio_per, funcion, titular
-            PreparedStatement st = this.getConexion().prepareStatement("UPDATE persona SET nombre_per = " + personita.getNombrePers() + " , domicilio_per = " + personita.getDomicilioPer() + " , funcion = " + personita.getFuncion() + " , titular = " + personita.getTitular() + " WHERE dni_per = " + personita.getDniPer());
-
+            PreparedStatement st = this.getConexion().prepareStatement("UPDATE persona "
+                    + "SET nombre_per = " + nombre
+                    + " , domicilio_per = " + domicilio
+                    + " , titular = " + titular
+                    + " WHERE dni_per = " + dni);
             st.execute();
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
     }
 
-    public void alterbares(Bar barcito) {
-
+    public void AlterBares(int idbar, String nombrebar, String licefiscal, String domiciliobar, String fechaapertura, String horario, String diasapertura) {
         try {
             //id_bar, nombre_bar, licencia_fis, domicilio_bar, fecha_aper, horario, dias_apertura
-            PreparedStatement st = this.getConexion().prepareStatement("UPDATE bar SET nombre_bar = " + barcito.getNombreBar() + ", licencia_fis = " + barcito.getLicenciaFis() + ", domicilio_bar = " + barcito.getDomicilioBar() + ", fecha_aper = " + barcito.getFechaAper().toString() + ", horario = " + barcito.getHorario() + ", dias_apertura = " + barcito.getDiasApertura() + " WHERE id_bar= " + barcito.getIdBar().toString());
-
+            PreparedStatement st = this.getConexion().prepareStatement("UPDATE bar "
+                    + "SET nombre_bar = " + nombrebar
+                    + " , licencia_fis = " + licefiscal
+                    + " , domicilio_bar = " + domiciliobar
+                    + " , fecha_aper = " + fechaapertura
+                    + " , horario = " + horario
+                    + " , dias_apertura = " + diasapertura
+                    + " WHERE id_bar = " + idbar);
             st.execute();
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
     }
 
-    public void alterpedidos(Pedidos pedidito) {
+    public void AlterPedidos(int numpedido, Date fecha, String proveedor, String nombreart, int cantidad, double precio, int idbar, int codigoart) {
         try {
             //num_ped, fecha, proveedor, nombre_art, cantidad, precio, id_bar, codigo_art
-            PreparedStatement st = this.getConexion().prepareStatement("UPDATE pedidos SET fecha = " + pedidito.getFecha().toString() + ", proveedor = " + pedidito.getProveedor() + ", nombre_art = " + pedidito.getNombreArt() + ", cantidad = " + pedidito.getCantidad() + ", precio = " + pedidito.getPrecio() + ", id_bar = " + pedidito.getIdBar() + ", codigo_art = " + pedidito.getCodigoArt() + " WHERE num_ped= " + pedidito.getNumPed());
-
+            PreparedStatement st = this.getConexion().prepareStatement("UPDATE pedidos "
+                    + "SET fecha = " + fecha
+                    + " , proveedor = " + proveedor
+                    + " , nombre_art = " + nombreart
+                    + " , cantidad = " + cantidad
+                    + " , precio = " + precio
+                    + " , id_bar = " + idbar
+                    + " , codigo_art = " + codigoart
+                    + " WHERE num_ped = " + numpedido);
             st.execute();
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
     }
 
-    public void alterexistencias(Existencias existencitos) {
+    public void AlterExistencias(int idart, String nombre, int cantidad, double precio, int idbar) {
         try {
-            //id_art, nombre_art, cantidad, precio, bar_id
-            PreparedStatement st = this.getConexion().prepareStatement("UPDATE existencias SET nombre_art = " + existencitos.getNombreArt() + ", cantidad = " + existencitos.getCantidad() + ", precio = " + existencitos.getPrecio() + ", bar_id = " + existencitos.getBarId() + " WHERE id_art= " + existencitos.getIdArt());
-
+            PreparedStatement st = this.getConexion().prepareStatement("UPDATE existencias "
+                    + "SET nombre_art = " + nombre
+                    + " , cantidad = " + cantidad
+                    + " , precio = " + precio
+                    + " , bar_id = " + idbar
+                    + " WHERE id_art = " + idart);
             st.execute();
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
     }
 
+    public void AlterTrabaja(String dni, int codigobar, String funcion) {
+        try {
+            PreparedStatement st = this.getConexion().prepareStatement("UPDATE trabaja "
+                    + "SET funcion = " + funcion
+                    + " WHERE dni = " + dni + " AND codigo_bar = " + codigobar);
+            st.execute();
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    /**
+     * **************************************************************************************************
+     * **************************************************************************************************
+     * SELECT's
+     * **************************************************************************************************
+     * **************************************************************************************************
+     *
+     */
+    public DefaultTableModel getTablaBar() {
+        DefaultTableModel tablaBar = new DefaultTableModel();
+        try {
+            tablaBar.addColumn("IdBar");
+            tablaBar.addColumn("Nombre");
+            tablaBar.addColumn("Licencia");
+            tablaBar.addColumn("Domicilio");
+            tablaBar.addColumn("Fecha Apertura");
+            tablaBar.addColumn("Horario");
+            tablaBar.addColumn("Dias Apertura");
+            String[] data = new String[7];
+            PreparedStatement st = this.getConexion().prepareStatement("SELECT id_bar, nombre_bar, licencia_fis, domicilio_bar, fecha_aper, horario, dias_apertura FROM bar");
+            ResultSet res = st.executeQuery();
+            while (res.next()) {
+                data[0] = res.getString("id_bar");
+                data[1] = res.getString("nombre_bar");
+                data[2] = res.getString("licencia_fis");
+                data[3] = res.getString("domicilio_bar");
+                data[4] = res.getString("fecha_aper");
+                data[5] = res.getString("horario");
+                data[6] = res.getString("dias_apertura");
+                tablaBar.addRow(data);
+            }
+            res.close();
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        return tablaBar;
+    }
+
+    public DefaultTableModel getTablaPersona() {
+        DefaultTableModel tablaPersona = new DefaultTableModel();
+        try {
+            tablaPersona.addColumn("Nombre");
+            tablaPersona.addColumn("Domicilio");
+            tablaPersona.addColumn("Dni");
+            tablaPersona.addColumn("Titular");
+            String[] data = new String[4];
+            PreparedStatement st = this.getConexion().prepareStatement("SELECT dni_per, nombre_per, domicilio_per, titular FROM persona");
+            ResultSet res = st.executeQuery();
+            while (res.next()) {
+                data[0] = res.getString("dni_per");
+                data[1] = res.getString("nombre_per");
+                data[2] = res.getString("domicilio_per");
+                data[3] = res.getString("titular");
+                tablaPersona.addRow(data);
+            }
+            res.close();
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        return tablaPersona;
+    }
+
+    public DefaultTableModel getTablaExistencias() {//INVENTARIO
+        DefaultTableModel tablaExist = new DefaultTableModel();
+        try {
+            tablaExist.addColumn("IdArt");
+            tablaExist.addColumn("Nombre");
+            tablaExist.addColumn("Cantidad");
+            tablaExist.addColumn("Precio");
+            tablaExist.addColumn("Bar");
+            String[] data = new String[5];
+            PreparedStatement st = this.getConexion().prepareStatement("SELECT id_art, nombre_art, cantidad, precio, bar_id FROM existencias");
+            ResultSet res = st.executeQuery();
+            while (res.next()) {
+                data[0] = res.getString("id_art");
+                data[1] = res.getString("nombre_art");
+                data[2] = res.getString("cantidad");
+                data[3] = res.getString("precio");
+                data[4] = res.getString("bar_id");
+                tablaExist.addRow(data);
+            }
+            res.close();
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        return tablaExist;
+    }
+
+    public DefaultTableModel getTablaPedidos() {
+        DefaultTableModel tablaPedido = new DefaultTableModel();
+        try {
+            tablaPedido.addColumn("N Pedido");
+            tablaPedido.addColumn("Fecha");
+            tablaPedido.addColumn("Proveedor");
+            tablaPedido.addColumn("Nombre Articulo");
+            tablaPedido.addColumn("Cantidad");
+            tablaPedido.addColumn("Precio");
+            tablaPedido.addColumn("Bar");
+            tablaPedido.addColumn("Cod Articulo");
+            String[] data = new String[8];
+            PreparedStatement st = this.getConexion().prepareStatement("SELECT num_ped, fecha, proveedor, nombre_art, cantidad, precio, id_bar, codigo_art FROM pedidos");
+            ResultSet res = st.executeQuery();
+            while (res.next()) {
+                data[0] = res.getString("num_ped");
+                data[1] = res.getString("fecha");
+                data[2] = res.getString("proveedor");
+                data[3] = res.getString("nombre_art");
+                data[4] = res.getString("cantidad");
+                data[5] = res.getString("precio");
+                data[6] = res.getString("id_bar");
+                data[7] = res.getString("codigo_art");
+                tablaPedido.addRow(data);
+            }
+            res.close();
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        return tablaPedido;
+    }
+
+    public DefaultTableModel getTablaRecaudacion() {
+        DefaultTableModel tablaRecau = new DefaultTableModel();
+        try {
+            tablaRecau.addColumn("Bar");
+            tablaRecau.addColumn("Fecha");
+            tablaRecau.addColumn("Recaudacion Total");
+            String[] data = new String[3];
+            PreparedStatement st = this.getConexion().prepareStatement("SELECT bar, fecha, rectotal FROM recaudacion");
+            ResultSet res = st.executeQuery();
+            while (res.next()) {
+                data[0] = res.getString("bar");
+                data[1] = res.getString("fecha");
+                data[2] = res.getString("rectotal");
+
+                tablaRecau.addRow(data);
+            }
+            res.close();
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        return tablaRecau;
+    }
+
+    public DefaultTableModel getTablaTrabaja() {
+        DefaultTableModel tablaTraba = new DefaultTableModel();
+        try {
+            tablaTraba.addColumn("DNI");
+            tablaTraba.addColumn("Bar");
+            tablaTraba.addColumn("Funcion");
+            String[] data = new String[3];
+            PreparedStatement st = this.getConexion().prepareStatement("SELECT dni_persona, codigo_bar, funcion FROM trabaja");
+            ResultSet res = st.executeQuery();
+            while (res.next()) {
+                data[0] = res.getString("dni_persona");
+                data[1] = res.getString("codigo_bar");
+                data[2] = res.getString("funcion");
+
+                tablaTraba.addRow(data);
+            }
+            res.close();
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        return tablaTraba;
+    }
+
+    /**
+     * **************************************************************************************************
+     * **************************************************************************************************
+     * DELETE's
+     * **************************************************************************************************
+     * **************************************************************************************************
+     */
+    public void DeletePersona(String dni) {
+        try {
+            PreparedStatement st = this.getConexion().prepareStatement("delete from persona where dni_per = " + dni);
+            st.execute();
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+    }
+
+    public void DeleteBar(int idbar) {
+        try {
+            PreparedStatement st = this.getConexion().prepareStatement("delete from bar where id_bar = " + idbar);
+            st.execute();
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+    }
+
+    public void DeleteExistencias(int idart) {
+        try {
+            PreparedStatement st = this.getConexion().prepareStatement("delete from existencias where id_art = " + idart);
+            st.execute();
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+    }
+
+    public void DeletePedidos(int numpedido) {
+        try {
+            PreparedStatement st = this.getConexion().prepareStatement("delete from pedidos where num_ped = " + numpedido);
+            st.execute();
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+    }
+
+    public void DeleteRecaudacion(int bar, String fecha) {
+        try {
+            PreparedStatement st = this.getConexion().prepareStatement("delete from recaudacion where bar = " + bar + " AND fecha = " + fecha);
+            st.execute();
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+    }
+
+    public void DeleteTrabaja(String dni, int idbar) {
+        try {
+            PreparedStatement st = this.getConexion().prepareStatement("delete from trabaja where num_ped = " + dni + " AND id_bar = " + idbar);
+            st.execute();
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+    }
 }

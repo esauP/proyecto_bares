@@ -27,6 +27,12 @@ public class Main {
         new Controlador_Recaudacion(vistaRec).Iniciar();
         new Controlador_Trabaja(vistaTra).Iniciar();
 
+        //new Controlador_BarSur(vistaBar).iniciar();
+        //new Controlador_PersonaSur(vistaPer).iniciar();
+        //new Controlador_PedidosSur(vistaPed).iniciar();
+        //new Controlador_TrabajaSur(vistaTra).iniciar();
+        //new Controlador_RecaudacionSur(vistaRec).iniciar();
+        //new Controlador_ExistenciasSur(vistaInv).iniciar();
         new Controlador(vista, vistaBar, vistaInv, vistaPed, vistaPer, vistaTra, vistaRec).Iniciar();
     }
 

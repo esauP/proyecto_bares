@@ -19,7 +19,7 @@ class ConexionBD_BarNorte {
     private String user = "dam43";
     private String bd = user + "_BarNorte";
     private String password = "salesianas";
-    private String host = "192.168.28.3";
+    private String host = "79.148.236.236";
     //ipinterna: 192.168.28.3   
     //ipexterna: 79.148.236.236
     private String server = "jdbc:mysql://" + host + "/" + bd;
