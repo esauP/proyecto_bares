@@ -42,9 +42,9 @@ public class Modelo_BarSur extends ConexionBD_BarSur {
             PreparedStatement st = this.getConexion().prepareStatement("insert into existencias (id_art, nombre_art, cantidad, precio, bar_id) values (?,?,?,?,?)");
             st.setString(1, existencias.getIdArt().toString());
             st.setString(2, existencias.getNombreArt());
-//          st.setString(3, existencias.getCantidad());
-//          st.setString(4, existencias.getPrecio());
-//          st.setString(5, existencias.getBarId());
+            st.setInt(3, existencias.getCantidad());
+            st.setDouble(4, existencias.getPrecio());
+            st.setObject(5, existencias.getBarId());
 
             st.execute();
         } catch (SQLException ex) {
@@ -59,16 +59,17 @@ public class Modelo_BarSur extends ConexionBD_BarSur {
             st.setString(2, pedidos.getFecha().toString());
             st.setString(3, pedidos.getProveedor());
             st.setString(4, pedidos.getNombreArt());
-//           st.setString(5, pedidos.getCantidad());
-//            st.setString(6, pedidos.getPrecio());
-//            st.setString(7, pedidos.getIdBar());
-//            st.setString(8, pedidos.getCodigoArt());
+            st.setInt(5, pedidos.getCantidad());
+            st.setDouble(6, pedidos.getPrecio());
+            st.setObject(7, pedidos.getIdBar());
+            st.setObject(8, pedidos.getCodigoArt());
             st.execute();
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }
     }
 
+    //CARGARSE LAS CLASES RECAUDACION TRABAJA Y LAS PK CORRESPONDIENTES
     public void InsertarRecaudacion(RecaudacionPK recaudacion) {
 
     }
@@ -170,4 +171,51 @@ public class Modelo_BarSur extends ConexionBD_BarSur {
         }
         return LPide;
     }
+
+    //ALTER's
+    public void alterpersona(Persona personita) {
+        try {
+            //dni_per, nombre_per, domicilio_per, funcion, titular
+            PreparedStatement st = this.getConexion().prepareStatement("UPDATE persona SET nombre_per = " + personita.getNombrePers() + " , domicilio_per = " + personita.getDomicilioPer() + " , funcion = " + personita.getFuncion() + " , titular = " + personita.getTitular() + " WHERE dni_per = " + personita.getDniPer());
+
+            st.execute();
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    public void alterbares(Bar barcito) {
+
+        try {
+            //id_bar, nombre_bar, licencia_fis, domicilio_bar, fecha_aper, horario, dias_apertura
+            PreparedStatement st = this.getConexion().prepareStatement("UPDATE bar SET nombre_bar = " + barcito.getNombreBar() + ", licencia_fis = " + barcito.getLicenciaFis() + ", domicilio_bar = " + barcito.getDomicilioBar() + ", fecha_aper = " + barcito.getFechaAper().toString() + ", horario = " + barcito.getHorario() + ", dias_apertura = " + barcito.getDiasApertura() + " WHERE id_bar= " + barcito.getIdBar().toString());
+
+            st.execute();
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    public void alterpedidos(Pedidos pedidito) {
+        try {
+            //num_ped, fecha, proveedor, nombre_art, cantidad, precio, id_bar, codigo_art
+            PreparedStatement st = this.getConexion().prepareStatement("UPDATE pedidos SET fecha = " + pedidito.getFecha().toString() + ", proveedor = " + pedidito.getProveedor() + ", nombre_art = " + pedidito.getNombreArt() + ", cantidad = " + pedidito.getCantidad() + ", precio = " + pedidito.getPrecio() + ", id_bar = " + pedidito.getIdBar() + ", codigo_art = " + pedidito.getCodigoArt() + " WHERE num_ped= " + pedidito.getNumPed());
+
+            st.execute();
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    public void alterexistencias(Existencias existencitos) {
+        try {
+            //id_art, nombre_art, cantidad, precio, bar_id
+            PreparedStatement st = this.getConexion().prepareStatement("UPDATE existencias SET nombre_art = " + existencitos.getNombreArt() + ", cantidad = " + existencitos.getCantidad() + ", precio = " + existencitos.getPrecio() + ", bar_id = " + existencitos.getBarId() + " WHERE id_art= " + existencitos.getIdArt());
+
+            st.execute();
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
 }
